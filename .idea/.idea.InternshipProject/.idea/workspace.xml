@@ -5,21 +5,31 @@
     <projectFile profileName="http">InternshipProject.WEB/InternshipProject.WEB.csproj</projectFile>
     <projectFile profileName="https">InternshipProject.WEB/InternshipProject.WEB.csproj</projectFile>
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="34db0145-e696-4685-a61f-87b894f01690" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/InternshipProject.BLL/Class1.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InternshipProject.BLL/InternshipProject.BLL.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InternshipProject.DAL/Class1.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InternshipProject.DAL/InternshipProject.DAL.csproj" afterDir="false" />
+    <list default="true" id="34db0145-e696-4685-a61f-87b894f01690" name="Changes" comment="Add Business Logic Layer">
+      <change afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Event.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Hall.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Place.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Section.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Stadium.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Ticket.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InternshipProject.DAL/Interfaces/IRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InternshipProject.DAL/Interfaces/IUnitOfWork.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InternshipProject.WEB/Entities/Event.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.InternshipProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.InternshipProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/Class1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Class1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/InternshipProject.DAL.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/InternshipProject.DAL.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/InternshipProject.WEB.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/InternshipProject.WEB.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.sln" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.sln" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/InternshipProject.DAL/Class1.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -102,7 +112,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1669208757169</updated>
-      <workItem from="1669208757172" duration="368000" />
+      <workItem from="1669208757172" duration="1966000" />
     </task>
     <task id="LOCAL-00001" summary="Create WebProject">
       <created>1669208941169</created>
@@ -118,7 +128,21 @@
       <option name="project" value="LOCAL" />
       <updated>1669208961745</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add Data Access Layer">
+      <created>1669209337116</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1669209337116</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add Business Logic Layer">
+      <created>1669209357978</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1669209357978</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,11 +150,24 @@
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Create WebProject" />
     <MESSAGE value="xml changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="xml changes" />
+    <MESSAGE value="Add Data Access Layer" />
+    <MESSAGE value="Add Business Logic Layer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Business Logic Layer" />
   </component>
 </project>
