@@ -9,22 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34db0145-e696-4685-a61f-87b894f01690" name="Changes" comment="Add Business Logic Layer">
-      <change afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Event.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Hall.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Place.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Section.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Stadium.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Ticket.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InternshipProject.DAL/Interfaces/IRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InternshipProject.DAL/Interfaces/IUnitOfWork.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InternshipProject.WEB/Entities/Event.cs" afterDir="false" />
+    <list default="true" id="34db0145-e696-4685-a61f-87b894f01690" name="Changes" comment="Add Interfaces for realize &quot;Unit To Work&quot; and &quot;Repository&quot; patterns">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.InternshipProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.InternshipProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/Class1.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Class1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/InternshipProject.BLL.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/InternshipProject.BLL.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Event.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Event.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Hall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Hall.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Place.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Place.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Section.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Section.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Stadium.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Stadium.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/InternshipProject.DAL.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/InternshipProject.DAL.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/InternshipProject.WEB.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/InternshipProject.WEB.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.sln" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.sln" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +106,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1669208757169</updated>
-      <workItem from="1669208757172" duration="1966000" />
+      <workItem from="1669208757172" duration="8101000" />
     </task>
     <task id="LOCAL-00001" summary="Create WebProject">
       <created>1669208941169</created>
@@ -142,7 +136,21 @@
       <option name="project" value="LOCAL" />
       <updated>1669209357978</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add Entities">
+      <created>1669211163399</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1669211163399</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Add Interfaces for realize &quot;Unit To Work&quot; and &quot;Repository&quot; patterns">
+      <created>1669211230812</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1669211230812</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,6 +176,8 @@
     <MESSAGE value="xml changes" />
     <MESSAGE value="Add Data Access Layer" />
     <MESSAGE value="Add Business Logic Layer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Business Logic Layer" />
+    <MESSAGE value="Add Entities" />
+    <MESSAGE value="Add Interfaces for realize &quot;Unit To Work&quot; and &quot;Repository&quot; patterns" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Interfaces for realize &quot;Unit To Work&quot; and &quot;Repository&quot; patterns" />
   </component>
 </project>
