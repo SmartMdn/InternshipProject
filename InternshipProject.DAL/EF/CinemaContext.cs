@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace InternshipProject.DAL.EF;
 
-public class CinemaContext : DbContext
+public partial class CinemaContext : DbContext
 {
     public DbSet<Event> Events { get; set; }
     public DbSet<Hall> Halls { get; set; }
@@ -11,14 +11,22 @@ public class CinemaContext : DbContext
     public DbSet<Section> Sections { get; set; }
     public DbSet<Stadium> Stadiums { get; set; }
     public DbSet<Ticket> Tickets { get; set; }
-    
+
     public CinemaContext()
     {
-        //    Database.EnsureCreated();
+        
+    }
+    
+    public CinemaContext(DbContextOptions<CinemaContext> options) : base(options)
+    {
+        
     }
     
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=helloappdb;Trusted_Connection=True;");
+        if (!optionsBuilder.IsConfigured)
+        {
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=cinemaapidb;Trusted_Connection=True");
+        }
     }
 }

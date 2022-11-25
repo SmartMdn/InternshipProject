@@ -6,5 +6,8 @@ public class Hall
 {
     [Key]
     public string? Name { get; set; }
+
     public Stadium? Stadium { get; set; }
+    
+    public List<Event> Events { get; set; }
 }

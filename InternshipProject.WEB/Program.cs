@@ -1,3 +1,8 @@
+using InternshipProject.DAL.EF;
+using InternshipProject.DAL.Repositories;
+using InternshipProject.WEB.Entities;
+using Event = InternshipProject.DAL.Entities.Event;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
