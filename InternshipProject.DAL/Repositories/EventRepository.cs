@@ -14,7 +14,7 @@ public class EventRepository : IRepository<Event>
         _db = db;
     }
 
-    public IEnumerable<Event> GetAll()
+    public IEnumerable<Event>? GetAll()
     {
         return _db.Events;
     }

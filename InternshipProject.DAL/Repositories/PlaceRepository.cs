@@ -14,7 +14,7 @@ public class PlaceRepository : IRepository<Place>
         _db = db;
     }
 
-    public IEnumerable<Place> GetAll()
+    public IEnumerable<Place>? GetAll()
     {
         return _db.Places;
     }

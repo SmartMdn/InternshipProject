@@ -14,7 +14,7 @@ public class HallRepository : IRepository<Hall>
         _db = db;
     }
 
-    public IEnumerable<Hall> GetAll()
+    public IEnumerable<Hall>? GetAll()
     {
         return _db.Halls;
     }

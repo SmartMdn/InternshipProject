@@ -9,7 +9,7 @@ namespace InternshipProject.DAL.Repositories;
 public class SectionRepository : IRepository<Section>
 {
     private readonly CinemaContext _db;
-    public IEnumerable<Section> GetAll()
+    public IEnumerable<Section>? GetAll()
     {
         return _db.Sections;
     }

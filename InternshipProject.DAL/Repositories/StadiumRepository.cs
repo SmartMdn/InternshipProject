@@ -14,7 +14,7 @@ public class StadiumRepository : IRepository<Stadium>
         _db = db;
     }
 
-    public IEnumerable<Stadium> GetAll()
+    public IEnumerable<Stadium>? GetAll()
     {
         return _db.Stadiums;
     }

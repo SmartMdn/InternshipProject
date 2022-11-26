@@ -9,9 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34db0145-e696-4685-a61f-87b894f01690" name="Changes" comment="Create repositories with realization">
-      <change afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/EFUnitOfWork.cs" afterDir="false" />
+    <list default="true" id="34db0145-e696-4685-a61f-87b894f01690" name="Changes" comment="Create UnitToWork class for work with DB">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.InternshipProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.InternshipProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/EF/CinemaContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/EF/CinemaContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/EventRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/EventRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/HallRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/HallRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/PlaceRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/PlaceRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/SectionRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/SectionRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/StadiumRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/StadiumRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/TicketRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/TicketRepository.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +109,7 @@
       <workItem from="1669208757172" duration="8101000" />
       <workItem from="1669412115729" duration="240000" />
       <workItem from="1669412447847" duration="461000" />
-      <workItem from="1669455514382" duration="6121000" />
+      <workItem from="1669455514382" duration="6510000" />
     </task>
     <task id="LOCAL-00001" summary="Create WebProject">
       <created>1669208941169</created>
@@ -154,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669459452871</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Create UnitToWork class for work with DB">
+      <created>1669462051076</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1669462051076</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,6 +196,7 @@
     <MESSAGE value="Add Entities" />
     <MESSAGE value="Add Interfaces for realize &quot;Unit To Work&quot; and &quot;Repository&quot; patterns" />
     <MESSAGE value="Create repositories with realization" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create repositories with realization" />
+    <MESSAGE value="Create UnitToWork class for work with DB" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create UnitToWork class for work with DB" />
   </component>
 </project>

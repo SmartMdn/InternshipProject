@@ -14,7 +14,7 @@ public class TicketRepository : IRepository<Ticket>
         _db = db;
     }
 
-    public IEnumerable<Ticket> GetAll()
+    public IEnumerable<Ticket>? GetAll()
     {
         return _db.Tickets;
     }
