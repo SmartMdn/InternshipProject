@@ -14,7 +14,7 @@ public class PlaceRepository : IRepository<Place>
         _db = db;
     }
 
-    public IEnumerable<Place>? GetAll()
+    public IEnumerable<Place> GetAll()
     {
         return _db.Places;
     }
@@ -42,9 +42,6 @@ public class PlaceRepository : IRepository<Place>
     public void Delete(int id)
     {
         var place = _db.Places.Find(id);
-        if (place != null)
-        {
-            _db.Places.Remove(place);
-        }
+        if (place != null) _db.Places.Remove(place);
     }
 }

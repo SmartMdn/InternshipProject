@@ -14,7 +14,7 @@ public class TicketRepository : IRepository<Ticket>
         _db = db;
     }
 
-    public IEnumerable<Ticket>? GetAll()
+    public IEnumerable<Ticket> GetAll()
     {
         return _db.Tickets;
     }
@@ -42,9 +42,6 @@ public class TicketRepository : IRepository<Ticket>
     public void Delete(int id)
     {
         var ticket = _db.Tickets.Find(id);
-        if (ticket != null)
-        {
-            _db.Tickets.Remove(ticket);
-        }
+        if (ticket != null) _db.Tickets.Remove(ticket);
     }
 }

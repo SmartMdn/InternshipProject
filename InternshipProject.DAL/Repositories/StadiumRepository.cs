@@ -14,7 +14,7 @@ public class StadiumRepository : IRepository<Stadium>
         _db = db;
     }
 
-    public IEnumerable<Stadium>? GetAll()
+    public IEnumerable<Stadium> GetAll()
     {
         return _db.Stadiums;
     }
@@ -42,9 +42,6 @@ public class StadiumRepository : IRepository<Stadium>
     public void Delete(int id)
     {
         var stadium = _db.Stadiums.Find(id);
-        if (stadium != null)
-        {
-            _db.Stadiums.Remove(stadium);
-        }
+        if (stadium != null) _db.Stadiums.Remove(stadium);
     }
 }

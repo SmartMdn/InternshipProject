@@ -14,7 +14,7 @@ public class EventRepository : IRepository<Event>
         _db = db;
     }
 
-    public IEnumerable<Event>? GetAll()
+    public IEnumerable<Event> GetAll()
     {
         return _db.Events;
     }
@@ -26,7 +26,7 @@ public class EventRepository : IRepository<Event>
 
     public IEnumerable<Event> Find(Func<Event, bool> predicate)
     {
-        var a =_db.Events.Where(predicate).ToList();
+        var a = _db.Events.Where(predicate).ToList();
         //var b =_db.Events.Include(e => e.EventHall).Where(predicate).ToList();
         return a;
     }
@@ -44,9 +44,6 @@ public class EventRepository : IRepository<Event>
     public void Delete(int id)
     {
         var item = _db.Events.Find(id);
-        if (item != null)
-        {
-            _db.Remove(item);
-        }
+        if (item != null) _db.Remove(item);
     }
 }
