@@ -14,10 +14,14 @@ public sealed class CinemaContext : DbContext
         Database.EnsureCreated();
     }
 
-    public DbSet<Event> Events { get; set; }
-    public DbSet<Hall> Halls { get; set; }
-    public DbSet<Place> Places { get; set; }
-    public DbSet<Section> Sections { get; set; }
-    public DbSet<Stadium> Stadiums { get; set; }
-    public DbSet<Ticket> Tickets { get; set; }
+    public DbSet<Event> Events => null!;
+    public DbSet<Hall> Halls => null!;
+
+    public DbSet<Place> Places => null!;
+
+    public DbSet<Section> Sections => null!;
+
+    public DbSet<Stadium> Stadiums => null!;
+
+    public DbSet<Ticket> Tickets => null!;
 }
