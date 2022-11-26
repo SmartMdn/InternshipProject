@@ -9,13 +9,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34db0145-e696-4685-a61f-87b894f01690" name="Changes" comment="Refactor code">
+    <list default="true" id="34db0145-e696-4685-a61f-87b894f01690" name="Changes" comment="fixed dbSets">
+      <change afterPath="$PROJECT_DIR$/.vs/InternshipProject/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vs/InternshipProject/FileContentIndex/1ecbe8fe-c093-4b64-85cd-dd8aaa275ec6.vsidx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vs/InternshipProject/FileContentIndex/read.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vs/InternshipProject/v17/.futdcache.v2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vs/InternshipProject/v17/.suo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/internshipproject.metadata.v5.2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/internshipproject.projects.v5.2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/PlaceType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InternshipProject.WEB/InternshipProject.WEB.csproj.user" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.InternshipProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.InternshipProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/EF/CinemaContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/EF/CinemaContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/WeatherForecastController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/WeatherForecastController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Entities/Event.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Entities/Event.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/InternshipProject.WEB.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/InternshipProject.WEB.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Event.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Event.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Hall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Hall.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Place.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Place.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Section.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Section.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Stadium.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Stadium.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Ticket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Ticket.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/InternshipProject.DAL.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/InternshipProject.DAL.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +34,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Programming/ProjectXYZ/InternshipProject/InternshipProject.DAL/EF/CinemaContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Programming/ProjectXYZ/InternshipProject/InternshipProject.DAL/EF/CinemaContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Programming/ProjectXYZ/InternshipProject/InternshipProject.DAL/EF/CinemaContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Programming/ProjectXYZ/InternshipProject/InternshipProject.DAL/EF/CinemaContext.cs" root0="SKIP_HIGHLIGHTING" />
@@ -115,7 +127,7 @@
       <workItem from="1669208757172" duration="8101000" />
       <workItem from="1669412115729" duration="240000" />
       <workItem from="1669412447847" duration="461000" />
-      <workItem from="1669455514382" duration="10556000" />
+      <workItem from="1669455514382" duration="12417000" />
     </task>
     <task id="LOCAL-00001" summary="Create WebProject">
       <created>1669208941169</created>
@@ -194,7 +206,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669464714971</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fixed dbSets">
+      <created>1669467423806</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1669467423806</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,6 +246,7 @@
     <MESSAGE value="fixed" />
     <MESSAGE value="Add ConnectionString in config" />
     <MESSAGE value="Refactor code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor code" />
+    <MESSAGE value="fixed dbSets" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed dbSets" />
   </component>
 </project>
