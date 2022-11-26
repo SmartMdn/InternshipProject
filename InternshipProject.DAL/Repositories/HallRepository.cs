@@ -1,37 +1,51 @@
-﻿using InternshipProject.DAL.Entities;
+﻿using InternshipProject.DAL.EF;
+using InternshipProject.DAL.Entities;
 using InternshipProject.DAL.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace InternshipProject.DAL.Repositories;
 
 public class HallRepository : IRepository<Hall>
 {
+    private readonly CinemaContext _db;
+
+    public HallRepository(CinemaContext db)
+    {
+        _db = db;
+    }
+
     public IEnumerable<Hall> GetAll()
     {
-        throw new NotImplementedException();
+        return _db.Halls;
     }
 
     public Hall Get(int id)
     {
-        throw new NotImplementedException();
+        return _db.Halls.Find(id) ?? throw new InvalidOperationException();
     }
 
     public IEnumerable<Hall> Find(Func<Hall, bool> predicate)
     {
-        throw new NotImplementedException();
+        return _db.Halls.Where(predicate).ToList();
     }
 
     public void Create(Hall item)
     {
-        throw new NotImplementedException();
+        _db.Halls.Add(item);
     }
 
     public void Update(Hall item)
     {
-        throw new NotImplementedException();
+        _db.Entry(item).State = EntityState.Modified;
     }
 
     public void Delete(int id)
     {
-        throw new NotImplementedException();
+        var hall = _db.Halls.Find(id);
+        if (hall != null)
+        {
+            _db.Halls.Remove(hall);
+            
+        }
     }
 }
