@@ -1,4 +1,4 @@
-var builder = WebApplication.CreateBuilder(args);
+/*var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
@@ -22,4 +22,11 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
+app.Run();*/
+
+using InternshipProject.DAL.Entities;
+using InternshipProject.DAL.Repositories;
+
+var builder = WebApplication.CreateBuilder(args);
+
+var db = new EFUnitOfWork(builder.Configuration.GetConnectionString( "DefaultConnection"));

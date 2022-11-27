@@ -3,11 +3,11 @@
 public class Event
 {
     public int Id { get; set; }
-    public string Name { get; set; }
+    public string? Name { get; set; }
     public int EventDuration { get; set; }
 
-    public Hall EventHall { get; set; }
-    public int HallId { get; set; }
+    public Hall? EventHall { get; set; }
+    public string HallName { get; set; }
     
-    public List<Ticket> EventTickets { get; set; }
+    public List<Ticket>? EventTickets { get; set; }
 }

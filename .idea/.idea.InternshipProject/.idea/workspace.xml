@@ -9,17 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34db0145-e696-4685-a61f-87b894f01690" name="Changes" comment="fixed dbSets">
-      <change afterPath="$PROJECT_DIR$/.vs/InternshipProject/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.vs/InternshipProject/FileContentIndex/1ecbe8fe-c093-4b64-85cd-dd8aaa275ec6.vsidx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.vs/InternshipProject/FileContentIndex/read.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.vs/InternshipProject/v17/.futdcache.v2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.vs/InternshipProject/v17/.suo" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/internshipproject.metadata.v5.2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/internshipproject.projects.v5.2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/PlaceType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InternshipProject.WEB/InternshipProject.WEB.csproj.user" afterDir="false" />
+    <list default="true" id="34db0145-e696-4685-a61f-87b894f01690" name="Changes" comment="fixed Models for EF">
+      <change afterPath="$PROJECT_DIR$/.idea/config/applicationhost.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/script.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.InternshipProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.InternshipProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/InternshipProject.BLL.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/InternshipProject.BLL.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/EF/CinemaContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/EF/CinemaContext.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Event.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Event.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Hall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Hall.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Place.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Place.cs" afterDir="false" />
@@ -27,6 +22,14 @@
       <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Stadium.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Stadium.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Ticket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Ticket.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/InternshipProject.DAL.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/InternshipProject.DAL.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Migrations/20221124175034_Initial.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Migrations/20221127164931_Initial.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Migrations/20221124175034_Initial.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Migrations/20221127164931_Initial.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Migrations/20221125175324_1.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Migrations/20221125175324_1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Migrations/CinemaContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Migrations/CinemaContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/EFUnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/EFUnitOfWork.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/InternshipProject.WEB.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/InternshipProject.WEB.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,13 +37,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Programming/ProjectXYZ/InternshipProject/InternshipProject.DAL/EF/CinemaContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Programming/ProjectXYZ/InternshipProject/InternshipProject.DAL/EF/CinemaContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Programming/ProjectXYZ/InternshipProject/InternshipProject.DAL/EF/CinemaContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Programming/ProjectXYZ/InternshipProject/InternshipProject.DAL/EF/CinemaContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Programming/ProjectXYZ/InternshipProject/InternshipProject.DAL/EF/CinemaContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Programming/ProjectXYZ/InternshipProject/InternshipProject.WEB/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1edbe9176db7440b9b8f2c12e9a3a64a1fc190/fd/6e5a8e41/DbContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/789b158a98468e474a2af1348cfd47e7792de2ae2344f55a03ddf85b16699b/WebApplicationBuilder.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b4aa9d6deee74e2a511d54506de2de864a4b58ad22637cbbc79ef58cb10e3e9/ConfigurationExtensions.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -53,23 +52,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MTConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.uml",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.InternshipProject.WEB: IIS Express">
+}]]></component>
+  <component name="RunManager" selected=".NET Launch Settings Profile.InternshipProject.WEB: https">
     <configuration name="InternshipProject.WEB: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/InternshipProject.WEB/InternshipProject.WEB.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
@@ -127,7 +125,8 @@
       <workItem from="1669208757172" duration="8101000" />
       <workItem from="1669412115729" duration="240000" />
       <workItem from="1669412447847" duration="461000" />
-      <workItem from="1669455514382" duration="12417000" />
+      <workItem from="1669455514382" duration="15648000" />
+      <workItem from="1669476807361" duration="19559000" />
     </task>
     <task id="LOCAL-00001" summary="Create WebProject">
       <created>1669208941169</created>
@@ -213,7 +212,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669467423806</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="fixed Models for EF">
+      <created>1669469553275</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1669469553275</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,6 +253,26 @@
     <MESSAGE value="Add ConnectionString in config" />
     <MESSAGE value="Refactor code" />
     <MESSAGE value="fixed dbSets" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed dbSets" />
+    <MESSAGE value="fixed Models for EF" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed Models for EF" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/InternshipProject.WEB/Program.cs</url>
+          <line>29</line>
+          <properties documentPath="C:\Programming\ProjectXYZ\InternshipProject\InternshipProject.WEB\Program.cs" initialLine="28" containingFunctionPresentation="">
+            <startOffsets>
+              <option value="618" />
+            </startOffsets>
+            <endOffsets>
+              <option value="667" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -18,7 +18,7 @@ public class EFUnitOfWork : IUnitOfWork
     private TicketRepository? _ticketRepository;
 
 
-    public EFUnitOfWork(string connectionString)
+    public EFUnitOfWork(string? connectionString)
     {
         var optionsBuilder = new DbContextOptionsBuilder<CinemaContext>();
         var options = optionsBuilder.UseSqlServer(connectionString).Options;

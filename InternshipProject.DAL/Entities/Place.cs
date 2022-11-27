@@ -7,9 +7,8 @@ public class Place
     public int Id { get; set; }
     public PlaceType Type { get; set; }
     
-    public Section Section { get; set; }
-    public string SectionName { get; set; }
+    public Hall? Hall { get; set; }
+    public string HallName { get; set; }
     
-    public Ticket? Ticket { get; set; }
-    public int? TicketId { get; set; }
+    public List<Ticket>? Tickets { get; set; }
 }
