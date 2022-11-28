@@ -21,6 +21,36 @@ namespace InternshipProject.DAL.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("HallSection", b =>
+                {
+                    b.Property<int>("HallsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SectionsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("HallsId", "SectionsId");
+
+                    b.HasIndex("SectionsId");
+
+                    b.ToTable("HallSection");
+                });
+
+            modelBuilder.Entity("HallStadium", b =>
+                {
+                    b.Property<int>("HallsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StadiumsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("HallsId", "StadiumsId");
+
+                    b.HasIndex("StadiumsId");
+
+                    b.ToTable("HallStadium");
+                });
+
             modelBuilder.Entity("InternshipProject.DAL.Entities.Event", b =>
                 {
                     b.Property<int>("Id")
@@ -32,31 +62,32 @@ namespace InternshipProject.DAL.Migrations
                     b.Property<int>("EventDuration")
                         .HasColumnType("int");
 
-                    b.Property<string>("HallName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("HallId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("HallName");
+                    b.HasIndex("HallId");
 
                     b.ToTable("Events");
                 });
 
             modelBuilder.Entity("InternshipProject.DAL.Entities.Hall", b =>
                 {
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("StadiumId")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.HasKey("Name");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.HasIndex("StadiumId");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
 
                     b.ToTable("Halls");
                 });
@@ -69,32 +100,27 @@ namespace InternshipProject.DAL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("HallName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<int>("Type")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("HallName");
 
                     b.ToTable("Places");
                 });
 
             modelBuilder.Entity("InternshipProject.DAL.Entities.Section", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("HallName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Name");
-
-                    b.HasIndex("HallName");
+                    b.HasKey("Id");
 
                     b.ToTable("Sections");
                 });
@@ -142,48 +168,60 @@ namespace InternshipProject.DAL.Migrations
                     b.ToTable("Tickets");
                 });
 
+            modelBuilder.Entity("PlaceSection", b =>
+                {
+                    b.Property<int>("PlacesId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SectionsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("PlacesId", "SectionsId");
+
+                    b.HasIndex("SectionsId");
+
+                    b.ToTable("PlaceSection");
+                });
+
+            modelBuilder.Entity("HallSection", b =>
+                {
+                    b.HasOne("InternshipProject.DAL.Entities.Hall", null)
+                        .WithMany()
+                        .HasForeignKey("HallsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("InternshipProject.DAL.Entities.Section", null)
+                        .WithMany()
+                        .HasForeignKey("SectionsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("HallStadium", b =>
+                {
+                    b.HasOne("InternshipProject.DAL.Entities.Hall", null)
+                        .WithMany()
+                        .HasForeignKey("HallsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("InternshipProject.DAL.Entities.Stadium", null)
+                        .WithMany()
+                        .HasForeignKey("StadiumsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("InternshipProject.DAL.Entities.Event", b =>
                 {
                     b.HasOne("InternshipProject.DAL.Entities.Hall", "EventHall")
                         .WithMany("Events")
-                        .HasForeignKey("HallName")
+                        .HasForeignKey("HallId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("EventHall");
-                });
-
-            modelBuilder.Entity("InternshipProject.DAL.Entities.Hall", b =>
-                {
-                    b.HasOne("InternshipProject.DAL.Entities.Stadium", "Stadium")
-                        .WithMany("Halls")
-                        .HasForeignKey("StadiumId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Stadium");
-                });
-
-            modelBuilder.Entity("InternshipProject.DAL.Entities.Place", b =>
-                {
-                    b.HasOne("InternshipProject.DAL.Entities.Hall", "Hall")
-                        .WithMany("Places")
-                        .HasForeignKey("HallName")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Hall");
-                });
-
-            modelBuilder.Entity("InternshipProject.DAL.Entities.Section", b =>
-                {
-                    b.HasOne("InternshipProject.DAL.Entities.Hall", "Hall")
-                        .WithMany("Sections")
-                        .HasForeignKey("HallName")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Hall");
                 });
 
             modelBuilder.Entity("InternshipProject.DAL.Entities.Ticket", b =>
@@ -205,6 +243,21 @@ namespace InternshipProject.DAL.Migrations
                     b.Navigation("Place");
                 });
 
+            modelBuilder.Entity("PlaceSection", b =>
+                {
+                    b.HasOne("InternshipProject.DAL.Entities.Place", null)
+                        .WithMany()
+                        .HasForeignKey("PlacesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("InternshipProject.DAL.Entities.Section", null)
+                        .WithMany()
+                        .HasForeignKey("SectionsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("InternshipProject.DAL.Entities.Event", b =>
                 {
                     b.Navigation("EventTickets");
@@ -213,20 +266,11 @@ namespace InternshipProject.DAL.Migrations
             modelBuilder.Entity("InternshipProject.DAL.Entities.Hall", b =>
                 {
                     b.Navigation("Events");
-
-                    b.Navigation("Places");
-
-                    b.Navigation("Sections");
                 });
 
             modelBuilder.Entity("InternshipProject.DAL.Entities.Place", b =>
                 {
                     b.Navigation("Tickets");
-                });
-
-            modelBuilder.Entity("InternshipProject.DAL.Entities.Stadium", b =>
-                {
-                    b.Navigation("Halls");
                 });
 #pragma warning restore 612, 618
         }

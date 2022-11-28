@@ -4,8 +4,9 @@ namespace InternshipProject.DAL.Entities;
 
 public class Section
 {
-    [Key] public string Name { get; set; }
+    public int Id { get; set; }
+    public string Name { get; set; }
 
-    public Hall? Hall { get; set; }
-    public string HallName { get; set; }
+    public List<Hall>? Halls { get; set; }
+    public List<Place>? Places { get; set; }
 }

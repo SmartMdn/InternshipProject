@@ -9,27 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34db0145-e696-4685-a61f-87b894f01690" name="Changes" comment="fixed Models for EF">
-      <change afterPath="$PROJECT_DIR$/.idea/config/applicationhost.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/script.sql" afterDir="false" />
+    <list default="true" id="34db0145-e696-4685-a61f-87b894f01690" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.InternshipProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.InternshipProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/InternshipProject.BLL.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/InternshipProject.BLL.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/EF/CinemaContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/EF/CinemaContext.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Event.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Event.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Hall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Hall.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Place.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Place.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Section.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Section.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Stadium.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Stadium.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Ticket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Ticket.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/InternshipProject.DAL.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/InternshipProject.DAL.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Migrations/20221124175034_Initial.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Migrations/20221127164931_Initial.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Migrations/20221124175034_Initial.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Migrations/20221127164931_Initial.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Migrations/20221125175324_1.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Migrations/20221125175324_1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Migrations/20221127164931_Initial.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Migrations/20221127164931_Initial.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Migrations/CinemaContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Migrations/CinemaContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/EFUnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/EFUnitOfWork.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/InternshipProject.WEB.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/InternshipProject.WEB.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,21 +41,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.uml",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.InternshipProject.WEB: https">
     <configuration name="InternshipProject.WEB: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/InternshipProject.WEB/InternshipProject.WEB.csproj" />
@@ -126,7 +115,8 @@
       <workItem from="1669412115729" duration="240000" />
       <workItem from="1669412447847" duration="461000" />
       <workItem from="1669455514382" duration="15648000" />
-      <workItem from="1669476807361" duration="19559000" />
+      <workItem from="1669476807361" duration="21449000" />
+      <workItem from="1669573332725" duration="4614000" />
     </task>
     <task id="LOCAL-00001" summary="Create WebProject">
       <created>1669208941169</created>
@@ -219,7 +209,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669469553275</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="fix database migration">
+      <created>1669569116873</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1669569116873</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,7 +251,8 @@
     <MESSAGE value="Refactor code" />
     <MESSAGE value="fixed dbSets" />
     <MESSAGE value="fixed Models for EF" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed Models for EF" />
+    <MESSAGE value="fix database migration" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix database migration" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
