@@ -7,8 +7,8 @@ public sealed class CinemaContext : DbContext
 {
     public CinemaContext()
     {
-        
     }
+
     public CinemaContext(DbContextOptions<CinemaContext> options) : base(options)
     {
         Database.EnsureCreated();
@@ -20,6 +20,7 @@ public sealed class CinemaContext : DbContext
     public DbSet<Section> Sections { get; set; }
     public DbSet<Stadium> Stadiums { get; set; }
     public DbSet<Ticket> Tickets { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=cinemaapidb;Trusted_Connection=True;");

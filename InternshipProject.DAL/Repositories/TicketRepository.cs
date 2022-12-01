@@ -44,4 +44,9 @@ public class TicketRepository : IRepository<Ticket>
         var ticket = _db.Tickets.Find(id);
         if (ticket != null) _db.Tickets.Remove(ticket);
     }
+
+    public IEnumerable<Ticket> GetList(List<int> ids)
+    {
+        return _db.Tickets.Where(t => ids.Contains(t.Id)).ToList();
+    }
 }

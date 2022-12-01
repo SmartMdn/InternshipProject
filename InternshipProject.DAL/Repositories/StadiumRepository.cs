@@ -19,6 +19,11 @@ public class StadiumRepository : IRepository<Stadium>
         return _db.Stadiums;
     }
 
+    public IEnumerable<Stadium> GetList(List<int> ids)
+    {
+        return _db.Stadiums.Where(t => ids.Contains(t.Id)).ToList();
+    }
+
     public Stadium Get(int id)
     {
         return _db.Stadiums.Find(id) ?? throw new InvalidOperationException();

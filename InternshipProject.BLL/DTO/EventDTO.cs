@@ -1,14 +1,10 @@
-﻿namespace InternshipProject.DAL.Entities;
+﻿namespace InternshipProject.BLL.DTO;
 
-public class Event
+public class EventDTO
 {
     public int Id { get; set; }
     public string? Name { get; set; }
     public int EventDuration { get; set; }
     public int BookingPeriodDays { get; set; }
-
-    public Hall? EventHall { get; set; }
     public int HallId { get; set; }
-
-    public List<Ticket>? EventTickets { get; set; }
 }

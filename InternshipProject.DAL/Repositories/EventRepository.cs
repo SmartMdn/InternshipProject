@@ -19,6 +19,11 @@ public class EventRepository : IRepository<Event>
         return _db.Events;
     }
 
+    public IEnumerable<Event> GetList(List<int> ids)
+    {
+        return _db.Events.Where(t => ids.Contains(t.Id)).ToList();
+    }
+
     public Event Get(int id)
     {
         return _db.Events.Find(id) ?? throw new InvalidOperationException();

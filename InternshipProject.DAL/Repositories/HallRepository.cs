@@ -19,6 +19,11 @@ public class HallRepository : IRepository<Hall>
         return _db.Halls;
     }
 
+    public IEnumerable<Hall> GetList(List<int> ids)
+    {
+        return _db.Halls.Where(t => ids.Contains(t.Id)).ToList();
+    }
+
     public Hall Get(int id)
     {
         return _db.Halls.Find(id) ?? throw new InvalidOperationException();

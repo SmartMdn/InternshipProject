@@ -14,6 +14,11 @@ public class SectionRepository : IRepository<Section>
         return _db.Sections;
     }
 
+    public IEnumerable<Section> GetList(List<int> ids)
+    {
+        return _db.Sections.Where(t => ids.Contains(t.Id)).ToList();
+    }
+
     public Section Get(int id)
     {
         return _db.Sections.Find(id) ?? throw new InvalidOperationException();

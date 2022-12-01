@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace InternshipProject.DAL.Entities;
+﻿namespace InternshipProject.DAL.Entities;
 
 public class Hall
 {

@@ -19,6 +19,11 @@ public class PlaceRepository : IRepository<Place>
         return _db.Places;
     }
 
+    public IEnumerable<Place> GetList(List<int> ids)
+    {
+        return _db.Places.Where(t => ids.Contains(t.Id)).ToList();
+    }
+
     public Place Get(int id)
     {
         return _db.Places.Find(id) ?? throw new InvalidOperationException();
