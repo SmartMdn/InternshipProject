@@ -9,55 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34db0145-e696-4685-a61f-87b894f01690" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/InternshipProject.BLL/BusinessModels/Discount.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InternshipProject.BLL/DTO/EventDTO.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InternshipProject.BLL/DTO/HallDTO.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InternshipProject.BLL/DTO/PlaceDTO.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InternshipProject.BLL/DTO/SectionDTO.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InternshipProject.BLL/DTO/StadiumDTO.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InternshipProject.BLL/DTO/TicketDTO.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InternshipProject.BLL/Infrastucture/ValidationException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InternshipProject.BLL/Interfaces/IBuyTicketService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InternshipProject.BLL/Interfaces/ICRUDService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InternshipProject.BLL/Services/BuyTicketService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InternshipProject.BLL/Services/EventCRUDService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InternshipProject.BLL/Services/HallCRUDService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InternshipProject.BLL/Services/PlaceCRUDService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InternshipProject.BLL/Services/SectionCRUDService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InternshipProject.BLL/Services/StadiumCRUDService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InternshipProject.BLL/Services/TicketCRUDService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InternshipProject.DAL/Migrations/20221129214029_1.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InternshipProject.DAL/Migrations/20221129214029_1.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InternshipProject.DAL/Migrations/20221201141244_2.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InternshipProject.DAL/Migrations/20221201141244_2.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InternshipProject.sln.DotSettings.user" afterDir="false" />
+    <list default="true" id="34db0145-e696-4685-a61f-87b894f01690" name="Changes" comment="Create Services">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.InternshipProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.InternshipProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/InternshipProject/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/InternshipProject/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/InternshipProject/FileContentIndex/1ecbe8fe-c093-4b64-85cd-dd8aaa275ec6.vsidx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/InternshipProject/v17/.futdcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/InternshipProject/v17/.futdcache.v2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/InternshipProject/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/InternshipProject/v17/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/internshipproject.metadata.v5.2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/internshipproject.metadata.v5.2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vs/ProjectEvaluation/internshipproject.projects.v5.2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/internshipproject.projects.v5.2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/Infrastucture/ServiceModule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/Infrastucture/ServiceModule.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/InternshipProject.BLL.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/InternshipProject.BLL.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/EF/CinemaContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/EF/CinemaContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Event.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Event.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Hall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Hall.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Place.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Place.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Section.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Section.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Stadium.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Stadium.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Ticket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Ticket.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Interfaces/IRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Interfaces/IRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/InternshipProject.DAL.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/InternshipProject.DAL.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Migrations/CinemaContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Migrations/CinemaContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/EventRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/EventRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/HallRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/HallRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/PlaceRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/PlaceRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/SectionRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/SectionRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/StadiumRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/StadiumRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/TicketRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/TicketRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/InternshipProject.WEB.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/InternshipProject.WEB.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +127,7 @@
       <workItem from="1669807659974" duration="5731000" />
       <workItem from="1669894104062" duration="544000" />
       <workItem from="1669900512228" duration="6210000" />
-      <workItem from="1669927808161" duration="3173000" />
+      <workItem from="1669927808161" duration="4574000" />
     </task>
     <task id="LOCAL-00001" summary="Create WebProject">
       <created>1669208941169</created>
@@ -279,7 +234,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669648517402</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Create Services">
+      <created>1669931197308</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1669931197309</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -316,7 +278,8 @@
     <MESSAGE value="fixed Models for EF" />
     <MESSAGE value="fix database migration" />
     <MESSAGE value="fixed EF Entities" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed EF Entities" />
+    <MESSAGE value="Create Services" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create Services" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
