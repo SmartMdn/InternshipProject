@@ -1,36 +1,46 @@
-﻿using AutoMapper;
-using InternshipProject.BLL.DTO;
+﻿using InternshipProject.BLL.DTO;
 using InternshipProject.BLL.Interfaces;
+using InternshipProject.WEB.Interfaces;
 using InternshipProject.WEB.Models;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InternshipProject.WEB.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class EventController : ControllerBase
+public class EventController : CrudController<Event, EventDTO>
 {
-    private readonly ICRUDService<EventDTO> _eventService;
-    private readonly ILogger<EventController> _logger;
-
-    public EventController(ICRUDService<EventDTO> eventService, ILogger<EventController> logger)
+    public EventController(ICRUDService<EventDTO> service, ILogger<EventController> logger) : base(service)
     {
-        _eventService = eventService;
-        _logger = logger;
     }
-    
-    [HttpGet(Name = "GetEvent")]
-    public Event Get(int id)
+
+    [HttpGet("{id}")]
+    public override Event Get(int id)
     {
-        var mapper = new MapperConfiguration(cfg => cfg.CreateMap<EventDTO, Event>()).CreateMapper();
-        var item = mapper.Map<EventDTO, Event>(_eventService.Get(id));
+        var item = MapperOutput.Map<EventDTO, Event>(Service.Get(id));
         return item;
     }
 
     [HttpPost]
-    public void Post(Event item)
+    public override string Post(Event item)
     {
-        
+        ResultItem = MapperInput.Map<Event, EventDTO>(item);
+        Service.Post(ResultItem);
+        return "Ивент успешно изменён";
+    }
+
+    [HttpPut]
+    public override string Put(Event item)
+    {
+        var resultItem = MapperInput.Map<Event, EventDTO>(item);
+        Service.Put(resultItem);
+        return "Ивент успешно добавлен";
+    }
+
+    [HttpDelete("{id}")]
+    public override string Delete(int id)
+    {
+        Service.Delete(id);
+        return "Ивент успешно удалён";
     }
 }
