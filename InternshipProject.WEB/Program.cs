@@ -7,9 +7,14 @@ using InternshipProject.DAL.Repositories;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddTransient<IUnitOfWork>(
+builder.Services.AddTransient<IUnitOfWork>(provider =>
     new EFUnitOfWork(builder.Configuration.GetConnectionString("DefaultConnection")));
-builder.Services.AddScoped<ICRUDService<EventDTO>, EventCRUDService>();
+builder.Services.AddTransient<ICRUDService<EventDTO>, EventCRUDService>();
+builder.Services.AddTransient<ICRUDService<HallDTO>, HallCRUDService>();
+builder.Services.AddTransient<ICRUDService<StadiumDTO>, StadiumCRUDService>();
+builder.Services.AddTransient<ICRUDService<SectionDTO>, SectionCRUDService>();
+builder.Services.AddTransient<ICRUDService<PlaceDTO>, PlaceCRUDService>();
+builder.Services.AddTransient<ICRUDService<TicketDTO>, TicketCRUDService>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
