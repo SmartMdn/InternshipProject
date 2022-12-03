@@ -19,12 +19,12 @@ public class HallCRUDService : ICRUDService<HallDTO>
     public HallDTO Get(int id)
     {
         if (id == null)
-            throw new ValidationException("Не установлен id билета","");
+            throw new ValidationException("Не установлен id билета", "");
         var hall = _database.Halls.Get(id);
         if (hall == null)
-            throw new ValidationException("Билет не найден","");
-             
-        return new HallDTO() {Id = hall.Id, Name = hall.Name};
+            throw new ValidationException("Билет не найден", "");
+
+        return new HallDTO { Id = hall.Id, Name = hall.Name };
     }
 
     public IEnumerable<HallDTO> GetAll()
@@ -35,7 +35,7 @@ public class HallCRUDService : ICRUDService<HallDTO>
 
     public void Put(HallDTO item)
     {
-        if (item == null) { return; }
+        if (item == null) return;
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<HallDTO, Hall>()).CreateMapper();
         var hall = mapper.Map<HallDTO, Hall>(item);
         _database.Halls.Update(hall);
@@ -44,7 +44,7 @@ public class HallCRUDService : ICRUDService<HallDTO>
 
     public void Post(HallDTO item)
     {
-        if (item == null) { return; }
+        if (item == null) return;
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<HallDTO, Hall>()).CreateMapper();
         var hall = mapper.Map<HallDTO, Hall>(item);
         _database.Halls.Create(hall);
@@ -54,7 +54,7 @@ public class HallCRUDService : ICRUDService<HallDTO>
     public void Delete(int id)
     {
         if (id == null)
-            throw new ValidationException("Не установлен id билета","");
+            throw new ValidationException("Не установлен id билета", "");
         _database.Halls.Delete(id);
         _database.Save();
     }

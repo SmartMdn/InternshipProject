@@ -19,12 +19,12 @@ public class TicketCRUDService : ICRUDService<TicketDTO>
     public TicketDTO Get(int id)
     {
         if (id == null)
-            throw new ValidationException("Не установлен id билета","");
+            throw new ValidationException("Не установлен id билета", "");
         var ticket = _database.Tickets.Get(id);
         if (ticket == null)
-            throw new ValidationException("Билет не найден","");
-             
-        return new TicketDTO() {EventId = ticket.EventId, Id = ticket.Id, PlaceId = ticket.PlaceId};
+            throw new ValidationException("Билет не найден", "");
+
+        return new TicketDTO { EventId = ticket.EventId, Id = ticket.Id, PlaceId = ticket.PlaceId };
     }
 
     public IEnumerable<TicketDTO> GetAll()
@@ -35,7 +35,7 @@ public class TicketCRUDService : ICRUDService<TicketDTO>
 
     public void Put(TicketDTO item)
     {
-        if (item == null) { return; }
+        if (item == null) return;
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<TicketDTO, Ticket>()).CreateMapper();
         var ticket = mapper.Map<TicketDTO, Ticket>(item);
         _database.Tickets.Update(ticket);
@@ -44,7 +44,7 @@ public class TicketCRUDService : ICRUDService<TicketDTO>
 
     public void Post(TicketDTO item)
     {
-        if (item == null) { return; }
+        if (item == null) return;
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<TicketDTO, Ticket>()).CreateMapper();
         var ticket = mapper.Map<TicketDTO, Ticket>(item);
         _database.Tickets.Create(ticket);
@@ -54,7 +54,7 @@ public class TicketCRUDService : ICRUDService<TicketDTO>
     public void Delete(int id)
     {
         if (id == null)
-            throw new ValidationException("Не установлен id билета","");
+            throw new ValidationException("Не установлен id билета", "");
         _database.Tickets.Delete(id);
         _database.Save();
     }

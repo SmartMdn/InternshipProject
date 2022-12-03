@@ -13,7 +13,8 @@ public class BuyTicketService : IBuyTicketService
         Database = database;
     }
 
-    private IUnitOfWork Database { get; set; }
+    private IUnitOfWork Database { get; }
+
     public IEnumerable<TicketDTO> BuyTickets(List<int> ids)
     {
         List<Ticket> tickets;
@@ -25,14 +26,16 @@ public class BuyTicketService : IBuyTicketService
         {
             return new List<TicketDTO>();
         }
+
         foreach (var variableTicket in tickets)
         {
             variableTicket.IsBought = true;
             Database.Tickets.Update(variableTicket);
         }
+
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Ticket, TicketDTO>()).CreateMapper();
         Database.Save();
-        return mapper.Map<IEnumerable<Ticket>,List<TicketDTO>>(tickets);
+        return mapper.Map<IEnumerable<Ticket>, List<TicketDTO>>(tickets);
     }
 
     public TicketDTO BuyTicket(int? id)

@@ -19,12 +19,12 @@ public class PlaceCRUDService : ICRUDService<PlaceDTO>
     public PlaceDTO Get(int id)
     {
         if (id == null)
-            throw new ValidationException("Не установлен id билета","");
+            throw new ValidationException("Не установлен id билета", "");
         var place = _database.Places.Get(id);
         if (place == null)
-            throw new ValidationException("Билет не найден","");
-             
-        return new PlaceDTO() {Id = place.Id, Type = (int)place.Type};
+            throw new ValidationException("Билет не найден", "");
+
+        return new PlaceDTO { Id = place.Id, Type = (int)place.Type };
     }
 
     public IEnumerable<PlaceDTO> GetAll()
@@ -35,7 +35,7 @@ public class PlaceCRUDService : ICRUDService<PlaceDTO>
 
     public void Put(PlaceDTO item)
     {
-        if (item == null) { return; }
+        if (item == null) return;
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<PlaceDTO, Place>()).CreateMapper();
         var place = mapper.Map<PlaceDTO, Place>(item);
         _database.Places.Update(place);
@@ -44,7 +44,7 @@ public class PlaceCRUDService : ICRUDService<PlaceDTO>
 
     public void Post(PlaceDTO item)
     {
-        if (item == null) { return; }
+        if (item == null) return;
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<PlaceDTO, Place>()).CreateMapper();
         var place = mapper.Map<PlaceDTO, Place>(item);
         _database.Places.Create(place);
@@ -54,7 +54,7 @@ public class PlaceCRUDService : ICRUDService<PlaceDTO>
     public void Delete(int id)
     {
         if (id == null)
-            throw new ValidationException("Не установлен id билета","");
+            throw new ValidationException("Не установлен id билета", "");
         _database.Places.Delete(id);
         _database.Save();
     }

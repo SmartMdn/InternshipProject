@@ -19,12 +19,12 @@ public class SectionCRUDService : ICRUDService<SectionDTO>
     public SectionDTO Get(int id)
     {
         if (id == null)
-            throw new ValidationException("Не установлен id билета","");
+            throw new ValidationException("Не установлен id билета", "");
         var section = _database.Sections.Get(id);
         if (section == null)
-            throw new ValidationException("Билет не найден","");
-             
-        return new SectionDTO() {Id = section.Id, Name = section.Name};
+            throw new ValidationException("Билет не найден", "");
+
+        return new SectionDTO { Id = section.Id, Name = section.Name };
     }
 
     public IEnumerable<SectionDTO> GetAll()
@@ -35,7 +35,7 @@ public class SectionCRUDService : ICRUDService<SectionDTO>
 
     public void Put(SectionDTO item)
     {
-        if (item == null) { return; }
+        if (item == null) return;
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<SectionDTO, Section>()).CreateMapper();
         var section = mapper.Map<SectionDTO, Section>(item);
         _database.Sections.Update(section);
@@ -44,7 +44,7 @@ public class SectionCRUDService : ICRUDService<SectionDTO>
 
     public void Post(SectionDTO item)
     {
-        if (item == null) { return; }
+        if (item == null) return;
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<SectionDTO, Section>()).CreateMapper();
         var section = mapper.Map<SectionDTO, Section>(item);
         _database.Sections.Create(section);
@@ -54,7 +54,7 @@ public class SectionCRUDService : ICRUDService<SectionDTO>
     public void Delete(int id)
     {
         if (id == null)
-            throw new ValidationException("Не установлен id билета","");
+            throw new ValidationException("Не установлен id билета", "");
         _database.Sections.Delete(id);
         _database.Save();
     }

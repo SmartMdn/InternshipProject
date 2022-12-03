@@ -19,12 +19,12 @@ public class StadiumCRUDService : ICRUDService<StadiumDTO>
     public StadiumDTO Get(int id)
     {
         if (id == null)
-            throw new ValidationException("Не установлен id билета","");
+            throw new ValidationException("Не установлен id билета", "");
         var stadium = _database.Stadiums.Get(id);
         if (stadium == null)
-            throw new ValidationException("Билет не найден","");
-             
-        return new StadiumDTO() {Address = stadium.Address, Id = stadium.Id, Name = stadium.Name};
+            throw new ValidationException("Билет не найден", "");
+
+        return new StadiumDTO { Address = stadium.Address, Id = stadium.Id, Name = stadium.Name };
     }
 
     public IEnumerable<StadiumDTO> GetAll()
@@ -35,7 +35,7 @@ public class StadiumCRUDService : ICRUDService<StadiumDTO>
 
     public void Put(StadiumDTO item)
     {
-        if (item == null) { return; }
+        if (item == null) return;
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<StadiumDTO, Stadium>()).CreateMapper();
         var stadium = mapper.Map<StadiumDTO, Stadium>(item);
         _database.Stadiums.Update(stadium);
@@ -44,7 +44,7 @@ public class StadiumCRUDService : ICRUDService<StadiumDTO>
 
     public void Post(StadiumDTO item)
     {
-        if (item == null) { return; }
+        if (item == null) return;
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<StadiumDTO, Stadium>()).CreateMapper();
         var stadium = mapper.Map<StadiumDTO, Stadium>(item);
         _database.Stadiums.Create(stadium);
@@ -54,7 +54,7 @@ public class StadiumCRUDService : ICRUDService<StadiumDTO>
     public void Delete(int id)
     {
         if (id == null)
-            throw new ValidationException("Не установлен id билета","");
+            throw new ValidationException("Не установлен id билета", "");
         _database.Stadiums.Delete(id);
         _database.Save();
     }

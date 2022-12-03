@@ -19,12 +19,16 @@ public class EventCRUDService : ICRUDService<EventDTO>
     public EventDTO Get(int id)
     {
         if (id == null)
-            throw new ValidationException("Не установлен id билета","");
+            throw new ValidationException("Не установлен id билета", "");
         var _event = _database.Events.Get(id);
         if (_event == null)
-            throw new ValidationException("Билет не найден","");
-             
-        return new EventDTO() {BookingPeriodDays = _event.BookingPeriodDays, Id = _event.Id, Name = _event.Name, EventDuration = _event.EventDuration, HallId = _event.HallId};
+            throw new ValidationException("Билет не найден", "");
+
+        return new EventDTO
+        {
+            BookingPeriodDays = _event.BookingPeriodDays, Id = _event.Id, Name = _event.Name,
+            EventDuration = _event.EventDuration, HallId = _event.HallId
+        };
     }
 
     public IEnumerable<EventDTO> GetAll()
@@ -35,7 +39,7 @@ public class EventCRUDService : ICRUDService<EventDTO>
 
     public void Put(EventDTO item)
     {
-        if (item == null) { return; }
+        if (item == null) return;
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<EventDTO, Event>()).CreateMapper();
         var _event = mapper.Map<EventDTO, Event>(item);
         _database.Events.Update(_event);
@@ -44,7 +48,7 @@ public class EventCRUDService : ICRUDService<EventDTO>
 
     public void Post(EventDTO item)
     {
-        if (item == null) { return; }
+        if (item == null) return;
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<EventDTO, Event>()).CreateMapper();
         var _event = mapper.Map<EventDTO, Event>(item);
         _database.Events.Create(_event);
@@ -54,7 +58,7 @@ public class EventCRUDService : ICRUDService<EventDTO>
     public void Delete(int id)
     {
         if (id == null)
-            throw new ValidationException("Не установлен id билета","");
+            throw new ValidationException("Не установлен id билета", "");
         _database.Events.Delete(id);
         _database.Save();
     }
