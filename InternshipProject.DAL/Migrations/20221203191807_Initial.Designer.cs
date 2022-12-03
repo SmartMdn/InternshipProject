@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InternshipProject.DAL.Migrations
 {
     [DbContext(typeof(CinemaContext))]
-    [Migration("20221201141244_2")]
-    partial class _2
+    [Migration("20221203191807_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
