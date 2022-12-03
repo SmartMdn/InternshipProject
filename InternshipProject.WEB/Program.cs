@@ -1,7 +1,15 @@
-/*var builder = WebApplication.CreateBuilder(args);
+using InternshipProject.BLL.DTO;
+using InternshipProject.BLL.Interfaces;
+using InternshipProject.BLL.Services;
+using InternshipProject.DAL.Interfaces;
+using InternshipProject.DAL.Repositories;
+
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddTransient<IUnitOfWork>(
+    new EFUnitOfWork(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddScoped<ICRUDService<EventDTO>, EventCRUDService>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -22,13 +30,4 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();*/
-
-using InternshipProject.BLL.Services;
-using InternshipProject.DAL.Repositories;
-
-var builder = WebApplication.CreateBuilder(args);
-
-var service = new BuyTicketService(new EFUnitOfWork(builder.Configuration.GetConnectionString("DefaultConnection")));
-service.BuyTickets(new List<int>(){1,2});
-Console.WriteLine("123");
+app.Run();

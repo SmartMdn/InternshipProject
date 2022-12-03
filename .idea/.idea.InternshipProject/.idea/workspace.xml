@@ -9,10 +9,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34db0145-e696-4685-a61f-87b894f01690" name="Changes" comment="Create Services">
+    <list default="true" id="34db0145-e696-4685-a61f-87b894f01690" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/EventController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/HallController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/PlaceController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/SectionController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/StadiumController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/TicketController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InternshipProject.WEB/Models/Event.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InternshipProject.WEB/Models/Hall.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InternshipProject.WEB/Models/Place.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InternshipProject.WEB/Models/Section.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InternshipProject.WEB/Models/Stadium.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InternshipProject.WEB/Models/Ticket.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.InternshipProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.InternshipProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/Infrastucture/ServiceModule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/Infrastucture/ServiceModule.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/InternshipProject.BLL.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/InternshipProject.BLL.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Entities/Event.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/WeatherForecast.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Models/WeatherForecast.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +42,11 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/InternshipProject.DAL/Repositories/EventRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1edbe9176db7440b9b8f2c12e9a3a64a1fc190/fd/6e5a8e41/DbContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/19ba5a289f2afd3f4d5e862cb3f3efee6181683a31ee31b86c2298b1f51114b/ServiceProvider.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3dd4a455a387add73de89fe04b8f41b2fefe8ba7ca24367cc18e5a567b71dc/HttpGetAttribute.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6a8729e10edacab9f1a2d90cf925be448f263bd8ab9ec4a5af9318f87c57d/HttpMethodAttribute.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/789b158a98468e474a2af1348cfd47e7792de2ae2344f55a03ddf85b16699b/WebApplicationBuilder.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7a403cba08345c96e825f152f83f7387ca90e5b98cf92f2d95fbedc8d25d24/ServiceCollectionServiceExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7b3b6985aad11c5d633d75b545f5f5f4fc7e50918ad1cb9f6b615682f5bfb76d/SingleQueryingEnumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a1e84bc8f779d85eecedae89fadb5dfa8aec20ca7ee023e593fc63343db49e/MapperConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b4aa9d6deee74e2a511d54506de2de864a4b58ad22637cbbc79ef58cb10e3e9/ConfigurationExtensions.cs" root0="SKIP_HIGHLIGHTING" />
@@ -127,7 +144,8 @@
       <workItem from="1669807659974" duration="5731000" />
       <workItem from="1669894104062" duration="544000" />
       <workItem from="1669900512228" duration="6210000" />
-      <workItem from="1669927808161" duration="4574000" />
+      <workItem from="1669927808161" duration="6895000" />
+      <workItem from="1670062730347" duration="6803000" />
     </task>
     <task id="LOCAL-00001" summary="Create WebProject">
       <created>1669208941169</created>
@@ -241,7 +259,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669931197309</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Add Ninject">
+      <created>1669969159888</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1669969159888</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,25 +304,7 @@
     <MESSAGE value="fix database migration" />
     <MESSAGE value="fixed EF Entities" />
     <MESSAGE value="Create Services" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create Services" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/InternshipProject.WEB/Program.cs</url>
-          <line>29</line>
-          <properties documentPath="C:\Programming\ProjectXYZ\InternshipProject\InternshipProject.WEB\Program.cs" initialLine="28" containingFunctionPresentation="">
-            <startOffsets>
-              <option value="618" />
-            </startOffsets>
-            <endOffsets>
-              <option value="667" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Add Ninject" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Ninject" />
   </component>
 </project>
