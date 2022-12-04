@@ -33,7 +33,7 @@ public class HallCRUDService : ICRUDService<HallDTO>
         return mapper.Map<IEnumerable<Hall>, List<HallDTO>>(_database.Halls.GetAll());
     }
 
-    public void Put(HallDTO item)
+    public void Put(HallDTO item, int id)
     {
         if (item == null) return;
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<HallDTO, Hall>()).CreateMapper();

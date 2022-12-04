@@ -22,10 +22,10 @@ public class SectionController : CrudController<Section, SectionDTO>
     }
 
     [HttpPut]
-    public override string Put(Section item)
+    public override string Put(Section item, int id)
     {
         ResultItem = MapperInput.Map<Section, SectionDTO>(item);
-        Service.Put(ResultItem);
+        Service.Put(ResultItem, id);
         return "Ивент успешно добавлен";
     }
 

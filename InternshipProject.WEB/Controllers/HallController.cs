@@ -22,10 +22,10 @@ public class HallController : CrudController<Hall, HallDTO>
     }
 
     [HttpPut]
-    public override string Put(Hall item)
+    public override string Put(Hall item, int id)
     {
         ResultItem = MapperInput.Map<Hall, HallDTO>(item);
-        Service.Put(ResultItem);
+        Service.Put(ResultItem, id);
         return "Ивент успешно добавлен";
     }
 

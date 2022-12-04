@@ -17,7 +17,7 @@ public abstract class CrudController<T, TK> : ControllerBase where TK : class
     }
 
     public abstract T Get(int id);
-    public abstract string Put(T item);
+    public abstract string Put(T item, int id);
     public abstract string Post(T item);
     public abstract string Delete(int id);
 }

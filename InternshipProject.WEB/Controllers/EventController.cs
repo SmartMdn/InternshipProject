@@ -30,10 +30,10 @@ public class EventController : CrudController<Event, EventDTO>
     }
 
     [HttpPut]
-    public override string Put(Event item)
+    public override string Put(Event item, int id)
     {
         var resultItem = MapperInput.Map<Event, EventDTO>(item);
-        Service.Put(resultItem);
+        Service.Put(resultItem, id);
         return "Ивент успешно добавлен";
     }
 

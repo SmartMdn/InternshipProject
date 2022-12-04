@@ -37,7 +37,7 @@ public class EventCRUDService : ICRUDService<EventDTO>
         return mapper.Map<IEnumerable<Event>, List<EventDTO>>(_database.Events.GetAll());
     }
 
-    public void Put(EventDTO item)
+    public void Put(EventDTO item, int id)
     {
         if (item == null) return;
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<EventDTO, Event>()).CreateMapper();

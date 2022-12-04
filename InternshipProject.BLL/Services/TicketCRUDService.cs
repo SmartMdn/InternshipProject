@@ -33,7 +33,7 @@ public class TicketCRUDService : ICRUDService<TicketDTO>
         return mapper.Map<IEnumerable<Ticket>, List<TicketDTO>>(_database.Tickets.GetAll());
     }
 
-    public void Put(TicketDTO item)
+    public void Put(TicketDTO item, int id)
     {
         if (item == null) return;
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<TicketDTO, Ticket>()).CreateMapper();

@@ -33,7 +33,7 @@ public class PlaceCRUDService : ICRUDService<PlaceDTO>
         return mapper.Map<IEnumerable<Place>, List<PlaceDTO>>(_database.Places.GetAll());
     }
 
-    public void Put(PlaceDTO item)
+    public void Put(PlaceDTO item, int id)
     {
         if (item == null) return;
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<PlaceDTO, Place>()).CreateMapper();

@@ -22,10 +22,10 @@ public class TicketController : CrudController<Ticket, TicketDTO>
     }
 
     [HttpPut]
-    public override string Put(Ticket item)
+    public override string Put(Ticket item, int id)
     {
         ResultItem = MapperInput.Map<Ticket, TicketDTO>(item);
-        Service.Put(ResultItem);
+        Service.Put(ResultItem, id);
         return "Ивент успешно добавлен";
         ;
     }

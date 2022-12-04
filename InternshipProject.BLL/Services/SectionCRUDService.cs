@@ -33,7 +33,7 @@ public class SectionCRUDService : ICRUDService<SectionDTO>
         return mapper.Map<IEnumerable<Section>, List<SectionDTO>>(_database.Sections.GetAll());
     }
 
-    public void Put(SectionDTO item)
+    public void Put(SectionDTO item, int id)
     {
         if (item == null) return;
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<SectionDTO, Section>()).CreateMapper();

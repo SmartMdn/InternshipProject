@@ -22,10 +22,10 @@ public class StadiumController : CrudController<Stadium, StadiumDTO>
     }
 
     [HttpPut]
-    public override string Put(Stadium item)
+    public override string Put(Stadium item, int id)
     {
         ResultItem = MapperInput.Map<Stadium, StadiumDTO>(item);
-        Service.Put(ResultItem);
+        Service.Put(ResultItem, id);
         return "Ивент успешно добавлен";
     }
 

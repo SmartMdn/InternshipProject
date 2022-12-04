@@ -22,10 +22,10 @@ public class PlaceController : CrudController<Place, PlaceDTO>
     }
 
     [HttpPut]
-    public override string Put(Place item)
+    public override string Put(Place item, int id)
     {
         ResultItem = MapperInput.Map<Place, PlaceDTO>(item);
-        Service.Put(ResultItem);
+        Service.Put(ResultItem, id);
         return "Ивент успешно добавлен";
     }
 

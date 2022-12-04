@@ -33,7 +33,7 @@ public class StadiumCRUDService : ICRUDService<StadiumDTO>
         return mapper.Map<IEnumerable<Stadium>, List<StadiumDTO>>(_database.Stadiums.GetAll());
     }
 
-    public void Put(StadiumDTO item)
+    public void Put(StadiumDTO item, int id)
     {
         if (item == null) return;
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<StadiumDTO, Stadium>()).CreateMapper();
