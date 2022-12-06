@@ -23,8 +23,8 @@ public class PlaceCRUDService : ICRUDService<PlaceDTO>
         var place = _database.Places.Get(id);
         if (place == null)
             throw new ValidationException("Билет не найден", "");
-
-        return new PlaceDTO { Id = place.Id, Type = (int)place.Type };
+        var ids = from st in place.Sections select st.Id;
+        return new PlaceDTO { Id = place.Id, Type = (int)place.Type, Sections = ids.ToArray()};
     }
 
     public IEnumerable<PlaceDTO> GetAll()

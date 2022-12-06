@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using InternshipProject.BLL.Interfaces;
+using InternshipProject.WEB.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InternshipProject.WEB.Interfaces;

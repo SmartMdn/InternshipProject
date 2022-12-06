@@ -16,17 +16,17 @@ public class SectionRepository : IRepository<Section>
 
     public IEnumerable<Section> GetList(List<int> ids)
     {
-        return _db.Sections.Where(t => ids.Contains(t.Id)).ToList();
+        return _db.Sections.Include(section => section.Halls).Include(section => section.Places).Where(t => ids.Contains(t.Id)).ToList();
     }
 
     public Section Get(int id)
     {
-        return _db.Sections.Find(id) ?? throw new InvalidOperationException();
+        return _db.Sections.Include(section => section.Halls).Include(section => section.Places).FirstOrDefault(e => e.Id == id) ?? throw new InvalidOperationException();
     }
 
     public IEnumerable<Section> Find(Func<Section, bool> predicate)
     {
-        return _db.Sections.Where(predicate).ToList();
+        return _db.Sections.Include(section => section.Halls).Include(section => section.Places).Where(predicate).ToList();
     }
 
     public void Create(Section item)

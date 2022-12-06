@@ -21,7 +21,7 @@ public class HallRepository : IRepository<Hall>
 
     public IEnumerable<Hall> GetList(List<int> ids)
     {
-        return _db.Halls.Where(t => ids.Contains(t.Id)).ToList();
+        return _db.Halls.Include(hall => hall.Stadiums).Include(hall => hall.Sections).Where(t => ids.Contains(t.Id)).ToList();
     }
 
     public Hall Get(int id)

@@ -10,25 +10,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34db0145-e696-4685-a61f-87b894f01690" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.vs/InternshipProject/FileContentIndex/94a0a1f9-9bdb-46b7-93ec-10a7b1429dc9.vsidx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/internshipproject.metadata.v5.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.vs/ProjectEvaluation/internshipproject.projects.v5.1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.InternshipProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.InternshipProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/Interfaces/ICRUDService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/Interfaces/ICRUDService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/Services/EventCRUDService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/Services/EventCRUDService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/InternshipProject/DesignTimeBuild/.dtbcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/InternshipProject/DesignTimeBuild/.dtbcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/InternshipProject/FileContentIndex/249af1a9-5fa7-4d3f-8407-1b932b23a0dd.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/InternshipProject/FileContentIndex/93ae5746-881f-4923-a2f1-81a92de29ff9.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/InternshipProject/v17/.futdcache.v2" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/InternshipProject/v17/.futdcache.v2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/InternshipProject/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/InternshipProject/v17/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/BusinessModels/Discount.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/DTO/HallDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/DTO/HallDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/DTO/PlaceDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/DTO/PlaceDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/DTO/SectionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/DTO/SectionDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/DTO/StadiumDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/DTO/StadiumDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/Infrastucture/ServiceModule.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/InternshipProject.BLL.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/InternshipProject.BLL.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/Services/HallCRUDService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/Services/HallCRUDService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/Services/PlaceCRUDService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/Services/PlaceCRUDService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/Services/SectionCRUDService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/Services/SectionCRUDService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/Services/StadiumCRUDService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/Services/StadiumCRUDService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/Services/TicketCRUDService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/Services/TicketCRUDService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/InternshipProject.DAL.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/InternshipProject.DAL.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Migrations/20221203191807_Initial.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Migrations/20221203191807_Initial.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Migrations/CinemaContextModelSnapshot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/EventController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/EventController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/HallController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/HallController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/PlaceController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/PlaceController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/SectionController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/SectionController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/StadiumController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/StadiumController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/TicketController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/TicketController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/HallRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/HallRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/SectionRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/SectionRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/StadiumRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/StadiumRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Interfaces/CrudController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Interfaces/CrudController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/InternshipProject.WEB.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/InternshipProject.WEB.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Models/Hall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Models/Hall.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Models/Place.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Models/Place.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Models/Section.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Models/Section.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Models/Stadium.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Models/Stadium.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,15 +55,14 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/InternshipProject.DAL/Repositories/EventRepository.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1edbe9176db7440b9b8f2c12e9a3a64a1fc190/fd/6e5a8e41/DbContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/InternshipProject.WEB/Interfaces/CrudController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/19ba5a289f2afd3f4d5e862cb3f3efee6181683a31ee31b86c2298b1f51114b/ServiceProvider.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3dd4a455a387add73de89fe04b8f41b2fefe8ba7ca24367cc18e5a567b71dc/HttpGetAttribute.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6a8729e10edacab9f1a2d90cf925be448f263bd8ab9ec4a5af9318f87c57d/HttpMethodAttribute.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/789b158a98468e474a2af1348cfd47e7792de2ae2344f55a03ddf85b16699b/WebApplicationBuilder.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7a403cba08345c96e825f152f83f7387ca90e5b98cf92f2d95fbedc8d25d24/ServiceCollectionServiceExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7b3b6985aad11c5d633d75b545f5f5f4fc7e50918ad1cb9f6b615682f5bfb76d/SingleQueryingEnumerable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6a4abc33381932734b5fe8e665891a89f052eeee41e2debe188594bce29675c/ControllerActionInvoker.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/829d6ac6e62b9bee9ef8e79e827d87d0c31a7c2eefbc354135d9a8f2c4deb/Mapper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8ea21ac773d9dbb35bda81e94336d7efbd03459b6fc241fcdb64737e5c1/NavigationExpandingExpressionVisitor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a1a59674744830c52bb8ec2c75c1a5b1b21ec7b871acd25d24a346472da73b/DbContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a1e84bc8f779d85eecedae89fadb5dfa8aec20ca7ee023e593fc63343db49e/MapperConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b4aa9d6deee74e2a511d54506de2de864a4b58ad22637cbbc79ef58cb10e3e9/ConfigurationExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e74356f198b598e97eaeea83e8b7b1f2bfe27c0a39fedf86bb7dc44827fbda/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -77,7 +87,7 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -148,8 +158,7 @@
       <workItem from="1669894104062" duration="544000" />
       <workItem from="1669900512228" duration="6210000" />
       <workItem from="1669927808161" duration="6895000" />
-      <workItem from="1670062730347" duration="8833000" />
-      <workItem from="1670183422668" duration="70000" />
+      <workItem from="1670062730347" duration="6803000" />
     </task>
     <task id="LOCAL-00001" summary="Create WebProject">
       <created>1669208941169</created>
@@ -270,14 +279,7 @@
       <option name="project" value="LOCAL" />
       <updated>1669969159888</updated>
     </task>
-    <task id="LOCAL-00018" summary="migration to pc">
-      <created>1670091440488</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1670091440488</updated>
-    </task>
-    <option name="localTasksCounter" value="19" />
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -316,7 +318,51 @@
     <MESSAGE value="fixed EF Entities" />
     <MESSAGE value="Create Services" />
     <MESSAGE value="Add Ninject" />
-    <MESSAGE value="migration to pc" />
-    <option name="LAST_COMMIT_MESSAGE" value="migration to pc" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Ninject" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/InternshipProject.BLL/Services/StadiumCRUDService.cs</url>
+          <line>36</line>
+          <properties documentPath="A:\RiderProjects\InternshipProject\InternshipProject.BLL\Services\StadiumCRUDService.cs" initialLine="36" containingFunctionPresentation="method 'Put'">
+            <startOffsets>
+              <option value="1235" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1236" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/InternshipProject.WEB/Controllers/StadiumController.cs</url>
+          <line>25</line>
+          <properties documentPath="A:\RiderProjects\InternshipProject\InternshipProject.WEB\Controllers\StadiumController.cs" initialLine="25" containingFunctionPresentation="method 'Put'">
+            <startOffsets>
+              <option value="665" />
+            </startOffsets>
+            <endOffsets>
+              <option value="666" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/InternshipProject.WEB/Controllers/StadiumController.cs</url>
+          <line>26</line>
+          <properties documentPath="A:\RiderProjects\InternshipProject\InternshipProject.WEB\Controllers\StadiumController.cs" initialLine="26" containingFunctionPresentation="method 'Put'">
+            <startOffsets>
+              <option value="675" />
+            </startOffsets>
+            <endOffsets>
+              <option value="731" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

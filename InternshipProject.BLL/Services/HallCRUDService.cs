@@ -24,7 +24,8 @@ public class HallCRUDService : ICRUDService<HallDTO>
         if (hall == null)
             throw new ValidationException("Билет не найден", "");
 
-        return new HallDTO { Id = hall.Id, Name = hall.Name };
+        var stadiumsIds = from st in hall.Stadiums select st.Id;
+        return new HallDTO { Id = hall.Id, Name = hall.Name, Stadiums = stadiumsIds.ToArray()};
     }
 
     public IEnumerable<HallDTO> GetAll()

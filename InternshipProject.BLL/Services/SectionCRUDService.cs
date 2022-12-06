@@ -23,8 +23,9 @@ public class SectionCRUDService : ICRUDService<SectionDTO>
         var section = _database.Sections.Get(id);
         if (section == null)
             throw new ValidationException("Билет не найден", "");
-
-        return new SectionDTO { Id = section.Id, Name = section.Name };
+        var ids = (from st in section.Halls select st.Id).ToArray();
+        var ids1 = (from st in section.Places select st.Id).ToArray();
+        return new SectionDTO { Id = section.Id, Name = section.Name, Halls = ids, Places = ids1};
     }
 
     public IEnumerable<SectionDTO> GetAll()

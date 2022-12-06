@@ -21,17 +21,17 @@ public class StadiumRepository : IRepository<Stadium>
 
     public IEnumerable<Stadium> GetList(List<int> ids)
     {
-        return _db.Stadiums.Where(t => ids.Contains(t.Id)).ToList();
+        return _db.Stadiums.Include(e => e.Halls).Where(t => ids.Contains(t.Id)).ToList();
     }
 
     public Stadium Get(int id)
     {
-        return _db.Stadiums.Find(id) ?? throw new InvalidOperationException();
+        return _db.Stadiums.Include(e => e.Halls).FirstOrDefault(e => e.Id == id) ?? throw new InvalidOperationException();
     }
 
     public IEnumerable<Stadium> Find(Func<Stadium, bool> predicate)
     {
-        return _db.Stadiums.Where(predicate).ToList();
+        return _db.Stadiums.Include(e => e.Halls).Where(predicate).ToList();
     }
 
     public void Create(Stadium item)
