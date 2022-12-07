@@ -46,7 +46,6 @@ public class PlaceCRUDService : ICRUDService<PlaceDTO>
 
     public void Post(PlaceDTO item)
     {
-        //TODO дофиксить методы пост и пут для всех сущностей
         if (item == null) return;
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<PlaceDTO, Place>()).CreateMapper();
         var place = mapper.Map<PlaceDTO, Place>(item);
