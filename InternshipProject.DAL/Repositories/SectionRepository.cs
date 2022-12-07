@@ -36,7 +36,12 @@ public class SectionRepository : IRepository<Section>
 
     public void Update(Section item)
     {
-        _db.Entry(item).State = EntityState.Modified;
+        var section = Get(item.Id);
+        section.Places = item.Places;
+        section.Halls = item.Halls;
+        section.Name = item.Name;
+        _db.Entry(section).State = EntityState.Modified;
+        
     }
 
     public void Delete(int id)

@@ -39,14 +39,18 @@ public class PlaceCRUDService : ICRUDService<PlaceDTO>
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<PlaceDTO, Place>()).CreateMapper();
         var place = mapper.Map<PlaceDTO, Place>(item);
         _database.Places.Update(place);
+        if (item.Sections != null) place.Sections = _database.Sections.GetList(item.Sections.ToList()).ToList();
+        place.Id = id;
         _database.Save();
     }
 
     public void Post(PlaceDTO item)
     {
+        //TODO дофиксить методы пост и пут для всех сущностей
         if (item == null) return;
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<PlaceDTO, Place>()).CreateMapper();
         var place = mapper.Map<PlaceDTO, Place>(item);
+        if (item.Sections != null) place.Sections = _database.Sections.GetList(item.Sections.ToList()).ToList();
         _database.Places.Create(place);
         _database.Save();
     }

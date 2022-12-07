@@ -41,7 +41,11 @@ public class StadiumRepository : IRepository<Stadium>
 
     public void Update(Stadium item)
     {
-        _db.Entry(item).State = EntityState.Modified;
+        var stadium = Get(item.Id);
+        stadium.Address = item.Address;
+        stadium.Halls = item.Halls;
+        stadium.Name = item.Name;
+        _db.Entry(stadium).State = EntityState.Modified;
     }
 
     public void Delete(int id)

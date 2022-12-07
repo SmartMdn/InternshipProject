@@ -14,33 +14,33 @@ public class PlaceController : CrudController<Place, PlaceDTO>
     {
     }
 
-    [HttpGet]
+    [HttpGet("Get")]
     public override Place Get(int id)
     {
         var item = MapperOutput.Map<PlaceDTO, Place>(Service.Get(id));
         return item;
     }
 
-    [HttpPut]
+    [HttpPut("Update")]
     public override string Put(Place item, int id)
     {
         ResultItem = MapperInput.Map<Place, PlaceDTO>(item);
         Service.Put(ResultItem, id);
-        return "Ивент успешно добавлен";
+        return "Место успешно изменено";
     }
 
-    [HttpPost]
+    [HttpPost("Add")]
     public override string Post(Place item)
     {
         ResultItem = MapperInput.Map<Place, PlaceDTO>(item);
         Service.Post(ResultItem);
-        return "Ивент успешно изменён";
+        return "Место успешно добавлен";
     }
 
-    [HttpDelete]
+    [HttpDelete("Delete")]
     public override string Delete(int id)
     {
         Service.Delete(id);
-        return "Ивент успешно удалён";
+        return "Место успешно удалён";
     }
 }

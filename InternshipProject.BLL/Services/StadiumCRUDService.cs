@@ -24,7 +24,7 @@ public class StadiumCRUDService : ICRUDService<StadiumDTO>
         if (stadium == null)
             throw new ValidationException("Билет не найден", "");
         var ids = (from st in stadium.Halls select st.Id).ToArray();
-        return new StadiumDTO { Address = stadium.Address, Id = stadium.Id, Name = stadium.Name, Halls = ids};
+        return new StadiumDTO { Address = stadium.Address, Name = stadium.Name, Halls = ids};
     }
 
     public IEnumerable<StadiumDTO> GetAll()
@@ -36,10 +36,7 @@ public class StadiumCRUDService : ICRUDService<StadiumDTO>
     public void Put(StadiumDTO item, int id)
     {
         if (item == null) return;
-        var mapper = new MapperConfiguration(cfg => cfg.CreateMap<StadiumDTO, Stadium>()).CreateMapper();
-        var stadium = mapper.Map<StadiumDTO, Stadium>(item);
-        if (item.Halls != null) stadium.Halls = _database.Halls.GetList(item.Halls.ToList()).ToList();
-        stadium.Id = id;
+        var stadium = new Stadium{Address = item.Address, Halls = _database.Halls.GetList(item.Halls.ToList()).ToList(), Id = id, Name = item.Name};
         _database.Stadiums.Update(stadium);
         _database.Save();
     }
@@ -49,6 +46,7 @@ public class StadiumCRUDService : ICRUDService<StadiumDTO>
         if (item == null) return;
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<StadiumDTO, Stadium>()).CreateMapper();
         var stadium = mapper.Map<StadiumDTO, Stadium>(item);
+        if (item.Halls != null) stadium.Halls = _database.Halls.GetList(item.Halls.ToList()).ToList();
         _database.Stadiums.Create(stadium);
         _database.Save();
     }

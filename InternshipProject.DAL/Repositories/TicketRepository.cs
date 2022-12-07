@@ -36,7 +36,11 @@ public class TicketRepository : IRepository<Ticket>
 
     public void Update(Ticket item)
     {
-        _db.Entry(item).State = EntityState.Modified;
+        var ticket = Get(item.Id);
+        ticket.EventId = item.EventId;
+        ticket.PlaceId = item.PlaceId;
+        ticket.IsBought = item.IsBought;
+        _db.Entry(ticket).State = EntityState.Modified;
     }
 
     public void Delete(int id)

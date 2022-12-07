@@ -14,14 +14,14 @@ public class EventController : CrudController<Event, EventDTO>
     {
     }
 
-    [HttpGet("{id}")]
+    [HttpGet("Get")]
     public override Event Get(int id)
     {
         var item = MapperOutput.Map<EventDTO, Event>(Service.Get(id));
         return item;
     }
 
-    [HttpPost]
+    [HttpPost("Add")]
     public override string Post(Event item)
     {
         ResultItem = MapperInput.Map<Event, EventDTO>(item);
@@ -29,7 +29,7 @@ public class EventController : CrudController<Event, EventDTO>
         return "Ивент успешно изменён";
     }
 
-    [HttpPut]
+    [HttpPut("Update")]
     public override string Put(Event item, int id)
     {
         var resultItem = MapperInput.Map<Event, EventDTO>(item);
@@ -37,7 +37,7 @@ public class EventController : CrudController<Event, EventDTO>
         return "Ивент успешно добавлен";
     }
 
-    [HttpDelete("{id}")]
+    [HttpDelete("Delete")]
     public override string Delete(int id)
     {
         Service.Delete(id);

@@ -14,33 +14,33 @@ public class StadiumController : CrudController<Stadium, StadiumDTO>
     {
     }
 
-    [HttpGet]
+    [HttpGet("Get")]
     public override Stadium Get(int id)
     {
         var item = MapperOutput.Map<StadiumDTO, Stadium>(Service.Get(id));
         return item;
     }
 
-    [HttpPut]
+    [HttpPut("Update")]
     public override string Put(Stadium item, int id)
     {
         ResultItem = MapperInput.Map<Stadium, StadiumDTO>(item);
         Service.Put(ResultItem, id);
-        return "Ивент успешно добавлен";
+        return "Стадион успешно изменён";
     }
 
-    [HttpPost]
+    [HttpPost("Add")]
     public override string Post(Stadium item)
     {
         ResultItem = MapperInput.Map<Stadium, StadiumDTO>(item);
         Service.Post(ResultItem);
-        return "Ивент успешно изменён";
+        return "Стадион успешно добавлен";
     }
 
-    [HttpDelete]
+    [HttpDelete("Delete")]
     public override string Delete(int id)
     {
         Service.Delete(id);
-        return "Ивент успешно удалён";
+        return "Стадион успешно удалён";
     }
 }

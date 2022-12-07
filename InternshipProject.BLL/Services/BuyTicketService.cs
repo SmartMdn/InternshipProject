@@ -38,11 +38,6 @@ public class BuyTicketService : IBuyTicketService
         return mapper.Map<IEnumerable<Ticket>, List<TicketDTO>>(tickets);
     }
 
-    public TicketDTO BuyTicket(int? id)
-    {
-        throw new NotImplementedException();
-    }
-
     public void Dispose()
     {
         Database.Dispose();

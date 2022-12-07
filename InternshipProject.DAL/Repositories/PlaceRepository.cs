@@ -41,7 +41,11 @@ public class PlaceRepository : IRepository<Place>
 
     public void Update(Place item)
     {
-        _db.Entry(item).State = EntityState.Modified;
+        var place = Get(item.Id);
+        place.Sections = item.Sections;
+        place.Tickets = item.Tickets;
+        place.Type = item.Type;
+        _db.Entry(place).State = EntityState.Modified;
     }
 
     public void Delete(int id)

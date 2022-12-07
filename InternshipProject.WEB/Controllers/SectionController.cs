@@ -14,33 +14,33 @@ public class SectionController : CrudController<Section, SectionDTO>
     {
     }
 
-    [HttpGet]
+    [HttpGet("Get")]
     public override Section Get(int id)
     {
         var item = MapperOutput.Map<SectionDTO, Section>(Service.Get(id));
         return item;
     }
 
-    [HttpPut]
+    [HttpPut("Update")]
     public override string Put(Section item, int id)
     {
         ResultItem = MapperInput.Map<Section, SectionDTO>(item);
         Service.Put(ResultItem, id);
-        return "Ивент успешно добавлен";
+        return "Секция успешно изменена";
     }
 
-    [HttpPost]
+    [HttpPost("Add")]
     public override string Post(Section item)
     {
         ResultItem = MapperInput.Map<Section, SectionDTO>(item);
         Service.Post(ResultItem);
-        return "Ивент успешно изменён";
+        return "Секция успешно добавлена";
     }
 
-    [HttpDelete]
+    [HttpDelete("Delete")]
     public override string Delete(int id)
     {
         Service.Delete(id);
-        return "Ивент успешно удалён";
+        return "Секция успешно удалёна";
     }
 }

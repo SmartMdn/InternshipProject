@@ -43,7 +43,12 @@ public class EventRepository : IRepository<Event>
 
     public void Update(Event item)
     {
-        _db.Entry(item).State = EntityState.Modified;
+        var _event = Get(item.Id);
+        _event.Name = item.Name;
+        _event.EventDuration = item.EventDuration;
+        _event.HallId = item.HallId;
+        _event.BookingPeriodDays = item.BookingPeriodDays;
+        _db.Entry(_event).State = EntityState.Modified;
     }
 
     public void Delete(int id)

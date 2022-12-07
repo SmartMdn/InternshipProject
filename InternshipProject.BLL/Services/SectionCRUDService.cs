@@ -37,9 +37,11 @@ public class SectionCRUDService : ICRUDService<SectionDTO>
     public void Put(SectionDTO item, int id)
     {
         if (item == null) return;
-        var mapper = new MapperConfiguration(cfg => cfg.CreateMap<SectionDTO, Section>()).CreateMapper();
-        var section = mapper.Map<SectionDTO, Section>(item);
-        _database.Sections.Update(section);
+        var section = new Section()
+        {
+            Halls = _database.Halls.GetList(item.Halls.ToList()).ToList(), Id = id, Name = item.Name,
+            Places = _database.Places.GetList(item.Places.ToList()).ToList()
+        };_database.Sections.Update(section);
         _database.Save();
     }
 
@@ -48,6 +50,8 @@ public class SectionCRUDService : ICRUDService<SectionDTO>
         if (item == null) return;
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<SectionDTO, Section>()).CreateMapper();
         var section = mapper.Map<SectionDTO, Section>(item);
+        if (item.Halls != null) section.Halls = _database.Halls.GetList(item.Halls.ToList()).ToList();
+        if (item.Places != null) section.Places = _database.Places.GetList(item.Places.ToList()).ToList();
         _database.Sections.Create(section);
         _database.Save();
     }
