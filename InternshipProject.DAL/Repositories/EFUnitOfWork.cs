@@ -48,7 +48,7 @@ public class EFUnitOfWork : IUnitOfWork
 
     public IRepository<Section> Sections
     {
-        get { return _sectionRepository ??= new SectionRepository(); }
+        get { return _sectionRepository ??= new SectionRepository(_db); }
     }
 
     public IRepository<Stadium> Stadiums

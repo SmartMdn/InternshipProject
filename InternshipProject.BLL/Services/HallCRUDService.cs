@@ -37,7 +37,13 @@ public class HallCRUDService : ICRUDService<HallDTO>
     public void Put(HallDTO item, int id)
     {
         if (item == null) return;
-        var hall = new Hall{Name = item.Name, Sections = _database.Sections.GetList(item.Sections.ToList()).ToList(), Stadiums = _database.Stadiums.GetList(item.Stadiums.ToList()).ToList(), Id = id};
+        var hall = new Hall
+        {
+            Id = id,
+            Name = item.Name,
+            Stadiums = _database.Stadiums.GetList(item.Stadiums.ToList()).ToList(),
+            Sections = _database.Sections.GetList(item.Sections.ToList()).ToList()
+        };
         _database.Halls.Update(hall);
         _database.Save();
     }
@@ -45,10 +51,12 @@ public class HallCRUDService : ICRUDService<HallDTO>
     public void Post(HallDTO item)
     {
         if (item == null) return;
-        var mapper = new MapperConfiguration(cfg => cfg.CreateMap<HallDTO, Hall>()).CreateMapper();
-        var hall = mapper.Map<HallDTO, Hall>(item);  
-        if (item.Stadiums != null) hall.Stadiums = _database.Stadiums.GetList(item.Stadiums.ToList()).ToList();
-        if (item.Sections != null) hall.Sections = _database.Sections.GetList(item.Sections.ToList()).ToList();
+        var hall = new Hall
+        {   
+            Name = item.Name,
+            Stadiums = _database.Stadiums.GetList(item.Stadiums.ToList()).ToList(),
+            Sections = _database.Sections.GetList(item.Sections.ToList()).ToList()
+        };
         _database.Halls.Create(hall);
         _database.Save();
     }

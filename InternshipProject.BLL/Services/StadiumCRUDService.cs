@@ -44,9 +44,7 @@ public class StadiumCRUDService : ICRUDService<StadiumDTO>
     public void Post(StadiumDTO item)
     {
         if (item == null) return;
-        var mapper = new MapperConfiguration(cfg => cfg.CreateMap<StadiumDTO, Stadium>()).CreateMapper();
-        var stadium = mapper.Map<StadiumDTO, Stadium>(item);
-        if (item.Halls != null) stadium.Halls = _database.Halls.GetList(item.Halls.ToList()).ToList();
+        var stadium = new Stadium{Address = item.Address, Halls = _database.Halls.GetList(item.Halls.ToList()).ToList(), Name = item.Name};
         _database.Stadiums.Create(stadium);
         _database.Save();
     }

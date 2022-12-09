@@ -21,12 +21,12 @@ public class PlaceRepository : IRepository<Place>
 
     public IEnumerable<Place> GetList(List<int> ids)
     {
-        return _db.Places.Where(t => ids.Contains(t.Id)).ToList();
+        return _db.Places.Include(p=>p.Sections).Where(t => ids.Contains(t.Id)).ToList();
     }
 
     public Place Get(int id)
     {
-        return _db.Places.Find(id) ?? throw new InvalidOperationException();
+        return _db.Places.Include(p=>p.Sections).FirstOrDefault(place => place.Id ==id) ?? throw new InvalidOperationException();
     }
 
     public IEnumerable<Place> Find(Func<Place, bool> predicate)

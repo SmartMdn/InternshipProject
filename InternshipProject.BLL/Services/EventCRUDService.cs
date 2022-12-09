@@ -42,6 +42,7 @@ public class EventCRUDService : ICRUDService<EventDTO>
         if (item == null) return;
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<EventDTO, Event>()).CreateMapper();
         var _event = mapper.Map<EventDTO, Event>(item);
+        _event.Id = id;
         _database.Events.Update(_event);
         _database.Save();
     }

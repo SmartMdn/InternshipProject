@@ -9,6 +9,11 @@ public class SectionRepository : IRepository<Section>
 {
     private readonly CinemaContext _db;
 
+    public SectionRepository(CinemaContext db)
+    {
+        _db = db;
+    }
+
     public IEnumerable<Section> GetAll()
     {
         return _db.Sections;
@@ -16,7 +21,15 @@ public class SectionRepository : IRepository<Section>
 
     public IEnumerable<Section> GetList(List<int> ids)
     {
-        return _db.Sections.Include(section => section.Halls).Include(section => section.Places).Where(t => ids.Contains(t.Id)).ToList();
+        try
+        {
+            return _db.Sections.Include(section => section.Halls).Include(section => section.Places).Where(t => ids.Contains(t.Id)).ToList();
+        }
+        catch (Exception e)
+        {
+            return new List<Section>();
+        }
+        
     }
 
     public Section Get(int id)

@@ -23,7 +23,7 @@ public class PlaceCRUDService : ICRUDService<PlaceDTO>
         var place = _database.Places.Get(id);
         if (place == null)
             throw new ValidationException("Билет не найден", "");
-        var ids = from st in place.Sections select st.Id;
+        var ids = (from st in place.Sections select st.Id).ToArray();
         return new PlaceDTO { Id = place.Id, Type = (int)place.Type, Sections = ids.ToArray()};
     }
 
@@ -36,19 +36,23 @@ public class PlaceCRUDService : ICRUDService<PlaceDTO>
     public void Put(PlaceDTO item, int id)
     {
         if (item == null) return;
-        var mapper = new MapperConfiguration(cfg => cfg.CreateMap<PlaceDTO, Place>()).CreateMapper();
-        var place = mapper.Map<PlaceDTO, Place>(item);
-        _database.Places.Update(place);
+        var place = new Place
+        {
+            Id = id, 
+            Type = (PlaceType) item.Type
+        };
         if (item.Sections != null) place.Sections = _database.Sections.GetList(item.Sections.ToList()).ToList();
-        place.Id = id;
+        _database.Places.Update(place);
         _database.Save();
     }
 
     public void Post(PlaceDTO item)
     {
         if (item == null) return;
-        var mapper = new MapperConfiguration(cfg => cfg.CreateMap<PlaceDTO, Place>()).CreateMapper();
-        var place = mapper.Map<PlaceDTO, Place>(item);
+        var place = new Place
+        {
+            Type = (PlaceType) item.Type
+        };
         if (item.Sections != null) place.Sections = _database.Sections.GetList(item.Sections.ToList()).ToList();
         _database.Places.Create(place);
         _database.Save();
