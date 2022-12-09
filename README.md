@@ -16,5 +16,5 @@ To clone project with Rider use the manual at this [link](https://www.jetbrains.
 ### Clone with Github
 To clone project with Github use the manual at this [link](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
 ## 2. Apply DB migrations
-If you use Visual Studio, using this [manual](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/?WT.mc_id=-blog-shchowd&tabs=vs) for update database
-If you use Rider, using this[manual](https://blog.jetbrains.com/dotnet/2017/08/09/running-entity-framework-core-commands-rider/) for update database
+######If you use Visual Studio, using this [manual](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/?WT.mc_id=-blog-shchowd&tabs=vs) for update database
+######If you use Rider, using this[manual](https://blog.jetbrains.com/dotnet/2017/08/09/running-entity-framework-core-commands-rider/) for update database
