@@ -8,5 +8,4 @@ public interface ICRUDService<T> where T : class
     public void Post(T item);
     public void Delete(int id);
     public void Dispose();
-    public void sex();
 }
