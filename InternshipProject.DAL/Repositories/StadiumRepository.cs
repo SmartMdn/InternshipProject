@@ -14,14 +14,14 @@ public class StadiumRepository : IRepository<Stadium>
         _db = db;
     }
 
-    public IEnumerable<Stadium> GetAll()
+    public IQueryable<Stadium> GetAll()
     {
         return _db.Stadiums;
     }
 
-    public IEnumerable<Stadium> GetList(List<int> ids)
+    public IQueryable<Stadium> GetList(List<int> ids)
     {
-        return _db.Stadiums.Include(e => e.Halls).Where(t => ids.Contains(t.Id)).ToList();
+        return _db.Stadiums.Include(e => e.Halls).Where(t => ids.Contains(t.Id));
     }
 
     public Stadium Get(int id)
@@ -29,9 +29,9 @@ public class StadiumRepository : IRepository<Stadium>
         return _db.Stadiums.Include(e => e.Halls).FirstOrDefault(e => e.Id == id) ?? throw new InvalidOperationException();
     }
 
-    public IEnumerable<Stadium> Find(Func<Stadium, bool> predicate)
+    public IQueryable<Stadium> Find(Func<Stadium, bool> predicate)
     {
-        return _db.Stadiums.Include(e => e.Halls).Where(predicate).ToList();
+        return (IQueryable<Stadium>)_db.Stadiums.Include(e => e.Halls).Where(predicate);
     }
 
     public void Create(Stadium item)

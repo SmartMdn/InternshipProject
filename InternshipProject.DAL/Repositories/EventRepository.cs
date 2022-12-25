@@ -14,14 +14,14 @@ public class EventRepository : IRepository<Event>
         _db = db;
     }
 
-    public IEnumerable<Event> GetAll()
+    public IQueryable<Event> GetAll()
     {
         return _db.Events;
     }
 
-    public IEnumerable<Event> GetList(List<int> ids)
+    public IQueryable<Event> GetList(List<int> ids)
     {
-        return _db.Events.Where(t => ids.Contains(t.Id)).ToList();
+        return _db.Events.Where(t => ids.Contains(t.Id));
     }
 
     public Event Get(int id)
@@ -29,11 +29,9 @@ public class EventRepository : IRepository<Event>
         return _db.Events.Find(id) ?? throw new InvalidOperationException();
     }
 
-    public IEnumerable<Event> Find(Func<Event, bool> predicate)
+    public IQueryable<Event> Find(Func<Event, bool> predicate)
     {
-        var a = _db.Events.Where(predicate).ToList();
-        //var b =_db.Events.Include(e => e.EventHall).Where(predicate).ToList();
-        return a;
+        return (IQueryable<Event>)_db.Events.Where(predicate);
     }
 
     public void Create(Event item)

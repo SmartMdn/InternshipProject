@@ -11,15 +11,14 @@
   <component name="ChangeListManager">
     <list default="true" id="34db0145-e696-4685-a61f-87b894f01690" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.InternshipProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.InternshipProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/Services/EventCRUDService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/Services/EventCRUDService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/Services/HallCRUDService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/Services/HallCRUDService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/Services/PlaceCRUDService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/Services/PlaceCRUDService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/Services/SectionCRUDService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/Services/SectionCRUDService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/Services/StadiumCRUDService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/Services/StadiumCRUDService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/EFUnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/EFUnitOfWork.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Interfaces/IRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Interfaces/IRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/EventRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/EventRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/HallRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/HallRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/PlaceRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/PlaceRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/SectionRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/SectionRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Models/Hall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Models/Hall.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/StadiumRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/StadiumRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/TicketRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/TicketRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Interfaces/CrudController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Interfaces/CrudController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +60,11 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e74356f198b598e97eaeea83e8b7b1f2bfe27c0a39fedf86bb7dc44827fbda/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/facad4292c1d7da96e4eecf681ad9b0d65de4612afef21d8a14c526a937210/AuthorizationMiddleware.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/fc536bf76bb27537bde426819210b5e5a2ebcd594ca72f7b85fad40e9c63d5a/ControllerFactoryProvider.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Desktop/InternshipProject/InternshipProject.DAL/Interfaces/IRepository.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Desktop/InternshipProject/InternshipProject.DAL/Interfaces/IUnitOfWork.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Desktop/InternshipProject/InternshipProject.DAL/Repositories/EFUnitOfWork.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Desktop/InternshipProject/InternshipProject.DAL/Repositories/EventRepository.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Desktop/InternshipProject/InternshipProject.DAL/Repositories/HallRepository.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -74,29 +78,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "project.propDebugger",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propDebugger&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\Илья Матюнин\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\Илья Матюнин\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\Илья Матюнин\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\Илья Матюнин\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\Илья Матюнин\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\Илья Матюнин\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.InternshipProject.WEB: https">
     <configuration name="InternshipProject.WEB: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/InternshipProject.WEB/InternshipProject.WEB.csproj" />
@@ -173,6 +177,11 @@
       <workItem from="1670507420869" duration="3388000" />
       <workItem from="1670597833010" duration="5562000" />
       <workItem from="1670615164944" duration="1010000" />
+      <workItem from="1671141058831" duration="4494000" />
+      <workItem from="1671510210699" duration="1599000" />
+      <workItem from="1671646370342" duration="595000" />
+      <workItem from="1671778964162" duration="847000" />
+      <workItem from="1671992586162" duration="4068000" />
     </task>
     <task id="LOCAL-00001" summary="Create WebProject">
       <created>1669208941169</created>
@@ -405,10 +414,10 @@
           <line>22</line>
           <properties documentPath="C:\Programming\ProjectXYZ\InternshipProject\InternshipProject.DAL\Repositories\SectionRepository.cs" initialLine="17" containingFunctionPresentation="method 'GetList'">
             <startOffsets>
-              <option value="512" />
+              <option value="510" />
             </startOffsets>
             <endOffsets>
-              <option value="513" />
+              <option value="511" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="13" />
@@ -431,10 +440,10 @@
           <line>27</line>
           <properties documentPath="C:\Programming\ProjectXYZ\InternshipProject\InternshipProject.DAL\Repositories\StadiumRepository.cs" initialLine="27" containingFunctionPresentation="method 'Get'">
             <startOffsets>
-              <option value="647" />
+              <option value="636" />
             </startOffsets>
             <endOffsets>
-              <option value="648" />
+              <option value="637" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="16" />
@@ -480,13 +489,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/InternshipProject.DAL/Repositories/EventRepository.cs</url>
-          <line>44</line>
+          <line>42</line>
           <properties documentPath="C:\Programming\ProjectXYZ\InternshipProject\InternshipProject.DAL\Repositories\EventRepository.cs" initialLine="44" containingFunctionPresentation="method 'Update'">
             <startOffsets>
-              <option value="1042" />
+              <option value="940" />
             </startOffsets>
             <endOffsets>
-              <option value="1043" />
+              <option value="941" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="20" />

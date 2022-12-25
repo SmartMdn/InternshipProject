@@ -14,22 +14,14 @@ public class SectionRepository : IRepository<Section>
         _db = db;
     }
 
-    public IEnumerable<Section> GetAll()
+    public IQueryable<Section> GetAll()
     {
         return _db.Sections;
     }
 
-    public IEnumerable<Section> GetList(List<int> ids)
+    public IQueryable<Section> GetList(List<int> ids)
     {
-        try
-        {
-            return _db.Sections.Include(section => section.Halls).Include(section => section.Places).Where(t => ids.Contains(t.Id)).ToList();
-        }
-        catch (Exception e)
-        {
-            return new List<Section>();
-        }
-        
+        return _db.Sections.Include(section => section.Halls).Include(section => section.Places).Where(t => ids.Contains(t.Id)); 
     }
 
     public Section Get(int id)
@@ -37,9 +29,9 @@ public class SectionRepository : IRepository<Section>
         return _db.Sections.Include(section => section.Halls).Include(section => section.Places).FirstOrDefault(e => e.Id == id) ?? throw new InvalidOperationException();
     }
 
-    public IEnumerable<Section> Find(Func<Section, bool> predicate)
+    public IQueryable<Section> Find(Func<Section, bool> predicate)
     {
-        return _db.Sections.Include(section => section.Halls).Include(section => section.Places).Where(predicate).ToList();
+        return (IQueryable<Section>)_db.Sections.Include(section => section.Halls).Include(section => section.Places).Where(predicate);
     }
 
     public void Create(Section item)
