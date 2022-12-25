@@ -14,14 +14,14 @@ public class PlaceRepository : IRepository<Place>
         _db = db;
     }
 
-    public IEnumerable<Place> GetAll()
+    public IQueryable<Place> GetAll()
     {
         return _db.Places;
     }
 
-    public IEnumerable<Place> GetList(List<int> ids)
+    public IQueryable<Place> GetList(List<int> ids)
     {
-        return _db.Places.Include(p=>p.Sections).Where(t => ids.Contains(t.Id)).ToList();
+        return _db.Places.Include(p=>p.Sections).Where(t => ids.Contains(t.Id));
     }
 
     public Place Get(int id)
@@ -29,9 +29,9 @@ public class PlaceRepository : IRepository<Place>
         return _db.Places.Include(p=>p.Sections).FirstOrDefault(place => place.Id ==id) ?? throw new InvalidOperationException();
     }
 
-    public IEnumerable<Place> Find(Func<Place, bool> predicate)
+    public IQueryable<Place> Find(Func<Place, bool> predicate)
     {
-        return _db.Places.Where(predicate).ToList();
+        return (IQueryable<Place>)_db.Places.Where(predicate);
     }
 
     public void Create(Place item)

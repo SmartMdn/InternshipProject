@@ -14,14 +14,14 @@ public class HallRepository : IRepository<Hall>
         _db = db;
     }
 
-    public IEnumerable<Hall> GetAll()
+    public IQueryable<Hall> GetAll()
     {
         return _db.Halls;
     }
 
-    public IEnumerable<Hall> GetList(List<int> ids)
+    public IQueryable<Hall> GetList(List<int> ids)
     {
-        return _db.Halls.Include(hall => hall.Stadiums).Include(hall => hall.Sections).Where(t => ids.Contains(t.Id)).ToList();
+        return _db.Halls.Include(hall => hall.Stadiums).Include(hall => hall.Sections).Where(t => ids.Contains(t.Id));
     }
 
     public Hall Get(int id)
@@ -29,9 +29,9 @@ public class HallRepository : IRepository<Hall>
         return _db.Halls.Include(hall => hall.Stadiums).Include(hall => hall.Sections).FirstOrDefault(e => e.Id == id) ?? throw new InvalidOperationException();
     }
 
-    public IEnumerable<Hall> Find(Func<Hall, bool> predicate)
+    public IQueryable<Hall> Find(Func<Hall, bool> predicate)
     {
-        return _db.Halls.Where(predicate).ToList();
+        return (IQueryable<Hall>)_db.Halls.Where(predicate);
     }
 
     public void Create(Hall item)

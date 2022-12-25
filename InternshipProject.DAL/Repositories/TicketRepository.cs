@@ -14,7 +14,7 @@ public class TicketRepository : IRepository<Ticket>
         _db = db;
     }
 
-    public IEnumerable<Ticket> GetAll()
+    public IQueryable<Ticket> GetAll()
     {
         return _db.Tickets;
     }
@@ -24,9 +24,9 @@ public class TicketRepository : IRepository<Ticket>
         return _db.Tickets.Find(id) ?? throw new InvalidOperationException();
     }
 
-    public IEnumerable<Ticket> Find(Func<Ticket, bool> predicate)
+    public IQueryable<Ticket> Find(Func<Ticket, bool> predicate)
     {
-        return _db.Tickets.Where(predicate).ToList();
+        return (IQueryable<Ticket>)_db.Tickets.Where(predicate);
     }
 
     public void Create(Ticket item)
@@ -49,8 +49,8 @@ public class TicketRepository : IRepository<Ticket>
         if (ticket != null) _db.Tickets.Remove(ticket);
     }
 
-    public IEnumerable<Ticket> GetList(List<int> ids)
+    public IQueryable<Ticket> GetList(List<int> ids)
     {
-        return _db.Tickets.Where(t => ids.Contains(t.Id)).ToList();
+        return _db.Tickets.Where(t => ids.Contains(t.Id));
     }
 }

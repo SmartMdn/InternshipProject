@@ -7,8 +7,10 @@ namespace InternshipProject.WEB.Interfaces;
 
 public abstract class CrudController<T, TK> : ControllerBase where TK : class
 {
-    protected readonly IMapper MapperInput = new MapperConfiguration(cfg => cfg.CreateMap<T, TK>()).CreateMapper();
-    protected readonly IMapper MapperOutput = new MapperConfiguration(cfg => cfg.CreateMap<TK, T>()).CreateMapper();
+    protected readonly IMapper MapperInput = new MapperConfiguration(cfg => 
+        cfg.CreateMap<T, TK>()).CreateMapper();
+    protected readonly IMapper MapperOutput = new MapperConfiguration(cfg => 
+        cfg.CreateMap<TK, T>()).CreateMapper();
     protected readonly ICRUDService<TK> Service;
     protected TK ResultItem;
 
