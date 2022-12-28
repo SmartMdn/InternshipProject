@@ -22,25 +22,25 @@ public class EventController : CrudController<Event, EventDTO>
     }
 
     [HttpPost]
-    public override string Add(Event item)
+    public override IActionResult Add(Event item)
     {
         ResultItem = MapperInput.Map<Event, EventDTO>(item);
         Service.Post(ResultItem);
-        return "Ивент успешно изменён";
+        return new OkResult();
     }
 
     [HttpPut]
-    public override string Update(Event item, int id)
+    public override IActionResult Update(Event item, int id)
     {
         var resultItem = MapperInput.Map<Event, EventDTO>(item);
         Service.Put(resultItem, id);
-        return "Ивент успешно добавлен";
+        return new OkResult();
     }
 
     [HttpDelete]
-    public override string Delete(int id)
+    public override IActionResult Delete(int id)
     {
         Service.Delete(id);
-        return "Ивент успешно удалён";
+        return new OkResult();
     }
 }

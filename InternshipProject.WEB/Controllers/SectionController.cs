@@ -22,25 +22,25 @@ public class SectionController : CrudController<Section, SectionDTO>
     }
 
     [HttpPut]
-    public override string Update(Section item, int id)
+    public override IActionResult Update(Section item, int id)
     {
         ResultItem = MapperInput.Map<Section, SectionDTO>(item);
         Service.Put(ResultItem, id);
-        return "Секция успешно изменена";
+        return new OkResult();
     }
 
     [HttpPost]
-    public override string Add(Section item)
+    public override IActionResult Add(Section item)
     {
         ResultItem = MapperInput.Map<Section, SectionDTO>(item);
         Service.Post(ResultItem);
-        return "Секция успешно добавлена";
+        return new OkResult();
     }
 
     [HttpDelete]
-    public override string Delete(int id)
+    public override IActionResult Delete(int id)
     {
         Service.Delete(id);
-        return "Секция успешно удалёна";
+        return new OkResult();
     }
 }

@@ -22,25 +22,25 @@ public class PlaceController : CrudController<Place, PlaceDTO>
     }
 
     [HttpPut]
-    public override string Update(Place item, int id)
+    public override IActionResult Update(Place item, int id)
     {
         ResultItem = MapperInput.Map<Place, PlaceDTO>(item);
         Service.Put(ResultItem, id);
-        return "Место успешно изменено";
+        return new OkResult();
     }
 
     [HttpPost]
-    public override string Add(Place item)
+    public override IActionResult Add(Place item)
     {
         ResultItem = MapperInput.Map<Place, PlaceDTO>(item);
         Service.Post(ResultItem);
-        return "Место успешно добавлен";
+        return new OkResult();
     }
 
     [HttpDelete]
-    public override string Delete(int id)
+    public override IActionResult Delete(int id)
     {
         Service.Delete(id);
-        return "Место успешно удалён";
+        return new OkResult();
     }
 }

@@ -20,7 +20,7 @@ public abstract class CrudController<T, TK> : ControllerBase where TK : class
     }
 
     public abstract T Get(int id);
-    public abstract string Update(T item, int id);
-    public abstract string Add(T item);
-    public abstract string Delete(int id);
+    public abstract IActionResult Update(T item, int id);
+    public abstract IActionResult Add(T item);
+    public abstract IActionResult Delete(int id);
 }

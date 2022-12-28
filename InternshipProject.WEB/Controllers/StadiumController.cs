@@ -22,25 +22,25 @@ public class StadiumController : CrudController<Stadium, StadiumDTO>
     }
 
     [HttpPut]
-    public override string Update(Stadium item, int id)
+    public override IActionResult Update(Stadium item, int id)
     {
         ResultItem = MapperInput.Map<Stadium, StadiumDTO>(item);
         Service.Put(ResultItem, id);
-        return "Стадион успешно изменён";
+        return new OkResult();
     }
 
     [HttpPost]
-    public override string Add(Stadium item)
+    public override IActionResult Add(Stadium item)
     {
         ResultItem = MapperInput.Map<Stadium, StadiumDTO>(item);
         Service.Post(ResultItem);
-        return "Стадион успешно добавлен";
+        return new OkResult();
     }
 
     [HttpDelete]
-    public override string Delete(int id)
+    public override IActionResult Delete(int id)
     {
         Service.Delete(id);
-        return "Стадион успешно удалён";
+        return new OkResult();
     }
 }

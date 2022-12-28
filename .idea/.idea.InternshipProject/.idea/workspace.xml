@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34db0145-e696-4685-a61f-87b894f01690" name="Changes" comment="">
+    <list default="true" id="34db0145-e696-4685-a61f-87b894f01690" name="Changes" comment="fixed routing">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.InternshipProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.InternshipProject/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/EventController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/EventController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/HallController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/HallController.cs" afterDir="false" />
@@ -40,6 +40,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/InternshipProject.DAL/Repositories/EventRepository.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Programming/ProjectXYZ/InternshipProject/InternshipProject.WEB/Interfaces/CrudController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1edbe9176db7440b9b8f2c12e9a3a64a1fc190/c4/160f8e36/DbContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1edbe9176db7440b9b8f2c12e9a3a64a1fc190/fd/6e5a8e41/DbContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/19ba5a289f2afd3f4d5e862cb3f3efee6181683a31ee31b86c2298b1f51114b/ServiceProvider.cs" root0="SKIP_HIGHLIGHTING" />
@@ -188,7 +189,7 @@
       <workItem from="1671646370342" duration="595000" />
       <workItem from="1671778964162" duration="847000" />
       <workItem from="1671992586162" duration="6165000" />
-      <workItem from="1672237142002" duration="1876000" />
+      <workItem from="1672237142002" duration="7702000" />
     </task>
     <task id="LOCAL-00001" summary="Create WebProject">
       <created>1669208941169</created>
@@ -337,7 +338,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671997358606</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="fixed routing">
+      <created>1672240306527</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1672240306527</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -392,7 +400,8 @@
     <MESSAGE value="fixed BL" />
     <MESSAGE value="remove todo" />
     <MESSAGE value="Rework IEnumerable in IQueryable" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rework IEnumerable in IQueryable" />
+    <MESSAGE value="fixed routing" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed routing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

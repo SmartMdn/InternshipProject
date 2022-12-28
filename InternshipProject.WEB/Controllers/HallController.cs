@@ -22,25 +22,25 @@ public class HallController : CrudController<Hall, HallDTO>
     }
 
     [HttpPut]
-    public override string Update(Hall item, int id)
+    public override IActionResult Update(Hall item, int id)
     {
         ResultItem = MapperInput.Map<Hall, HallDTO>(item);
         Service.Put(ResultItem, id);
-        return "Зал успешно изменён";
+        return new OkResult();
     }
 
     [HttpPost]
-    public override string Add(Hall item)
+    public override IActionResult Add(Hall item)
     {
         ResultItem = MapperInput.Map<Hall, HallDTO>(item);
         Service.Post(ResultItem);
-        return "Зал успешно добавлен";
+        return new OkResult();
     }
 
     [HttpDelete]
-    public override string Delete(int id)
+    public override IActionResult Delete(int id)
     {
         Service.Delete(id);
-        return "Зал успешно удалён";
+        return new OkResult();
     }
 }
