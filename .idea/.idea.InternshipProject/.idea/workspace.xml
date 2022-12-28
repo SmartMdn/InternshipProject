@@ -11,13 +11,12 @@
   <component name="ChangeListManager">
     <list default="true" id="34db0145-e696-4685-a61f-87b894f01690" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.InternshipProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.InternshipProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Interfaces/IRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Interfaces/IRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/EventRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/EventRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/HallRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/HallRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/PlaceRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/PlaceRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/SectionRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/SectionRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/StadiumRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/StadiumRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/TicketRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/TicketRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/EventController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/EventController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/HallController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/HallController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/PlaceController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/PlaceController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/SectionController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/SectionController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/StadiumController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/StadiumController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/TicketController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/TicketController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Interfaces/CrudController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Interfaces/CrudController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,6 +29,13 @@
       <list>
         <option value="HTML File" />
       </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
@@ -181,7 +187,8 @@
       <workItem from="1671510210699" duration="1599000" />
       <workItem from="1671646370342" duration="595000" />
       <workItem from="1671778964162" duration="847000" />
-      <workItem from="1671992586162" duration="4068000" />
+      <workItem from="1671992586162" duration="6165000" />
+      <workItem from="1672237142002" duration="1876000" />
     </task>
     <task id="LOCAL-00001" summary="Create WebProject">
       <created>1669208941169</created>
@@ -323,7 +330,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670442176212</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Rework IEnumerable in IQueryable">
+      <created>1671997358606</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1671997358606</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -336,7 +350,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="development" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -365,7 +391,8 @@
     <MESSAGE value="migration to pc" />
     <MESSAGE value="fixed BL" />
     <MESSAGE value="remove todo" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove todo" />
+    <MESSAGE value="Rework IEnumerable in IQueryable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rework IEnumerable in IQueryable" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
