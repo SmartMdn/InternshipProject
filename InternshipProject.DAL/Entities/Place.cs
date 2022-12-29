@@ -1,9 +1,12 @@
-﻿namespace InternshipProject.DAL.Entities;
+﻿using System.Collections.Specialized;
 
-public class Place
+namespace InternshipProject.DAL.Entities;
+
+internal class Place
 {
-    public int Id { get; set; }
-    public PlaceType Type { get; set; }
-    public List<Section>? Sections { get; set; }
-    public List<Ticket>? Tickets { get; set; }
+    internal int Id { get; set; }
+    internal PlaceType Type { get; set; }
+    internal Section Section { get; set; }
+    internal int SectionId { get; set; }
+    internal List<Ticket>? Tickets { get; set; }
 }

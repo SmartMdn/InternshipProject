@@ -1,13 +1,15 @@
-﻿using AutoMapper;
+﻿using System.Runtime.CompilerServices;
+using AutoMapper;
 using InternshipProject.BLL.DTO;
 using InternshipProject.BLL.Infrastucture;
 using InternshipProject.BLL.Interfaces;
 using InternshipProject.DAL.Entities;
 using InternshipProject.DAL.Interfaces;
 
+[assembly: InternalsVisibleTo("InternshipProject.WEB")]
 namespace InternshipProject.BLL.Services;
 
-public class HallCRUDService : ICRUDService<HallDTO>
+internal class HallCRUDService : ICRUDService<HallDTO>
 {
     private readonly IUnitOfWork _database;
 
@@ -23,9 +25,7 @@ public class HallCRUDService : ICRUDService<HallDTO>
         var hall = _database.Halls.Get(id);
         if (hall == null)
             throw new ValidationException("Билет не найден", "");
-
-        IEnumerable<int>? stadiumsIds = from st in hall.Stadiums select st.Id;
-        return new HallDTO { Id = hall.Id, Name = hall.Name, Stadiums = stadiumsIds.ToArray()};
+        return new HallDTO { Id = hall.Id, Name = hall.Name};
     }
 
     public IEnumerable<HallDTO> GetAll()
@@ -41,7 +41,6 @@ public class HallCRUDService : ICRUDService<HallDTO>
         {
             Id = id,
             Name = item.Name,
-            Stadiums = _database.Stadiums.GetList(item.Stadiums.ToList()).ToList(),
             Sections = _database.Sections.GetList(item.Sections.ToList()).ToList()
         };
         _database.Halls.Update(hall);
@@ -54,7 +53,6 @@ public class HallCRUDService : ICRUDService<HallDTO>
         var hall = new Hall
         {   
             Name = item.Name,
-            Stadiums = _database.Stadiums.GetList(item.Stadiums.ToList()).ToList(),
             Sections = _database.Sections.GetList(item.Sections.ToList()).ToList()
         };
         _database.Halls.Create(hall);

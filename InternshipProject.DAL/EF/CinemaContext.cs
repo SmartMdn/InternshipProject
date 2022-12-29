@@ -14,12 +14,12 @@ public sealed class CinemaContext : DbContext
         Database.EnsureCreated();
     }
 
-    public DbSet<Event> Events { get; set; }
-    public DbSet<Hall> Halls { get; set; }
-    public DbSet<Place> Places { get; set; }
-    public DbSet<Section> Sections { get; set; }
-    public DbSet<Stadium> Stadiums { get; set; }
-    public DbSet<Ticket> Tickets { get; set; }
+    internal DbSet<Event> Events { get; set; }
+    internal DbSet<Hall> Halls { get; set; }
+    internal DbSet<Place> Places { get; set; }
+    internal DbSet<Section> Sections { get; set; }
+    internal DbSet<Stadium> Stadiums { get; set; }
+    internal DbSet<Ticket> Tickets { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

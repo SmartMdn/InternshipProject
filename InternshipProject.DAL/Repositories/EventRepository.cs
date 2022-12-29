@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace InternshipProject.DAL.Repositories;
 
-public class EventRepository : IRepository<Event>
+internal class EventRepository : IRepository<Event>
 {
     private readonly CinemaContext _db;
 

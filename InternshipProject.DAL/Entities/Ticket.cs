@@ -1,11 +1,11 @@
 ﻿namespace InternshipProject.DAL.Entities;
 
-public class Ticket
-{
-    public int Id { get; set; }
-    public Event? Event { get; set; }
-    public int EventId { get; set; }
-    public Place? Place { get; set; }
-    public int PlaceId { get; set; }
-    public bool IsBought { get; set; }
+internal class Ticket
+{  
+    internal int Id { get; set; }
+    internal Event? Event { get; set; }
+    internal int EventId { get; set; }
+    internal Place? Place { get; set; }
+    internal int PlaceId { get; set; }
+    internal bool IsBought { get; set; }
 }

@@ -1,11 +1,14 @@
-﻿using InternshipProject.DAL.EF;
+﻿using System.Runtime.CompilerServices;
+using InternshipProject.DAL.EF;
 using InternshipProject.DAL.Entities;
 using InternshipProject.DAL.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
+[assembly: InternalsVisibleTo("InternshipProject.BLL")]
+[assembly: InternalsVisibleTo("InternshipProject.WEB")]
 namespace InternshipProject.DAL.Repositories;
 
-public class EFUnitOfWork : IUnitOfWork
+internal class EFUnitOfWork : IUnitOfWork
 {
     private readonly CinemaContext _db;
 
@@ -31,32 +34,32 @@ public class EFUnitOfWork : IUnitOfWork
         GC.SuppressFinalize(this);
     }
 
-    public IRepository<Event> Events
+    IRepository<Event> IUnitOfWork.Events
     {
         get { return _eventRepository ??= new EventRepository(_db); }
     }
 
-    public IRepository<Hall> Halls
+    IRepository<Hall> IUnitOfWork.Halls
     {
         get { return _hallRepository ??= new HallRepository(_db); }
     }
 
-    public IRepository<Place> Places
+    IRepository<Place> IUnitOfWork.Places
     {
         get { return _placeRepository ??= new PlaceRepository(_db); }
     }
 
-    public IRepository<Section> Sections
+    IRepository<Section> IUnitOfWork.Sections
     {
         get { return _sectionRepository ??= new SectionRepository(_db); }
     }
 
-    public IRepository<Stadium> Stadiums
+    IRepository<Stadium> IUnitOfWork.Stadiums
     {
         get { return _stadiumRepository ??= new StadiumRepository(_db); }
     }
 
-    public IRepository<Ticket> Tickets
+    IRepository<Ticket> IUnitOfWork.Tickets
     {
         get { return _ticketRepository ??= new TicketRepository(_db); }
     }

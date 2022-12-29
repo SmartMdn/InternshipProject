@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace InternshipProject.DAL.Repositories;
 
-public class SectionRepository : IRepository<Section>
+internal class SectionRepository : IRepository<Section>
 {
     private readonly CinemaContext _db;
 
@@ -21,17 +21,17 @@ public class SectionRepository : IRepository<Section>
 
     public IQueryable<Section> GetList(List<int> ids)
     {
-        return _db.Sections.Include(section => section.Halls).Include(section => section.Places).Where(t => ids.Contains(t.Id)); 
+        return _db.Sections.Include(section => section.Places).Where(t => ids.Contains(t.Id)); 
     }
 
     public Section Get(int id)
     {
-        return _db.Sections.Include(section => section.Halls).Include(section => section.Places).FirstOrDefault(e => e.Id == id) ?? throw new InvalidOperationException();
+        return _db.Sections.Include(section => section.Places).FirstOrDefault(e => e.Id == id) ?? throw new InvalidOperationException();
     }
 
     public IQueryable<Section> Find(Func<Section, bool> predicate)
     {
-        return (IQueryable<Section>)_db.Sections.Include(section => section.Halls).Include(section => section.Places).Where(predicate);
+        return (IQueryable<Section>)_db.Sections.Include(section => section.Places).Where(predicate);
     }
 
     public void Create(Section item)
@@ -43,7 +43,6 @@ public class SectionRepository : IRepository<Section>
     {
         var section = Get(item.Id);
         section.Places = item.Places;
-        section.Halls = item.Halls;
         section.Name = item.Name;
         _db.Entry(section).State = EntityState.Modified;
         

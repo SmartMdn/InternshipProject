@@ -1,11 +1,14 @@
-﻿namespace InternshipProject.DAL.Entities;
+﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 
-public class Hall
+namespace InternshipProject.DAL.Entities;
+
+internal class Hall
 {
-    public int Id { get; set; }
-    public string Name { get; set; }
-
-    public List<Stadium>? Stadiums { get; set; }
-    public List<Event>? Events { get; set; }
-    public List<Section>? Sections { get; set; }
+    internal int Id { get; set; }
+    internal string Name { get; set; }
+    internal Stadium Stadium { get; set; }
+    internal int StadiumId { get; set; }
+    internal List<Event>? Events { get; set; }
+    internal List<Section>? Sections { get; set; }
 }
