@@ -4,6 +4,7 @@ using InternshipProject.BLL.DTO;
 using InternshipProject.BLL.Infrastucture;
 using InternshipProject.BLL.Interfaces;
 using InternshipProject.DAL.Entities;
+using InternshipProject.DAL.Enums;
 using InternshipProject.DAL.Interfaces;
 
 [assembly: InternalsVisibleTo("InternshipProject.WEB")]
@@ -25,7 +26,7 @@ internal class PlaceCRUDService : ICRUDService<PlaceDTO>
         var place = _database.Places.Get(id);
         if (place == null)
             throw new ValidationException("Билет не найден", "");
-        return new PlaceDTO { Id = place.Id, Type = (int)place.Type};
+        return new PlaceDTO { Id = place.Id, Type = place.Type};
     }
 
     public IEnumerable<PlaceDTO> GetAll()

@@ -1,4 +1,4 @@
-﻿namespace InternshipProject.DAL.Entities;
+﻿namespace InternshipProject.DAL.Enums;
 
 public enum PlaceType
 {
