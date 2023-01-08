@@ -1,13 +1,15 @@
-﻿using AutoMapper;
+﻿using System.Runtime.CompilerServices;
+using AutoMapper;
 using InternshipProject.BLL.DTO;
 using InternshipProject.BLL.Infrastucture;
 using InternshipProject.BLL.Interfaces;
 using InternshipProject.DAL.Entities;
 using InternshipProject.DAL.Interfaces;
 
+[assembly: InternalsVisibleTo("InternshipProject.WEB")]
 namespace InternshipProject.BLL.Services;
 
-public class TicketCRUDService : ICRUDService<TicketDTO>
+internal class TicketCRUDService : ICRUDService<TicketDTO>
 {
     private readonly IUnitOfWork _database;
 

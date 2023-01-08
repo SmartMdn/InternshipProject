@@ -1,8 +1,11 @@
-﻿using InternshipProject.DAL.Entities;
+﻿using System.Runtime.CompilerServices;
+using InternshipProject.DAL.Entities;
 
+[assembly: InternalsVisibleTo("InternshipProject.BLL")]
+[assembly: InternalsVisibleTo("InternshipProject.WEB")]
 namespace InternshipProject.DAL.Interfaces;
 
-public interface IUnitOfWork : IDisposable
+internal interface IUnitOfWork : IDisposable
 {
     IRepository<Event> Events { get; }
     IRepository<Hall> Halls { get; }

@@ -1,8 +1,10 @@
-﻿namespace InternshipProject.BLL.DTO;
+﻿using InternshipProject.DAL.Enums;
+
+namespace InternshipProject.BLL.DTO;
 
 public class PlaceDTO
 {
     public int Id { get; set; }
-    public int Type { get; set; }
-    public int[]? Sections { get; set; }
+    public PlaceType Type { get; set; }
+    public int SectionId { get; set; }
 }

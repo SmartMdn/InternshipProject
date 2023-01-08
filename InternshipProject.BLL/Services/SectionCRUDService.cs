@@ -1,13 +1,15 @@
-﻿using AutoMapper;
+﻿using System.Runtime.CompilerServices;
+using AutoMapper;
 using InternshipProject.BLL.DTO;
 using InternshipProject.BLL.Infrastucture;
 using InternshipProject.BLL.Interfaces;
 using InternshipProject.DAL.Entities;
 using InternshipProject.DAL.Interfaces;
 
+[assembly: InternalsVisibleTo("InternshipProject.WEB")]
 namespace InternshipProject.BLL.Services;
 
-public class SectionCRUDService : ICRUDService<SectionDTO>
+internal class SectionCRUDService : ICRUDService<SectionDTO>
 {
     private readonly IUnitOfWork _database;
 
@@ -23,9 +25,8 @@ public class SectionCRUDService : ICRUDService<SectionDTO>
         var section = _database.Sections.Get(id);
         if (section == null)
             throw new ValidationException("Билет не найден", "");
-        var ids = (from st in section.Halls select st.Id).ToArray();
         var ids1 = (from st in section.Places select st.Id).ToArray();
-        return new SectionDTO { Id = section.Id, Name = section.Name, Halls = ids, Places = ids1};
+        return new SectionDTO { Id = section.Id, Name = section.Name, Places = ids1};
     }
 
     public IEnumerable<SectionDTO> GetAll()
@@ -41,7 +42,6 @@ public class SectionCRUDService : ICRUDService<SectionDTO>
         {
             Id = id, 
             Name = item.Name,
-            Halls = _database.Halls.GetList(item.Halls.ToList()).ToList(),
             Places = _database.Places.GetList(item.Places.ToList()).ToList()
         };
         _database.Sections.Update(section);
@@ -54,7 +54,6 @@ public class SectionCRUDService : ICRUDService<SectionDTO>
         var section = new Section()
         {
             Name = item.Name,
-            Halls = _database.Halls.GetList(item.Halls.ToList()).ToList(),
             Places = _database.Places.GetList(item.Places.ToList()).ToList()
         };
         _database.Sections.Create(section);

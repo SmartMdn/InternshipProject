@@ -1,10 +1,11 @@
 ﻿namespace InternshipProject.DAL.Entities;
 
-public class Event
+internal class Event
 {
     public int Id { get; set; }
     public string? Name { get; set; }
     public int EventDuration { get; set; }
+    public DateTime EventDate { get; set; }
     public int BookingPeriodDays { get; set; }
 
     public Hall? EventHall { get; set; }

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace InternshipProject.DAL.Repositories;
 
-public class PlaceRepository : IRepository<Place>
+internal class PlaceRepository : IRepository<Place>
 {
     private readonly CinemaContext _db;
 
@@ -21,12 +21,12 @@ public class PlaceRepository : IRepository<Place>
 
     public IQueryable<Place> GetList(List<int> ids)
     {
-        return _db.Places.Include(p=>p.Sections).Where(t => ids.Contains(t.Id));
+        return _db.Places.Where(t => ids.Contains(t.Id));
     }
 
     public Place Get(int id)
     {
-        return _db.Places.Include(p=>p.Sections).FirstOrDefault(place => place.Id ==id) ?? throw new InvalidOperationException();
+        return _db.Places.FirstOrDefault(place => place.Id ==id) ?? throw new InvalidOperationException();
     }
 
     public IQueryable<Place> Find(Func<Place, bool> predicate)
@@ -42,7 +42,6 @@ public class PlaceRepository : IRepository<Place>
     public void Update(Place item)
     {
         var place = Get(item.Id);
-        place.Sections = item.Sections;
         place.Tickets = item.Tickets;
         place.Type = item.Type;
         _db.Entry(place).State = EntityState.Modified;

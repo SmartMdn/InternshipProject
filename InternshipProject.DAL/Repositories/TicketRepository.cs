@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace InternshipProject.DAL.Repositories;
 
-public class TicketRepository : IRepository<Ticket>
+internal class TicketRepository : IRepository<Ticket>
 {
     private readonly CinemaContext _db;
 

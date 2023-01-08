@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -10,45 +11,6 @@ namespace InternshipProject.DAL.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "Halls",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Halls", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Places",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Type = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Places", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Sections",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Sections", x => x.Id);
-                });
-
             migrationBuilder.CreateTable(
                 name: "Stadiums",
                 columns: table => new
@@ -64,6 +26,26 @@ namespace InternshipProject.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Halls",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    StadiumId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Halls", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Halls_Stadiums_StadiumId",
+                        column: x => x.StadiumId,
+                        principalTable: "Stadiums",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Events",
                 columns: table => new
                 {
@@ -71,6 +53,7 @@ namespace InternshipProject.DAL.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     EventDuration = table.Column<int>(type: "int", nullable: false),
+                    EventDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     BookingPeriodDays = table.Column<int>(type: "int", nullable: false),
                     HallId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -86,73 +69,41 @@ namespace InternshipProject.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "HallSection",
+                name: "Sections",
                 columns: table => new
                 {
-                    HallsId = table.Column<int>(type: "int", nullable: false),
-                    SectionsId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    HallId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_HallSection", x => new { x.HallsId, x.SectionsId });
+                    table.PrimaryKey("PK_Sections", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_HallSection_Halls_HallsId",
-                        column: x => x.HallsId,
+                        name: "FK_Sections_Halls_HallId",
+                        column: x => x.HallId,
                         principalTable: "Halls",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_HallSection_Sections_SectionsId",
-                        column: x => x.SectionsId,
-                        principalTable: "Sections",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "PlaceSection",
+                name: "Places",
                 columns: table => new
                 {
-                    PlacesId = table.Column<int>(type: "int", nullable: false),
-                    SectionsId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Type = table.Column<int>(type: "int", nullable: false),
+                    SectionId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PlaceSection", x => new { x.PlacesId, x.SectionsId });
+                    table.PrimaryKey("PK_Places", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_PlaceSection_Places_PlacesId",
-                        column: x => x.PlacesId,
-                        principalTable: "Places",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_PlaceSection_Sections_SectionsId",
-                        column: x => x.SectionsId,
+                        name: "FK_Places_Sections_SectionId",
+                        column: x => x.SectionId,
                         principalTable: "Sections",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "HallStadium",
-                columns: table => new
-                {
-                    HallsId = table.Column<int>(type: "int", nullable: false),
-                    StadiumsId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_HallStadium", x => new { x.HallsId, x.StadiumsId });
-                    table.ForeignKey(
-                        name: "FK_HallStadium_Halls_HallsId",
-                        column: x => x.HallsId,
-                        principalTable: "Halls",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_HallStadium_Stadiums_StadiumsId",
-                        column: x => x.StadiumsId,
-                        principalTable: "Stadiums",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -181,7 +132,7 @@ namespace InternshipProject.DAL.Migrations
                         column: x => x.PlaceId,
                         principalTable: "Places",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateIndex(
@@ -190,19 +141,19 @@ namespace InternshipProject.DAL.Migrations
                 column: "HallId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_HallSection_SectionsId",
-                table: "HallSection",
-                column: "SectionsId");
+                name: "IX_Halls_StadiumId",
+                table: "Halls",
+                column: "StadiumId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_HallStadium_StadiumsId",
-                table: "HallStadium",
-                column: "StadiumsId");
+                name: "IX_Places_SectionId",
+                table: "Places",
+                column: "SectionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PlaceSection_SectionsId",
-                table: "PlaceSection",
-                column: "SectionsId");
+                name: "IX_Sections_HallId",
+                table: "Sections",
+                column: "HallId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Tickets_EventId",
@@ -219,22 +170,7 @@ namespace InternshipProject.DAL.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "HallSection");
-
-            migrationBuilder.DropTable(
-                name: "HallStadium");
-
-            migrationBuilder.DropTable(
-                name: "PlaceSection");
-
-            migrationBuilder.DropTable(
                 name: "Tickets");
-
-            migrationBuilder.DropTable(
-                name: "Stadiums");
-
-            migrationBuilder.DropTable(
-                name: "Sections");
 
             migrationBuilder.DropTable(
                 name: "Events");
@@ -243,7 +179,13 @@ namespace InternshipProject.DAL.Migrations
                 name: "Places");
 
             migrationBuilder.DropTable(
+                name: "Sections");
+
+            migrationBuilder.DropTable(
                 name: "Halls");
+
+            migrationBuilder.DropTable(
+                name: "Stadiums");
         }
     }
 }

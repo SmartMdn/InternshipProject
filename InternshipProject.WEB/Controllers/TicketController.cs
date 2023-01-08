@@ -14,34 +14,34 @@ public class TicketController : CrudController<Ticket, TicketDTO>
     {
     }
 
-    [HttpGet("Get")]
+    [HttpGet]
     public override Ticket Get(int id)
     {
         var item = MapperOutput.Map<TicketDTO, Ticket>(Service.Get(id));
         return item;
     }
 
-    [HttpPut("Update")]
-    public override string Put(Ticket item, int id)
+    [HttpPut]
+    public override IActionResult Update(Ticket item, int id)
     {
         ResultItem = MapperInput.Map<Ticket, TicketDTO>(item);
         Service.Put(ResultItem, id);
-        return "Билет успешно изменён";
+        return new OkResult();
         ;
     }
 
-    [HttpPost("Add")]
-    public override string Post(Ticket item)
+    [HttpPost]
+    public override IActionResult Add(Ticket item)
     {
         ResultItem = MapperInput.Map<Ticket, TicketDTO>(item);
         Service.Post(ResultItem);
-        return "Билет успешно добавлен";
+        return new OkResult();
     }
 
-    [HttpDelete("Delete")]
-    public override string Delete(int id)
+    [HttpDelete]
+    public override IActionResult Delete(int id)
     {
         Service.Delete(id);
-        return "Билет успешно удалён";
+        return new OkResult();
     }
 }

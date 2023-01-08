@@ -1,13 +1,16 @@
-﻿using AutoMapper;
+﻿using System.Runtime.CompilerServices;
+using AutoMapper;
 using InternshipProject.BLL.DTO;
 using InternshipProject.BLL.Infrastucture;
 using InternshipProject.BLL.Interfaces;
 using InternshipProject.DAL.Entities;
+using InternshipProject.DAL.Enums;
 using InternshipProject.DAL.Interfaces;
 
+[assembly: InternalsVisibleTo("InternshipProject.WEB")]
 namespace InternshipProject.BLL.Services;
 
-public class PlaceCRUDService : ICRUDService<PlaceDTO>
+internal class PlaceCRUDService : ICRUDService<PlaceDTO>
 {
     private readonly IUnitOfWork _database;
 
@@ -23,8 +26,7 @@ public class PlaceCRUDService : ICRUDService<PlaceDTO>
         var place = _database.Places.Get(id);
         if (place == null)
             throw new ValidationException("Билет не найден", "");
-        var ids = (from st in place.Sections select st.Id).ToArray();
-        return new PlaceDTO { Id = place.Id, Type = (int)place.Type, Sections = ids.ToArray()};
+        return new PlaceDTO { Id = place.Id, Type = place.Type};
     }
 
     public IEnumerable<PlaceDTO> GetAll()
@@ -41,7 +43,6 @@ public class PlaceCRUDService : ICRUDService<PlaceDTO>
             Id = id, 
             Type = (PlaceType) item.Type
         };
-        if (item.Sections != null) place.Sections = _database.Sections.GetList(item.Sections.ToList()).ToList();
         _database.Places.Update(place);
         _database.Save();
     }
@@ -53,7 +54,6 @@ public class PlaceCRUDService : ICRUDService<PlaceDTO>
         {
             Type = (PlaceType) item.Type
         };
-        if (item.Sections != null) place.Sections = _database.Sections.GetList(item.Sections.ToList()).ToList();
         _database.Places.Create(place);
         _database.Save();
     }
