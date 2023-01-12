@@ -1,38 +1,39 @@
 ﻿using InternshipProject.BLL.DTO;
 using InternshipProject.BLL.Interfaces;
-using InternshipProject.WEB.Interfaces;
-using InternshipProject.WEB.Models;
+using InternshipProject.WEB.Abstractions;
+using InternshipProject.WEB.ViewModels;
+using InternshipProject.WEB.ViewModels.GetViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InternshipProject.WEB.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class SectionController : CrudController<Section, SectionDTO>
+public class SectionController : CrudController<SectionViewModel, SectionDTO, GetSectionViewModel>
 {
     public SectionController(ICRUDService<SectionDTO> service) : base(service)
     {
     }
 
     [HttpGet]
-    public override Section Get(int id)
+    public override GetSectionViewModel Get(int id)
     {
-        var item = MapperOutput.Map<SectionDTO, Section>(Service.Get(id));
+        var item = MapperOutput.Map<SectionDTO, GetSectionViewModel>(Service.Get(id));
         return item;
     }
 
     [HttpPut]
-    public override IActionResult Update(Section item, int id)
+    public override IActionResult Update(SectionViewModel item, int id)
     {
-        ResultItem = MapperInput.Map<Section, SectionDTO>(item);
+        ResultItem = MapperInput.Map<SectionViewModel, SectionDTO>(item);
         Service.Put(ResultItem, id);
         return new OkResult();
     }
 
     [HttpPost]
-    public override IActionResult Add(Section item)
+    public override IActionResult Add(SectionViewModel item)
     {
-        ResultItem = MapperInput.Map<Section, SectionDTO>(item);
+        ResultItem = MapperInput.Map<SectionViewModel, SectionDTO>(item);
         Service.Post(ResultItem);
         return new OkResult();
     }

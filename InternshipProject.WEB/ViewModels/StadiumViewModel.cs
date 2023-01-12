@@ -1,6 +1,6 @@
-﻿namespace InternshipProject.WEB.Models;
+﻿namespace InternshipProject.WEB.ViewModels;
 
-public class Stadium
+public class StadiumViewModel
 {
     public string Name { get; set; }
     public string? Address { get; set; }

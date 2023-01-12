@@ -1,6 +1,6 @@
-﻿namespace InternshipProject.WEB.Models;
+﻿namespace InternshipProject.WEB.ViewModels;
 
-public class Ticket
+public class TicketViewModel
 {
     public int EventId { get; set; }
     public int PlaceId { get; set; }

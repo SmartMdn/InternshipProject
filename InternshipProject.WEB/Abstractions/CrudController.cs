@@ -1,11 +1,10 @@
 ﻿using AutoMapper;
 using InternshipProject.BLL.Interfaces;
-using InternshipProject.WEB.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace InternshipProject.WEB.Interfaces;
+namespace InternshipProject.WEB.Abstractions;
 
-public abstract class CrudController<T, TK> : ControllerBase where TK : class
+public abstract class CrudController<T, TK, L> : ControllerBase where TK : class
 {
     protected readonly IMapper MapperInput = new MapperConfiguration(cfg => 
         cfg.CreateMap<T, TK>()).CreateMapper();
@@ -19,7 +18,7 @@ public abstract class CrudController<T, TK> : ControllerBase where TK : class
         Service = service;
     }
 
-    public abstract T Get(int id);
+    public abstract L Get(int id);
     public abstract IActionResult Update(T item, int id);
     public abstract IActionResult Add(T item);
     public abstract IActionResult Delete(int id);

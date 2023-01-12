@@ -1,6 +1,6 @@
-﻿namespace InternshipProject.WEB.Models;
+﻿namespace InternshipProject.WEB.ViewModels;
 
-public class Place
+public class PlaceViewModel
 {
     public int Type { get; set; }
     public int[]? Sections { get; set; }

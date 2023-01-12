@@ -1,6 +1,6 @@
-﻿namespace InternshipProject.WEB.Models;
+﻿namespace InternshipProject.WEB.ViewModels;
 
-public class Hall
+public class HallViewModel
 {
     public string Name { get; set; }
     public int[]? Stadiums { get; set; }

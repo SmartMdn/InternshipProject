@@ -1,6 +1,6 @@
-﻿namespace InternshipProject.WEB.Models;
+﻿namespace InternshipProject.WEB.ViewModels;
 
-public class Section
+public class SectionViewModel
 {
     public string Name { get; set; }
     public int[]? Halls { get; set; }

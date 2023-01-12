@@ -1,9 +1,10 @@
-﻿namespace InternshipProject.WEB.Models;
+﻿namespace InternshipProject.WEB.ViewModels;
 
-public class Event
+public class EventViewModel
 {
     public string? Name { get; set; }
     public int EventDuration { get; set; }
     public int BookingPeriodDays { get; set; }
     public int HallId { get; set; }
+    public int CountOfPlaces { get; set; }
 }

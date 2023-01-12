@@ -1,38 +1,39 @@
 ﻿using InternshipProject.BLL.DTO;
 using InternshipProject.BLL.Interfaces;
-using InternshipProject.WEB.Interfaces;
-using InternshipProject.WEB.Models;
+using InternshipProject.WEB.Abstractions;
+using InternshipProject.WEB.ViewModels;
+using InternshipProject.WEB.ViewModels.GetViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InternshipProject.WEB.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class StadiumController : CrudController<Stadium, StadiumDTO>
+public class StadiumController : CrudController<StadiumViewModel, StadiumDTO, GetStadiumViewModel>
 {
     public StadiumController(ICRUDService<StadiumDTO> service) : base(service)
     {
     }
 
     [HttpGet]
-    public override Stadium Get(int id)
+    public override GetStadiumViewModel Get(int id)
     {
-        var item = MapperOutput.Map<StadiumDTO, Stadium>(Service.Get(id));
+        var item = MapperOutput.Map<StadiumDTO, GetStadiumViewModel>(Service.Get(id));
         return item;
     }
 
     [HttpPut]
-    public override IActionResult Update(Stadium item, int id)
+    public override IActionResult Update(StadiumViewModel item, int id)
     {
-        ResultItem = MapperInput.Map<Stadium, StadiumDTO>(item);
+        ResultItem = MapperInput.Map<StadiumViewModel, StadiumDTO>(item);
         Service.Put(ResultItem, id);
         return new OkResult();
     }
 
     [HttpPost]
-    public override IActionResult Add(Stadium item)
+    public override IActionResult Add(StadiumViewModel item)
     {
-        ResultItem = MapperInput.Map<Stadium, StadiumDTO>(item);
+        ResultItem = MapperInput.Map<StadiumViewModel, StadiumDTO>(item);
         Service.Post(ResultItem);
         return new OkResult();
     }
