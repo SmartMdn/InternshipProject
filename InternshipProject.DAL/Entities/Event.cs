@@ -1,8 +1,7 @@
 ﻿namespace InternshipProject.DAL.Entities;
 
-internal class Event
+internal class Event : DefaultEntity
 {
-    public int Id { get; set; }
     public string? Name { get; set; }
     public int EventDuration { get; set; }
     public DateTime EventDate { get; set; }

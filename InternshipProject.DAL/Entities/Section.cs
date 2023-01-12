@@ -1,8 +1,7 @@
 ﻿namespace InternshipProject.DAL.Entities;
 
-internal class Section
+internal class Section : DefaultEntity
 {
-    public int Id { get; set; }
     public string Name { get; set; }
     public Hall Hall { get; set; }
     public int HallId { get; set; }

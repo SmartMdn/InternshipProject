@@ -1,8 +1,7 @@
 ﻿namespace InternshipProject.DAL.Entities;
 
-internal class Ticket
-{  
-    public int Id { get; set; }
+internal class Ticket : DefaultEntity 
+{
     public Event? Event { get; set; }
     public int EventId { get; set; }
     public Place? Place { get; set; }

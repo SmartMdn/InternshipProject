@@ -1,8 +1,7 @@
 ﻿namespace InternshipProject.DAL.Entities;
 
-internal class Hall
+internal class Hall : DefaultEntity
 {
-    public int Id { get; set; }
     public string Name { get; set; }
     public Stadium Stadium { get; set; }
     public int StadiumId { get; set; }
