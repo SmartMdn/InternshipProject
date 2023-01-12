@@ -28,7 +28,6 @@ public class TicketController : CrudController<TicketViewModel, TicketDTO, GetTi
         ResultItem = MapperInput.Map<TicketViewModel, TicketDTO>(item);
         Service.Put(ResultItem, id);
         return new OkResult();
-        ;
     }
 
     [HttpPost]
