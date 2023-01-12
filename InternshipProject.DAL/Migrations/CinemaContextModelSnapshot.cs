@@ -49,7 +49,7 @@ namespace InternshipProject.DAL.Migrations
 
                     b.HasIndex("HallId");
 
-                    b.ToTable("Events");
+                    b.ToTable("Events", (string)null);
                 });
 
             modelBuilder.Entity("InternshipProject.DAL.Entities.Hall", b =>
@@ -71,7 +71,7 @@ namespace InternshipProject.DAL.Migrations
 
                     b.HasIndex("StadiumId");
 
-                    b.ToTable("Halls");
+                    b.ToTable("Halls", (string)null);
                 });
 
             modelBuilder.Entity("InternshipProject.DAL.Entities.Place", b =>
@@ -92,7 +92,7 @@ namespace InternshipProject.DAL.Migrations
 
                     b.HasIndex("SectionId");
 
-                    b.ToTable("Places");
+                    b.ToTable("Places", (string)null);
                 });
 
             modelBuilder.Entity("InternshipProject.DAL.Entities.Section", b =>
@@ -114,7 +114,7 @@ namespace InternshipProject.DAL.Migrations
 
                     b.HasIndex("HallId");
 
-                    b.ToTable("Sections");
+                    b.ToTable("Sections", (string)null);
                 });
 
             modelBuilder.Entity("InternshipProject.DAL.Entities.Stadium", b =>
@@ -134,7 +134,7 @@ namespace InternshipProject.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Stadiums");
+                    b.ToTable("Stadiums", (string)null);
                 });
 
             modelBuilder.Entity("InternshipProject.DAL.Entities.Ticket", b =>
@@ -160,7 +160,7 @@ namespace InternshipProject.DAL.Migrations
 
                     b.HasIndex("PlaceId");
 
-                    b.ToTable("Tickets");
+                    b.ToTable("Tickets", (string)null);
                 });
 
             modelBuilder.Entity("InternshipProject.DAL.Entities.Event", b =>
