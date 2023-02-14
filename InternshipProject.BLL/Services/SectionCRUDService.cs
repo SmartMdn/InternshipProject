@@ -11,18 +11,16 @@ namespace InternshipProject.BLL.Services;
 
 internal class SectionCRUDService : ICRUDService<SectionDTO>
 {
-    private readonly IUnitOfWork _database;
+    private readonly IUnitOfWork _unitOfWork;
 
-    public SectionCRUDService(IUnitOfWork database)
+    public SectionCRUDService(IUnitOfWork unitOfWork)
     {
-        _database = database;
+        _unitOfWork = unitOfWork;
     }
 
     public SectionDTO Get(int id)
     {
-        if (id == null)
-            throw new ValidationException("Не установлен id билета", "");
-        var section = _database.Sections.Get(id);
+        var section = _unitOfWork.Sections.Get(id);
         if (section == null)
             throw new ValidationException("Билет не найден", "");
         var ids1 = (from st in section.Places select st.Id).ToArray();
@@ -32,44 +30,40 @@ internal class SectionCRUDService : ICRUDService<SectionDTO>
     public IEnumerable<SectionDTO> GetAll()
     {
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Section, SectionDTO>()).CreateMapper();
-        return mapper.Map<IEnumerable<Section>, List<SectionDTO>>(_database.Sections.GetAll());
+        return mapper.Map<IEnumerable<Section>, List<SectionDTO>>(_unitOfWork.Sections.GetAll());
     }
 
     public void Put(SectionDTO item, int id)
     {
-        if (item == null) return;
         var section = new Section
         {
             Id = id, 
             Name = item.Name,
-            Places = _database.Places.GetList(item.Places.ToList()).ToList()
+            Places = _unitOfWork.Places.GetList(item.Places!.ToList()).ToList()
         };
-        _database.Sections.Update(section);
-        _database.Save();
+        _unitOfWork.Sections.Update(section);
+        _unitOfWork.Save();
     }
 
     public void Post(SectionDTO item)
     {
-        if (item == null) return;
         var section = new Section()
         {
             Name = item.Name,
-            Places = _database.Places.GetList(item.Places.ToList()).ToList()
+            Places = _unitOfWork.Places.GetList(item.Places!.ToList()).ToList()
         };
-        _database.Sections.Create(section);
-        _database.Save();
+        _unitOfWork.Sections.Create(section);
+        _unitOfWork.Save();
     }
 
     public void Delete(int id)
     {
-        if (id == null)
-            throw new ValidationException("Не установлен id билета", "");
-        _database.Sections.Delete(id);
-        _database.Save();
+        _unitOfWork.Sections.Delete(id);
+        _unitOfWork.Save();
     }
 
     public void Dispose()
     {
-        _database.Dispose();
+        _unitOfWork.Dispose();
     }
 }

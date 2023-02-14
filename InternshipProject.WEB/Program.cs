@@ -7,7 +7,7 @@ using InternshipProject.DAL.Repositories;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddTransient<IUnitOfWork>(provider =>
+builder.Services.AddTransient<IUnitOfWork>(_ =>
     new EFUnitOfWork(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddTransient<ICRUDService<EventDTO>, EventCRUDService>();
 builder.Services.AddTransient<ICRUDService<HallDTO>, HallCRUDService>();

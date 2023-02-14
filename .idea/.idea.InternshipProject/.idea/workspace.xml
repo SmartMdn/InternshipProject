@@ -9,24 +9,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34db0145-e696-4685-a61f-87b894f01690" name="Changes" comment="">
+    <list default="true" id="34db0145-e696-4685-a61f-87b894f01690" name="Changes" comment="Refacto">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.InternshipProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.InternshipProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/DTO/EventDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/DTO/EventDTO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/DTO/HallDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/DTO/HallDTO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/DTO/PlaceDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/DTO/PlaceDTO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/DTO/SectionDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/DTO/SectionDTO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/DTO/StadiumDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/DTO/StadiumDTO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/DTO/TicketDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/DTO/TicketDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/Interfaces/ICRUDService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/Interfaces/ICRUDService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/Services/EventCRUDService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/Services/EventCRUDService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/Services/HallCRUDService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/Services/HallCRUDService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/Services/PlaceCRUDService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/Services/PlaceCRUDService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Event.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Event.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Hall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Hall.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Place.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Place.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Entities/PlaceType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Enums/PlaceType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Ticket.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Entities/Ticket.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/InternshipProject.DAL.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/InternshipProject.DAL.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Migrations/20221207195032_Initial.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Migrations/20221207195032_Initial.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Migrations/CinemaContextModelSnapshot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/Services/SectionCRUDService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/Services/SectionCRUDService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/Services/StadiumCRUDService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/Services/StadiumCRUDService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/Services/TicketCRUDService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/Services/TicketCRUDService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/EF/CinemaContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/EF/CinemaContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Abstractions/CrudController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Abstractions/CrudController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/ViewModels/EventViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/ViewModels/EventViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/ViewModels/GetViewModels/GetEventViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/ViewModels/GetViewModels/GetEventViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/ViewModels/GetViewModels/GetHallViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/ViewModels/GetViewModels/GetHallViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/ViewModels/GetViewModels/GetPlaceViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/ViewModels/GetViewModels/GetPlaceViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/ViewModels/GetViewModels/GetSectionViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/ViewModels/GetViewModels/GetSectionViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/ViewModels/GetViewModels/GetStadiumViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/ViewModels/GetViewModels/GetStadiumViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/ViewModels/GetViewModels/GetTicketViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/ViewModels/GetViewModels/GetTicketViewModel.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,37 +50,13 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/InternshipProject.DAL/Repositories/EventRepository.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1edbe9176db7440b9b8f2c12e9a3a64a1fc190/c4/160f8e36/DbContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1edbe9176db7440b9b8f2c12e9a3a64a1fc190/fd/6e5a8e41/DbContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/InternshipProject.WEB/ViewModels/HallViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/19ba5a289f2afd3f4d5e862cb3f3efee6181683a31ee31b86c2298b1f51114b/ServiceProvider.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/30343b1ee1c40d96d57c1247d6ab929ef8b4c4bf5dc4f580ad7fee98aea6/AuthenticationMiddleware.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3684e888fd93508450e2f4b0d7d38bee648cba98882592491596fc79375185f/SwaggerMiddleware.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3b526121ad76ddf1f0a6cdbb4d412db36f3927d17f728af567a7e54b2f416a/EntityGraphAttacher.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3dd4a455a387add73de89fe04b8f41b2fefe8ba7ca24367cc18e5a567b71dc/HttpGetAttribute.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/53fde159ba8211bfa732c66683f6d3cd7af7b9ff56a3a1dc1dbe1cee597fe/CallSiteRuntimeResolver.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6a4abc33381932734b5fe8e665891a89f052eeee41e2debe188594bce29675c/ControllerActionInvoker.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6a8729e10edacab9f1a2d90cf925be448f263bd8ab9ec4a5af9318f87c57d/HttpMethodAttribute.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6e5f76d8cccd52ffffb7039c7b74f2d9b776cb30766822ed92749f80174cf6/HttpProtocol.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/789b158a98468e474a2af1348cfd47e7792de2ae2344f55a03ddf85b16699b/WebApplicationBuilder.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7a403cba08345c96e825f152f83f7387ca90e5b98cf92f2d95fbedc8d25d24/ServiceCollectionServiceExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7b3b6985aad11c5d633d75b545f5f5f4fc7e50918ad1cb9f6b615682f5bfb76d/SingleQueryingEnumerable.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/878910279067a69744823f3ab1230c177a593e37dfe46787dbbce03d3d3799/ResourceInvoker.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8e2e3f232b3f74cfc56d24ec307aaea234eb831ec23796f1b454eb7e8fe1/CallSiteVisitor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/81a3bcf4bb6aa5e62a9839f9cfeeba6126496f4fa07d1e57b27a5176e42525/ControllerBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a1e84bc8f779d85eecedae89fadb5dfa8aec20ca7ee023e593fc63343db49e/MapperConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b4aa9d6deee74e2a511d54506de2de864a4b58ad22637cbbc79ef58cb10e3e9/ConfigurationExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c5d0892e96f92bbc034d4b1d6e3437492fbae1f3192cfcefe1efb21813988b/ActivatorUtilities.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/cb79b2da8c592b0168434637085d0d9f9456724dd9b2d59183ec4499e21/EndpointMiddleware.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d07a18f5d3711881ce852ca5c3b2bd521758d28b2272ed84243725a2a5f4fd0/DynamicServiceProviderEngine.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d9d9faea5e6ed6438a777ef8c6eed41261f81d8e86488ed923ad92564f54e/ThrowHelper.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e5987e8939e9de3d3d5a8e7326d37e42efd3a29713dbbba3212f41be7cfd71/IdentityMap.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e74356f198b598e97eaeea83e8b7b1f2bfe27c0a39fedf86bb7dc44827fbda/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/facad4292c1d7da96e4eecf681ad9b0d65de4612afef21d8a14c526a937210/AuthorizationMiddleware.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/fc536bf76bb27537bde426819210b5e5a2ebcd594ca72f7b85fad40e9c63d5a/ControllerFactoryProvider.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/Desktop/InternshipProject/InternshipProject.DAL/Interfaces/IRepository.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/Desktop/InternshipProject/InternshipProject.DAL/Interfaces/IUnitOfWork.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/Desktop/InternshipProject/InternshipProject.DAL/Repositories/EFUnitOfWork.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/Desktop/InternshipProject/InternshipProject.DAL/Repositories/EventRepository.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/Desktop/InternshipProject/InternshipProject.DAL/Repositories/HallRepository.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -110,9 +87,9 @@
   },
   &quot;keyToStringList&quot;: {
     &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\Илья Матюнин\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\Илья Матюнин\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\Илья Матюнин\\AppData\\Local\\Symbols\\src&quot;
+      &quot;E:\\Users\\SmartMdn\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;E:\\Users\\SmartMdn\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache&quot;,
+      &quot;E:\\Users\\SmartMdn\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
 }</component>
@@ -201,6 +178,9 @@
       <workItem from="1672262661497" duration="3029000" />
       <workItem from="1672323497962" duration="6617000" />
       <workItem from="1672331225534" duration="269000" />
+      <workItem from="1673718555386" duration="602000" />
+      <workItem from="1674480101139" duration="6000" />
+      <workItem from="1676317954673" duration="1331000" />
     </task>
     <task id="LOCAL-00001" summary="Create WebProject">
       <created>1669208941169</created>
@@ -370,7 +350,49 @@
       <option name="project" value="LOCAL" />
       <updated>1672328815044</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Create abstraction for Entities">
+      <created>1673543036477</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1673543036477</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Create file for constants">
+      <created>1673543079717</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1673543079717</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Create abstraction for repositories">
+      <created>1673543122024</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1673543122024</updated>
+    </task>
+    <task id="LOCAL-00028" summary="fixed migration">
+      <created>1673543174235</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1673543174235</updated>
+    </task>
+    <task id="LOCAL-00029" summary="rename Models in ViewModels and add GetViewModels">
+      <created>1673549728054</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1673549728054</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Refactoring">
+      <created>1673549801842</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1673549801842</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -404,11 +426,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Create WebProject" />
-    <MESSAGE value="xml changes" />
-    <MESSAGE value="Add Data Access Layer" />
-    <MESSAGE value="Add Business Logic Layer" />
-    <MESSAGE value="Add Entities" />
     <MESSAGE value="Add Interfaces for realize &quot;Unit To Work&quot; and &quot;Repository&quot; patterns" />
     <MESSAGE value="Create repositories with realization" />
     <MESSAGE value="Create UnitToWork class for work with DB" />
@@ -428,7 +445,13 @@
     <MESSAGE value="fixed routing" />
     <MESSAGE value="Rework output type in controllers methods" />
     <MESSAGE value="create classes internal" />
-    <option name="LAST_COMMIT_MESSAGE" value="create classes internal" />
+    <MESSAGE value="Create abstraction for Entities" />
+    <MESSAGE value="Create file for constants" />
+    <MESSAGE value="Create abstraction for repositories" />
+    <MESSAGE value="fixed migration" />
+    <MESSAGE value="rename Models in ViewModels and add GetViewModels" />
+    <MESSAGE value="Refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactoring" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -436,132 +459,45 @@
         <line-breakpoint type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/InternshipProject.DAL/Repositories/EFUnitOfWork.cs</url>
           <line>25</line>
-          <properties documentPath="C:\Programming\ProjectXYZ\InternshipProject\InternshipProject.DAL\Repositories\EFUnitOfWork.cs" initialLine="22" containingFunctionPresentation="constructor 'EFUnitOfWork'">
-            <startOffsets>
-              <option value="815" />
-            </startOffsets>
-            <endOffsets>
-              <option value="881" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="C:\Programming\ProjectXYZ\InternshipProject\InternshipProject.DAL\Repositories\EFUnitOfWork.cs" initialLine="22" containingFunctionPresentation="constructor 'EFUnitOfWork'" />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/InternshipProject.DAL/Repositories/StadiumRepository.cs</url>
-          <line>52</line>
-          <properties documentPath="C:\Programming\ProjectXYZ\InternshipProject\InternshipProject.DAL\Repositories\StadiumRepository.cs" initialLine="52" containingFunctionPresentation="method 'Delete'">
-            <startOffsets>
-              <option value="1320" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1356" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/InternshipProject.BLL/Services/HallCRUDService.cs</url>
-          <line>63</line>
-          <properties documentPath="C:\Programming\ProjectXYZ\InternshipProject\InternshipProject.BLL\Services\HallCRUDService.cs" initialLine="61" containingFunctionPresentation="method 'Delete'">
-            <startOffsets>
-              <option value="1818" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1833" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/InternshipProject.BLL/Services/HallCRUDService.cs</url>
-          <line>37</line>
-          <properties documentPath="C:\Programming\ProjectXYZ\InternshipProject\InternshipProject.BLL\Services\HallCRUDService.cs" initialLine="37" containingFunctionPresentation="method 'Put'">
-            <startOffsets>
-              <option value="1172" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1173" />
-            </endOffsets>
-          </properties>
+          <line>35</line>
+          <properties documentPath="C:\Programming\ProjectXYZ\InternshipProject\InternshipProject.BLL\Services\HallCRUDService.cs" initialLine="37" containingFunctionPresentation="method 'Put'" />
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/InternshipProject.DAL/Repositories/StadiumRepository.cs</url>
-          <line>27</line>
-          <properties documentPath="C:\Programming\ProjectXYZ\InternshipProject\InternshipProject.DAL\Repositories\StadiumRepository.cs" initialLine="27" containingFunctionPresentation="method 'Get'">
-            <startOffsets>
-              <option value="638" />
-            </startOffsets>
-            <endOffsets>
-              <option value="639" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/InternshipProject.BLL/Services/PlaceCRUDService.cs</url>
-          <line>22</line>
-          <properties documentPath="C:\Programming\ProjectXYZ\InternshipProject\InternshipProject.BLL\Services\PlaceCRUDService.cs" initialLine="19" containingFunctionPresentation="method 'Get'">
-            <startOffsets>
-              <option value="619" />
-            </startOffsets>
-            <endOffsets>
-              <option value="620" />
-            </endOffsets>
-          </properties>
+          <line>21</line>
+          <properties documentPath="C:\Programming\ProjectXYZ\InternshipProject\InternshipProject.BLL\Services\PlaceCRUDService.cs" initialLine="19" containingFunctionPresentation="method 'Get'" />
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/InternshipProject.BLL/Services/PlaceCRUDService.cs</url>
-          <line>38</line>
-          <properties documentPath="C:\Programming\ProjectXYZ\InternshipProject\InternshipProject.BLL\Services\PlaceCRUDService.cs" initialLine="36" containingFunctionPresentation="method 'Put'">
-            <startOffsets>
-              <option value="1224" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1225" />
-            </endOffsets>
-          </properties>
+          <line>35</line>
+          <properties documentPath="C:\Programming\ProjectXYZ\InternshipProject\InternshipProject.BLL\Services\PlaceCRUDService.cs" initialLine="36" containingFunctionPresentation="method 'Put'" />
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/InternshipProject.BLL/Services/PlaceCRUDService.cs</url>
-          <line>50</line>
-          <properties documentPath="C:\Programming\ProjectXYZ\InternshipProject\InternshipProject.BLL\Services\PlaceCRUDService.cs" initialLine="49" containingFunctionPresentation="method 'Post'">
-            <startOffsets>
-              <option value="1487" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1488" />
-            </endOffsets>
-          </properties>
+          <line>46</line>
+          <properties documentPath="C:\Programming\ProjectXYZ\InternshipProject\InternshipProject.BLL\Services\PlaceCRUDService.cs" initialLine="49" containingFunctionPresentation="method 'Post'" />
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/InternshipProject.DAL/Repositories/EventRepository.cs</url>
-          <line>42</line>
-          <properties documentPath="C:\Programming\ProjectXYZ\InternshipProject\InternshipProject.DAL\Repositories\EventRepository.cs" initialLine="44" containingFunctionPresentation="method 'Update'">
+          <url>file://$PROJECT_DIR$/InternshipProject.BLL/Services/StadiumCRUDService.cs</url>
+          <line>21</line>
+          <properties documentPath="A:\RiderProjects\InternshipProject332\InternshipProject.BLL\Services\StadiumCRUDService.cs" initialLine="21" containingFunctionPresentation="method 'Get'">
             <startOffsets>
-              <option value="942" />
+              <option value="600" />
             </startOffsets>
             <endOffsets>
-              <option value="943" />
+              <option value="601" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/InternshipProject.BLL/Services/TicketCRUDService.cs</url>
-          <line>47</line>
-          <properties documentPath="C:\Programming\ProjectXYZ\InternshipProject\InternshipProject.BLL\Services\TicketCRUDService.cs" initialLine="45" containingFunctionPresentation="method 'Post'">
-            <startOffsets>
-              <option value="1554" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1555" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="21" />
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

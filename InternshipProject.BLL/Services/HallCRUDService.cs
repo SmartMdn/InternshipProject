@@ -11,18 +11,16 @@ namespace InternshipProject.BLL.Services;
 
 internal class HallCRUDService : ICRUDService<HallDTO>
 {
-    private readonly IUnitOfWork _database;
+    private readonly IUnitOfWork _unitOfWork;
 
-    public HallCRUDService(IUnitOfWork database)
+    public HallCRUDService(IUnitOfWork unitOfWork)
     {
-        _database = database;
+        _unitOfWork = unitOfWork;
     }
 
     public HallDTO Get(int id)
     {
-        if (id == null)
-            throw new ValidationException("Не установлен id билета", "");
-        var hall = _database.Halls.Get(id);
+        var hall = _unitOfWork.Halls.Get(id);
         if (hall == null)
             throw new ValidationException("Билет не найден", "");
         return new HallDTO { Id = hall.Id, Name = hall.Name};
@@ -31,44 +29,40 @@ internal class HallCRUDService : ICRUDService<HallDTO>
     public IEnumerable<HallDTO> GetAll()
     {
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Hall, HallDTO>()).CreateMapper();
-        return mapper.Map<IEnumerable<Hall>, List<HallDTO>>(_database.Halls.GetAll());
+        return mapper.Map<IEnumerable<Hall>, List<HallDTO>>(_unitOfWork.Halls.GetAll());
     }
 
     public void Put(HallDTO item, int id)
     {
-        if (item == null) return;
         var hall = new Hall
         {
             Id = id,
             Name = item.Name,
-            Sections = _database.Sections.GetList(item.Sections.ToList()).ToList()
+            Sections = _unitOfWork.Sections.GetList(item.Sections!.ToList()).ToList()
         };
-        _database.Halls.Update(hall);
-        _database.Save();
+        _unitOfWork.Halls.Update(hall);
+        _unitOfWork.Save();
     }
 
     public void Post(HallDTO item)
     {
-        if (item == null) return;
         var hall = new Hall
         {   
             Name = item.Name,
-            Sections = _database.Sections.GetList(item.Sections.ToList()).ToList()
+            Sections = _unitOfWork.Sections.GetList(item.Sections!.ToList()).ToList()
         };
-        _database.Halls.Create(hall);
-        _database.Save();
+        _unitOfWork.Halls.Create(hall);
+        _unitOfWork.Save();
     }
 
     public void Delete(int id)
     {
-        if (id == null)
-            throw new ValidationException("Не установлен id билета", "");
-        _database.Halls.Delete(id);
-        _database.Save();
+        _unitOfWork.Halls.Delete(id);
+        _unitOfWork.Save();
     }
 
     public void Dispose()
     {
-        _database.Dispose();
+        _unitOfWork.Dispose();
     }
 }

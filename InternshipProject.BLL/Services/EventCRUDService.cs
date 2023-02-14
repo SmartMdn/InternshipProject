@@ -11,63 +11,57 @@ namespace InternshipProject.BLL.Services;
 
 internal class EventCRUDService : ICRUDService<EventDTO>
 {
-    private readonly IUnitOfWork _database;
+    private readonly IUnitOfWork _unitOfWork;
 
-    public EventCRUDService(IUnitOfWork database)
+    public EventCRUDService(IUnitOfWork unitOfWork)
     {
-        _database = database;
+        _unitOfWork = unitOfWork;
     }
 
     public EventDTO Get(int id)
     {
-        if (id == null)
-            throw new ValidationException("Не установлен id билета", "");
-        var _event = _database.Events.Get(id);
-        if (_event == null)
+        var resultEvent = _unitOfWork.Events.Get(id);
+        if (resultEvent == null)
             throw new ValidationException("Билет не найден", "");
 
         return new EventDTO
         {
-            BookingPeriodDays = _event.BookingPeriodDays, Id = _event.Id, Name = _event.Name,
-            EventDuration = _event.EventDuration, HallId = _event.HallId
+            BookingPeriodDays = resultEvent.BookingPeriodDays, Id = resultEvent.Id, Name = resultEvent.Name,
+            EventDuration = resultEvent.EventDuration, HallId = resultEvent.HallId
         };
     }
 
     public IEnumerable<EventDTO> GetAll()
     {
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Event, EventDTO>()).CreateMapper();
-        return mapper.Map<IEnumerable<Event>, List<EventDTO>>(_database.Events.GetAll());
+        return mapper.Map<IEnumerable<Event>, List<EventDTO>>(_unitOfWork.Events.GetAll());
     }
 
     public void Put(EventDTO item, int id)
     {
-        if (item == null) return;
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<EventDTO, Event>()).CreateMapper();
-        var _event = mapper.Map<EventDTO, Event>(item);
-        _event.Id = id;
-        _database.Events.Update(_event);
-        _database.Save();
+        var resultEvent = mapper.Map<EventDTO, Event>(item);
+        resultEvent.Id = id;
+        _unitOfWork.Events.Update(resultEvent);
+        _unitOfWork.Save();
     }
 
     public void Post(EventDTO item)
     {
-        if (item == null) return;
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<EventDTO, Event>()).CreateMapper();
-        var _event = mapper.Map<EventDTO, Event>(item);
-        _database.Events.Create(_event);
-        _database.Save();
+        var resultEvent = mapper.Map<EventDTO, Event>(item);
+        _unitOfWork.Events.Create(resultEvent);
+        _unitOfWork.Save();
     }
 
     public void Delete(int id)
     {
-        if (id == null)
-            throw new ValidationException("Не установлен id билета", "");
-        _database.Events.Delete(id);
-        _database.Save();
+        _unitOfWork.Events.Delete(id);
+        _unitOfWork.Save();
     }
 
     public void Dispose()
     {
-        _database.Dispose();
+        _unitOfWork.Dispose();
     }
 }

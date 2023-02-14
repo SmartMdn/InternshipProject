@@ -6,5 +6,4 @@ public class EventViewModel
     public int EventDuration { get; set; }
     public int BookingPeriodDays { get; set; }
     public int HallId { get; set; }
-    public int CountOfPlaces { get; set; }
 }

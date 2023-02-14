@@ -11,56 +11,65 @@ namespace InternshipProject.BLL.Services;
 
 internal class StadiumCRUDService : ICRUDService<StadiumDTO>
 {
-    private readonly IUnitOfWork _database;
+    private readonly IUnitOfWork _unitOfWork;
 
-    public StadiumCRUDService(IUnitOfWork database)
+    public StadiumCRUDService(IUnitOfWork unitOfWork)
     {
-        _database = database;
+        _unitOfWork = unitOfWork;
     }
 
     public StadiumDTO Get(int id)
     {
-        if (id == null)
-            throw new ValidationException("Не установлен id билета", "");
-        var stadium = _database.Stadiums.Get(id);
+        var stadium = _unitOfWork.Stadiums.Get(id);
         if (stadium == null)
             throw new ValidationException("Билет не найден", "");
         var ids = (from st in stadium.Halls select st.Id).ToArray();
-        return new StadiumDTO { Address = stadium.Address, Name = stadium.Name, Halls = ids};
+        return new StadiumDTO { Id =stadium.Id , Address = stadium.Address, Name = stadium.Name, Halls = ids};
     }
 
     public IEnumerable<StadiumDTO> GetAll()
     {
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Stadium, StadiumDTO>()).CreateMapper();
-        return mapper.Map<IEnumerable<Stadium>, List<StadiumDTO>>(_database.Stadiums.GetAll());
+        return mapper.Map<IEnumerable<Stadium>, List<StadiumDTO>>(_unitOfWork.Stadiums.GetAll());
     }
 
     public void Put(StadiumDTO item, int id)
     {
-        if (item == null) return;
-        var stadium = new Stadium{Address = item.Address, Halls = _database.Halls.GetList(item.Halls.ToList()).ToList(), Id = id, Name = item.Name};
-        _database.Stadiums.Update(stadium);
-        _database.Save();
+        var stadium = new Stadium
+        {
+            Id = id,
+            Address = item.Address, 
+            Halls = _unitOfWork.Halls.GetList(item.Halls!.ToList()).ToList(),
+            Name = item.Name
+        };
+        _unitOfWork.Stadiums.Update(stadium);
+        _unitOfWork.Save();
     }
 
     public void Post(StadiumDTO item)
     {
-        if (item == null) return;
-        var stadium = new Stadium{Address = item.Address, Halls = _database.Halls.GetList(item.Halls.ToList()).ToList(), Name = item.Name};
-        _database.Stadiums.Create(stadium);
-        _database.Save();
+        if (_unitOfWork.Stadiums.GetAll().Any(o => o.Name == item.Name || o.Address == item.Name))
+        {
+            return;
+        }
+        var stadium = new Stadium
+        {
+            Address = item.Address,
+            Halls = _unitOfWork.Halls.GetList(item.Halls!.ToList()).ToList(), 
+            Name = item.Name
+        };
+        _unitOfWork.Stadiums.Create(stadium);
+        _unitOfWork.Save();
     }
 
     public void Delete(int id)
     {
-        if (id == null)
-            throw new ValidationException("Не установлен id билета", "");
-        _database.Stadiums.Delete(id);
-        _database.Save();
+        _unitOfWork.Stadiums.Delete(id);
+        _unitOfWork.Save();
     }
 
     public void Dispose()
     {
-        _database.Dispose();
+        _unitOfWork.Dispose();
     }
 }

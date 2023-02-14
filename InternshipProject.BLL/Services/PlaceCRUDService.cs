@@ -4,7 +4,6 @@ using InternshipProject.BLL.DTO;
 using InternshipProject.BLL.Infrastucture;
 using InternshipProject.BLL.Interfaces;
 using InternshipProject.DAL.Entities;
-using InternshipProject.DAL.Enums;
 using InternshipProject.DAL.Interfaces;
 
 [assembly: InternalsVisibleTo("InternshipProject.WEB")]
@@ -12,18 +11,16 @@ namespace InternshipProject.BLL.Services;
 
 internal class PlaceCRUDService : ICRUDService<PlaceDTO>
 {
-    private readonly IUnitOfWork _database;
+    private readonly IUnitOfWork _unitOfWork;
 
-    public PlaceCRUDService(IUnitOfWork database)
+    public PlaceCRUDService(IUnitOfWork unitOfWork)
     {
-        _database = database;
+        _unitOfWork = unitOfWork;
     }
 
     public PlaceDTO Get(int id)
     {
-        if (id == null)
-            throw new ValidationException("Не установлен id билета", "");
-        var place = _database.Places.Get(id);
+        var place = _unitOfWork.Places.Get(id);
         if (place == null)
             throw new ValidationException("Билет не найден", "");
         return new PlaceDTO { Id = place.Id, Type = place.Type};
@@ -32,42 +29,38 @@ internal class PlaceCRUDService : ICRUDService<PlaceDTO>
     public IEnumerable<PlaceDTO> GetAll()
     {
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Place, PlaceDTO>()).CreateMapper();
-        return mapper.Map<IEnumerable<Place>, List<PlaceDTO>>(_database.Places.GetAll());
+        return mapper.Map<IEnumerable<Place>, List<PlaceDTO>>(_unitOfWork.Places.GetAll());
     }
 
     public void Put(PlaceDTO item, int id)
     {
-        if (item == null) return;
         var place = new Place
         {
             Id = id, 
-            Type = (PlaceType) item.Type
+            Type = item.Type
         };
-        _database.Places.Update(place);
-        _database.Save();
+        _unitOfWork.Places.Update(place);
+        _unitOfWork.Save();
     }
 
     public void Post(PlaceDTO item)
     {
-        if (item == null) return;
         var place = new Place
         {
-            Type = (PlaceType) item.Type
+            Type = item.Type
         };
-        _database.Places.Create(place);
-        _database.Save();
+        _unitOfWork.Places.Create(place);
+        _unitOfWork.Save();
     }
 
     public void Delete(int id)
     {
-        if (id == null)
-            throw new ValidationException("Не установлен id билета", "");
-        _database.Places.Delete(id);
-        _database.Save();
+        _unitOfWork.Places.Delete(id);
+        _unitOfWork.Save();
     }
 
     public void Dispose()
     {
-        _database.Dispose();
+        _unitOfWork.Dispose();
     }
 }

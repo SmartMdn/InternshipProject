@@ -11,18 +11,16 @@ namespace InternshipProject.BLL.Services;
 
 internal class TicketCRUDService : ICRUDService<TicketDTO>
 {
-    private readonly IUnitOfWork _database;
+    private readonly IUnitOfWork _unitOfWork;
 
-    public TicketCRUDService(IUnitOfWork database)
+    public TicketCRUDService(IUnitOfWork unitOfWork)
     {
-        _database = database;
+        _unitOfWork = unitOfWork;
     }
 
     public TicketDTO Get(int id)
     {
-        if (id == null)
-            throw new ValidationException("Не установлен id билета", "");
-        var ticket = _database.Tickets.Get(id);
+        var ticket = _unitOfWork.Tickets.Get(id);
         if (ticket == null)
             throw new ValidationException("Билет не найден", "");
 
@@ -32,37 +30,33 @@ internal class TicketCRUDService : ICRUDService<TicketDTO>
     public IEnumerable<TicketDTO> GetAll()
     {
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Ticket, TicketDTO>()).CreateMapper();
-        return mapper.Map<IEnumerable<Ticket>, List<TicketDTO>>(_database.Tickets.GetAll());
+        return mapper.Map<IEnumerable<Ticket>, List<TicketDTO>>(_unitOfWork.Tickets.GetAll());
     }
 
     public void Put(TicketDTO item, int id)
     {
-        if (item == null) return;
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<TicketDTO, Ticket>()).CreateMapper();
         var ticket = mapper.Map<TicketDTO, Ticket>(item);
-        _database.Tickets.Update(ticket);
-        _database.Save();
+        _unitOfWork.Tickets.Update(ticket);
+        _unitOfWork.Save();
     }
 
     public void Post(TicketDTO item)
     {
-        if (item == null) return;
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<TicketDTO, Ticket>()).CreateMapper();
         var ticket = mapper.Map<TicketDTO, Ticket>(item);
-        _database.Tickets.Create(ticket);
-        _database.Save();
+        _unitOfWork.Tickets.Create(ticket);
+        _unitOfWork.Save();
     }
 
     public void Delete(int id)
     {
-        if (id == null)
-            throw new ValidationException("Не установлен id билета", "");
-        _database.Tickets.Delete(id);
-        _database.Save();
+        _unitOfWork.Tickets.Delete(id);
+        _unitOfWork.Save();
     }
 
     public void Dispose()
     {
-        _database.Dispose();
+        _unitOfWork.Dispose();
     }
 }
