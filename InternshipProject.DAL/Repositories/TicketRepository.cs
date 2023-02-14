@@ -8,17 +8,17 @@ namespace InternshipProject.DAL.Repositories;
 internal class TicketRepository : DefaultRepository<Ticket>
 {
 
-    public override Ticket Get(int id)
+    public override async Task<Ticket> GetAsync(int id)
     {
         return Db.Tickets.Find(id) ?? throw new InvalidOperationException();
     }
 
-    public override IQueryable<Ticket> Find(Func<Ticket, bool> predicate)
+    public override async Task<IQueryable<Ticket>> FindAsync(Func<Ticket, bool> predicate)
     {
         return (IQueryable<Ticket>)Db.Tickets.Where(predicate);
     }
 
-    public override IQueryable<Ticket> GetList(List<int> ids)
+    public override async Task<IQueryable<Ticket>> GetListAsync(List<int> ids)
     {
         return Db.Tickets.Where(t => ids.Contains(t.Id));
     }

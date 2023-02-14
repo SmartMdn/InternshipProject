@@ -20,7 +20,7 @@ internal class HallCRUDService : ICRUDService<HallDTO>
 
     public HallDTO Get(int id)
     {
-        var hall = _unitOfWork.Halls.Get(id);
+        var hall = _unitOfWork.Halls.GetAsync(id).Result;
         if (hall == null)
             throw new ValidationException("Билет не найден", "");
         return new HallDTO { Id = hall.Id, Name = hall.Name};
@@ -29,7 +29,7 @@ internal class HallCRUDService : ICRUDService<HallDTO>
     public IEnumerable<HallDTO> GetAll()
     {
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Hall, HallDTO>()).CreateMapper();
-        return mapper.Map<IEnumerable<Hall>, List<HallDTO>>(_unitOfWork.Halls.GetAll());
+        return mapper.Map<IEnumerable<Hall>, List<HallDTO>>(_unitOfWork.Halls.GetAllAsync().Result);
     }
 
     public void Put(HallDTO item, int id)
@@ -38,9 +38,9 @@ internal class HallCRUDService : ICRUDService<HallDTO>
         {
             Id = id,
             Name = item.Name,
-            Sections = _unitOfWork.Sections.GetList(item.Sections!.ToList()).ToList()
+            Sections = _unitOfWork.Sections.GetListAsync(item.Sections!.ToList()).Result.ToList()
         };
-        _unitOfWork.Halls.Update(hall);
+        _unitOfWork.Halls.UpdateAsync(hall);
         _unitOfWork.Save();
     }
 
@@ -49,15 +49,15 @@ internal class HallCRUDService : ICRUDService<HallDTO>
         var hall = new Hall
         {   
             Name = item.Name,
-            Sections = _unitOfWork.Sections.GetList(item.Sections!.ToList()).ToList()
+            Sections = _unitOfWork.Sections.GetListAsync(item.Sections!.ToList()).Result.ToList()
         };
-        _unitOfWork.Halls.Create(hall);
+        _unitOfWork.Halls.CreateAsync(hall);
         _unitOfWork.Save();
     }
 
     public void Delete(int id)
     {
-        _unitOfWork.Halls.Delete(id);
+        _unitOfWork.Halls.DeleteAsync(id);
         _unitOfWork.Save();
     }
 

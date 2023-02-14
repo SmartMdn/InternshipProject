@@ -20,7 +20,7 @@ internal class SectionCRUDService : ICRUDService<SectionDTO>
 
     public SectionDTO Get(int id)
     {
-        var section = _unitOfWork.Sections.Get(id);
+        var section = _unitOfWork.Sections.GetAsync(id).Result;
         if (section == null)
             throw new ValidationException("Билет не найден", "");
         var ids1 = (from st in section.Places select st.Id).ToArray();
@@ -30,7 +30,7 @@ internal class SectionCRUDService : ICRUDService<SectionDTO>
     public IEnumerable<SectionDTO> GetAll()
     {
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Section, SectionDTO>()).CreateMapper();
-        return mapper.Map<IEnumerable<Section>, List<SectionDTO>>(_unitOfWork.Sections.GetAll());
+        return mapper.Map<IEnumerable<Section>, List<SectionDTO>>(_unitOfWork.Sections.GetAllAsync().Result);
     }
 
     public void Put(SectionDTO item, int id)
@@ -39,9 +39,9 @@ internal class SectionCRUDService : ICRUDService<SectionDTO>
         {
             Id = id, 
             Name = item.Name,
-            Places = _unitOfWork.Places.GetList(item.Places!.ToList()).ToList()
+            Places = _unitOfWork.Places.GetListAsync(item.Places!.ToList()).Result.ToList()
         };
-        _unitOfWork.Sections.Update(section);
+        _unitOfWork.Sections.UpdateAsync(section);
         _unitOfWork.Save();
     }
 
@@ -50,15 +50,15 @@ internal class SectionCRUDService : ICRUDService<SectionDTO>
         var section = new Section()
         {
             Name = item.Name,
-            Places = _unitOfWork.Places.GetList(item.Places!.ToList()).ToList()
+            Places = _unitOfWork.Places.GetListAsync(item.Places!.ToList()).Result.ToList()
         };
-        _unitOfWork.Sections.Create(section);
+        _unitOfWork.Sections.CreateAsync(section);
         _unitOfWork.Save();
     }
 
     public void Delete(int id)
     {
-        _unitOfWork.Sections.Delete(id);
+        _unitOfWork.Sections.DeleteAsync(id);
         _unitOfWork.Save();
     }
 

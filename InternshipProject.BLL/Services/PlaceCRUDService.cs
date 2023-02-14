@@ -20,7 +20,7 @@ internal class PlaceCRUDService : ICRUDService<PlaceDTO>
 
     public PlaceDTO Get(int id)
     {
-        var place = _unitOfWork.Places.Get(id);
+        var place = _unitOfWork.Places.GetAsync(id).Result;
         if (place == null)
             throw new ValidationException("Билет не найден", "");
         return new PlaceDTO { Id = place.Id, Type = place.Type};
@@ -29,7 +29,7 @@ internal class PlaceCRUDService : ICRUDService<PlaceDTO>
     public IEnumerable<PlaceDTO> GetAll()
     {
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Place, PlaceDTO>()).CreateMapper();
-        return mapper.Map<IEnumerable<Place>, List<PlaceDTO>>(_unitOfWork.Places.GetAll());
+        return mapper.Map<IEnumerable<Place>, List<PlaceDTO>>(_unitOfWork.Places.GetAllAsync().Result);
     }
 
     public void Put(PlaceDTO item, int id)
@@ -39,7 +39,7 @@ internal class PlaceCRUDService : ICRUDService<PlaceDTO>
             Id = id, 
             Type = item.Type
         };
-        _unitOfWork.Places.Update(place);
+        _unitOfWork.Places.UpdateAsync(place);
         _unitOfWork.Save();
     }
 
@@ -49,13 +49,13 @@ internal class PlaceCRUDService : ICRUDService<PlaceDTO>
         {
             Type = item.Type
         };
-        _unitOfWork.Places.Create(place);
+        _unitOfWork.Places.CreateAsync(place);
         _unitOfWork.Save();
     }
 
     public void Delete(int id)
     {
-        _unitOfWork.Places.Delete(id);
+        _unitOfWork.Places.DeleteAsync(id);
         _unitOfWork.Save();
     }
 

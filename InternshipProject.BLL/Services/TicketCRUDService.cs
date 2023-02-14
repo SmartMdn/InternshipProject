@@ -20,7 +20,7 @@ internal class TicketCRUDService : ICRUDService<TicketDTO>
 
     public TicketDTO Get(int id)
     {
-        var ticket = _unitOfWork.Tickets.Get(id);
+        var ticket = _unitOfWork.Tickets.GetAsync(id).Result;
         if (ticket == null)
             throw new ValidationException("Билет не найден", "");
 
@@ -30,14 +30,14 @@ internal class TicketCRUDService : ICRUDService<TicketDTO>
     public IEnumerable<TicketDTO> GetAll()
     {
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Ticket, TicketDTO>()).CreateMapper();
-        return mapper.Map<IEnumerable<Ticket>, List<TicketDTO>>(_unitOfWork.Tickets.GetAll());
+        return mapper.Map<IEnumerable<Ticket>, List<TicketDTO>>(_unitOfWork.Tickets.GetAllAsync().Result);
     }
 
     public void Put(TicketDTO item, int id)
     {
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<TicketDTO, Ticket>()).CreateMapper();
         var ticket = mapper.Map<TicketDTO, Ticket>(item);
-        _unitOfWork.Tickets.Update(ticket);
+        _unitOfWork.Tickets.UpdateAsync(ticket);
         _unitOfWork.Save();
     }
 
@@ -45,13 +45,13 @@ internal class TicketCRUDService : ICRUDService<TicketDTO>
     {
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<TicketDTO, Ticket>()).CreateMapper();
         var ticket = mapper.Map<TicketDTO, Ticket>(item);
-        _unitOfWork.Tickets.Create(ticket);
+        _unitOfWork.Tickets.CreateAsync(ticket);
         _unitOfWork.Save();
     }
 
     public void Delete(int id)
     {
-        _unitOfWork.Tickets.Delete(id);
+        _unitOfWork.Tickets.DeleteAsync(id);
         _unitOfWork.Save();
     }
 

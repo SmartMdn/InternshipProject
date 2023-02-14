@@ -6,12 +6,11 @@ public interface IRepository<T> where T : class
     ///     Получаение всех строк таблицы из базы данных
     /// </summary>
     /// <returns><c>IEnumerable</c>, состоящий из строк таблицы</returns>
-    IQueryable<T> GetAll();
-
-    IQueryable<T> GetList(List<int> ids);
-    T Get(int id);
-    IQueryable<T> Find(Func<T, bool> predicate);
-    void Create(T item);
-    void Update(T item);
-    void Delete(int id);
+    Task<IQueryable<T>> GetAllAsync();
+    Task<IQueryable<T>> GetListAsync(List<int> ids);
+    Task<T> GetAsync(int id);
+    Task<IQueryable<T>> FindAsync(Func<T, bool> predicate);
+    Task CreateAsync(T item);
+    Task UpdateAsync(T item);
+    Task DeleteAsync(int id);
 }

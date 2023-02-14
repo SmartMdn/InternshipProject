@@ -5,17 +5,17 @@ namespace InternshipProject.DAL.Repositories;
 
 internal class EventRepository : DefaultRepository<Event>
 {
-    public override IQueryable<Event> GetList(List<int> ids)
+    public override async Task<IQueryable<Event>> GetListAsync(List<int> ids)
     {
         return Db.Events.Where(t => ids.Contains(t.Id));
     }
 
-    public override Event Get(int id)
+    public override async Task<Event> GetAsync(int id)
     {
         return Db.Events.Find(id) ?? throw new InvalidOperationException();
     }
 
-    public override IQueryable<Event> Find(Func<Event, bool> predicate)
+    public override async Task<IQueryable<Event>> FindAsync(Func<Event, bool> predicate)
     {
         return (IQueryable<Event>)Db.Events.Where(predicate);
     }

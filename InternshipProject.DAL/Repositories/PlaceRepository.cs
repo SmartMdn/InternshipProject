@@ -5,17 +5,17 @@ namespace InternshipProject.DAL.Repositories;
 
 internal class PlaceRepository : DefaultRepository<Place>
 {
-    public override IQueryable<Place> GetList(List<int> ids)
+    public override async Task<IQueryable<Place>> GetListAsync(List<int> ids)
     {
         return Db.Places.Where(t => ids.Contains(t.Id));
     }
 
-    public override Place Get(int id)
+    public override async Task<Place> GetAsync(int id)
     {
         return Db.Places.FirstOrDefault(place => place.Id ==id) ?? throw new InvalidOperationException();
     }
 
-    public override IQueryable<Place> Find(Func<Place, bool> predicate)
+    public override async Task<IQueryable<Place>> FindAsync(Func<Place, bool> predicate)
     {
         return (IQueryable<Place>)Db.Places.Where(predicate);
     }

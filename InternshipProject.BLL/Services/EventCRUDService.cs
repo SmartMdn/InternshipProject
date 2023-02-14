@@ -20,7 +20,7 @@ internal class EventCRUDService : ICRUDService<EventDTO>
 
     public EventDTO Get(int id)
     {
-        var resultEvent = _unitOfWork.Events.Get(id);
+        var resultEvent = _unitOfWork.Events.GetAsync(id).Result;
         if (resultEvent == null)
             throw new ValidationException("Билет не найден", "");
 
@@ -34,7 +34,7 @@ internal class EventCRUDService : ICRUDService<EventDTO>
     public IEnumerable<EventDTO> GetAll()
     {
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Event, EventDTO>()).CreateMapper();
-        return mapper.Map<IEnumerable<Event>, List<EventDTO>>(_unitOfWork.Events.GetAll());
+        return mapper.Map<IEnumerable<Event>, List<EventDTO>>(_unitOfWork.Events.GetAllAsync().Result);
     }
 
     public void Put(EventDTO item, int id)
@@ -42,7 +42,7 @@ internal class EventCRUDService : ICRUDService<EventDTO>
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<EventDTO, Event>()).CreateMapper();
         var resultEvent = mapper.Map<EventDTO, Event>(item);
         resultEvent.Id = id;
-        _unitOfWork.Events.Update(resultEvent);
+        _unitOfWork.Events.UpdateAsync(resultEvent);
         _unitOfWork.Save();
     }
 
@@ -50,13 +50,13 @@ internal class EventCRUDService : ICRUDService<EventDTO>
     {
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<EventDTO, Event>()).CreateMapper();
         var resultEvent = mapper.Map<EventDTO, Event>(item);
-        _unitOfWork.Events.Create(resultEvent);
+        _unitOfWork.Events.CreateAsync(resultEvent);
         _unitOfWork.Save();
     }
 
     public void Delete(int id)
     {
-        _unitOfWork.Events.Delete(id);
+        _unitOfWork.Events.DeleteAsync(id);
         _unitOfWork.Save();
     }
 

@@ -22,7 +22,7 @@ internal class BuyTicketService : IBuyTicketService
         List<Ticket> tickets;
         try
         {
-            tickets = Database.Tickets.GetList(ids).ToList();
+            tickets = Database.Tickets.GetListAsync(ids).Result.ToList();
         }
         catch (NullReferenceException e)
         {
@@ -32,7 +32,7 @@ internal class BuyTicketService : IBuyTicketService
         foreach (var variableTicket in tickets)
         {
             variableTicket.IsBought = true;
-            Database.Tickets.Update(variableTicket);
+            Database.Tickets.UpdateAsync(variableTicket);
         }
 
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Ticket, TicketDTO>()).CreateMapper();

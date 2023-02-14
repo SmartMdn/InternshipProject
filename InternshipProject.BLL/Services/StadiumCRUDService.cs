@@ -20,7 +20,7 @@ internal class StadiumCRUDService : ICRUDService<StadiumDTO>
 
     public StadiumDTO Get(int id)
     {
-        var stadium = _unitOfWork.Stadiums.Get(id);
+        var stadium = _unitOfWork.Stadiums.GetAsync(id).Result;
         if (stadium == null)
             throw new ValidationException("Билет не найден", "");
         var ids = (from st in stadium.Halls select st.Id).ToArray();
@@ -30,7 +30,7 @@ internal class StadiumCRUDService : ICRUDService<StadiumDTO>
     public IEnumerable<StadiumDTO> GetAll()
     {
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Stadium, StadiumDTO>()).CreateMapper();
-        return mapper.Map<IEnumerable<Stadium>, List<StadiumDTO>>(_unitOfWork.Stadiums.GetAll());
+        return mapper.Map<IEnumerable<Stadium>, List<StadiumDTO>>(_unitOfWork.Stadiums.GetAllAsync().Result);
     }
 
     public void Put(StadiumDTO item, int id)
@@ -39,32 +39,32 @@ internal class StadiumCRUDService : ICRUDService<StadiumDTO>
         {
             Id = id,
             Address = item.Address, 
-            Halls = _unitOfWork.Halls.GetList(item.Halls!.ToList()).ToList(),
+            Halls = _unitOfWork.Halls.GetListAsync(item.Halls!.ToList()).Result.ToList(),
             Name = item.Name
         };
-        _unitOfWork.Stadiums.Update(stadium);
+        _unitOfWork.Stadiums.UpdateAsync(stadium);
         _unitOfWork.Save();
     }
 
     public void Post(StadiumDTO item)
     {
-        if (_unitOfWork.Stadiums.GetAll().Any(o => o.Name == item.Name || o.Address == item.Name))
+        if (_unitOfWork.Stadiums.GetAllAsync().Result.Any(o => o.Name == item.Name || o.Address == item.Name))
         {
             return;
         }
         var stadium = new Stadium
         {
             Address = item.Address,
-            Halls = _unitOfWork.Halls.GetList(item.Halls!.ToList()).ToList(), 
+            Halls = _unitOfWork.Halls.GetListAsync(item.Halls!.ToList()).Result.ToList(), 
             Name = item.Name
         };
-        _unitOfWork.Stadiums.Create(stadium);
+        _unitOfWork.Stadiums.CreateAsync(stadium);
         _unitOfWork.Save();
     }
 
     public void Delete(int id)
     {
-        _unitOfWork.Stadiums.Delete(id);
+        _unitOfWork.Stadiums.DeleteAsync(id);
         _unitOfWork.Save();
     }
 
