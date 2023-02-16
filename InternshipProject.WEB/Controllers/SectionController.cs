@@ -11,37 +11,37 @@ namespace InternshipProject.WEB.Controllers;
 [Route("[controller]")]
 public class SectionController : CrudController<SectionViewModel, SectionDTO, GetSectionViewModel>
 {
-    public SectionController(ICRUDService<SectionDTO> service) : base(service)
+    public SectionController(ICrudService<SectionDTO> service) : base(service)
     {
     }
 
     [HttpGet]
-    public override GetSectionViewModel Get(int id)
+    public override async Task<GetSectionViewModel> Get(int id)
     {
-        var item = MapperOutput.Map<SectionDTO, GetSectionViewModel>(Service.Get(id));
+        var item = MapperOutput.Map<SectionDTO, GetSectionViewModel>(await Service.GetAsync(id));
         return item;
     }
 
     [HttpPut]
-    public override IActionResult Update(SectionViewModel item, int id)
+    public override async Task<IActionResult> Update(SectionViewModel item, int id)
     {
         ResultItem = MapperInput.Map<SectionViewModel, SectionDTO>(item);
-        Service.Put(ResultItem, id);
+        await Service.UpdateAsync(ResultItem, id);
         return new OkResult();
     }
 
     [HttpPost]
-    public override IActionResult Add(SectionViewModel item)
+    public override async Task<IActionResult> Add(SectionViewModel item)
     {
         ResultItem = MapperInput.Map<SectionViewModel, SectionDTO>(item);
-        Service.Post(ResultItem);
+        await Service.AddAsync(ResultItem);
         return new OkResult();
     }
 
     [HttpDelete]
-    public override IActionResult Delete(int id)
+    public override async Task<IActionResult> Delete(int id)
     {
-        Service.Delete(id);
+        await Service.DeleteAsync(id);
         return new OkResult();
     }
 }

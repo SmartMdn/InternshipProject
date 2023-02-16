@@ -10,7 +10,7 @@ internal class TicketRepository : DefaultRepository<Ticket>
 
     public override async Task<Ticket> GetAsync(int id)
     {
-        return Db.Tickets.Find(id) ?? throw new InvalidOperationException();
+        return await Db.Tickets.FindAsync(id) ?? throw new InvalidOperationException();
     }
 
     public override async Task<IQueryable<Ticket>> FindAsync(Func<Ticket, bool> predicate)

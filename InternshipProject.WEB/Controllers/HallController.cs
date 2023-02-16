@@ -11,37 +11,37 @@ namespace InternshipProject.WEB.Controllers;
 [Route("[controller]")]
 public class HallController : CrudController<HallViewModel, HallDTO, GetHallViewModel>
 {
-    public HallController(ICRUDService<HallDTO> service) : base(service)
+    public HallController(ICrudService<HallDTO> service) : base(service)
     {
     }
 
     [HttpGet]
-    public override GetHallViewModel Get(int id)
+    public override async Task<GetHallViewModel> Get(int id)
     {
-        var item = MapperOutput.Map<HallDTO, GetHallViewModel>(Service.Get(id));
+        var item = MapperOutput.Map<HallDTO, GetHallViewModel>(await Service.GetAsync(id));
         return item;
     }
 
     [HttpPut]
-    public override IActionResult Update(HallViewModel item, int id)
+    public override async Task<IActionResult> Update(HallViewModel item, int id)
     {
         ResultItem = MapperInput.Map<HallViewModel, HallDTO>(item);
-        Service.Put(ResultItem, id);
+        await Service.UpdateAsync(ResultItem, id);
         return new OkResult();
     }
 
     [HttpPost]
-    public override IActionResult Add(HallViewModel item)
+    public override async Task<IActionResult> Add(HallViewModel item)
     {
         ResultItem = MapperInput.Map<HallViewModel, HallDTO>(item);
-        Service.Post(ResultItem);
+        await Service.AddAsync(ResultItem);
         return new OkResult();
     }
 
     [HttpDelete]
-    public override IActionResult Delete(int id)
+    public override async Task<IActionResult> Delete(int id)
     {
-        Service.Delete(id);
+        Service.DeleteAsync(id);
         return new OkResult();
     }
 }

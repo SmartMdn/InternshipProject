@@ -11,37 +11,37 @@ namespace InternshipProject.WEB.Controllers;
 [Route("[controller]")]
 public class TicketController : CrudController<TicketViewModel, TicketDTO, GetTicketViewModel>
 {
-    public TicketController(ICRUDService<TicketDTO> service) : base(service)
+    public TicketController(ICrudService<TicketDTO> service) : base(service)
     {
     }
 
     [HttpGet]
-    public override GetTicketViewModel Get(int id)
+    public override async Task<GetTicketViewModel> Get(int id)
     {
-        var item = MapperOutput.Map<TicketDTO, GetTicketViewModel>(Service.Get(id));
+        var item = MapperOutput.Map<TicketDTO, GetTicketViewModel>(await Service.GetAsync(id));
         return item;
     }
 
     [HttpPut]
-    public override IActionResult Update(TicketViewModel item, int id)
+    public override async Task<IActionResult> Update(TicketViewModel item, int id)
     {
         ResultItem = MapperInput.Map<TicketViewModel, TicketDTO>(item);
-        Service.Put(ResultItem, id);
+        await Service.UpdateAsync(ResultItem, id);
         return new OkResult();
     }
 
     [HttpPost]
-    public override IActionResult Add(TicketViewModel item)
+    public override async Task<IActionResult> Add(TicketViewModel item)
     {
         ResultItem = MapperInput.Map<TicketViewModel, TicketDTO>(item);
-        Service.Post(ResultItem);
+        await Service.AddAsync(ResultItem);
         return new OkResult();
     }
 
     [HttpDelete]
-    public override IActionResult Delete(int id)
+    public override async Task<IActionResult> Delete(int id)
     {
-        Service.Delete(id);
+        await Service.DeleteAsync(id);
         return new OkResult();
     }
 }

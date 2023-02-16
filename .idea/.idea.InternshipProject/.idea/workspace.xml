@@ -11,6 +11,8 @@
   <component name="ChangeListManager">
     <list default="true" id="34db0145-e696-4685-a61f-87b894f01690" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.InternshipProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.InternshipProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/Interfaces/IBuyTicketService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/Interfaces/IBuyTicketService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/Interfaces/ICRUDService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/Interfaces/ICRUDService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/Services/BuyTicketService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/Services/BuyTicketService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/Services/EventCRUDService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/Services/EventCRUDService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/Services/HallCRUDService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/Services/HallCRUDService.cs" afterDir="false" />
@@ -18,8 +20,9 @@
       <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/Services/SectionCRUDService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/Services/SectionCRUDService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/Services/StadiumCRUDService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/Services/StadiumCRUDService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.BLL/Services/TicketCRUDService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.BLL/Services/TicketCRUDService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Interfaces/IRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Interfaces/IRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Interfaces/IUnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Interfaces/IUnitOfWork.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/DefaultRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/DefaultRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/EFUnitOfWork.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/EFUnitOfWork.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/EventRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/EventRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/HallRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/HallRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/PlaceRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/PlaceRepository.cs" afterDir="false" />
@@ -27,6 +30,13 @@
       <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/StadiumRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/StadiumRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/TicketRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.DAL/Repositories/TicketRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Abstractions/CrudController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Abstractions/CrudController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/EventController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/EventController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/HallController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/HallController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/PlaceController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/PlaceController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/SectionController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/SectionController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/StadiumController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/StadiumController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/TicketController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Controllers/TicketController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InternshipProject.WEB/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InternshipProject.WEB/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +191,11 @@
       <workItem from="1674480101139" duration="6000" />
       <workItem from="1676317954673" duration="1331000" />
       <workItem from="1676395111177" duration="1776000" />
-      <workItem from="1676398033198" duration="1654000" />
+      <workItem from="1676398033198" duration="1832000" />
+      <workItem from="1676552827311" duration="618000" />
+      <workItem from="1676561877711" duration="596000" />
+      <workItem from="1676574748837" duration="198000" />
+      <workItem from="1676588046152" duration="2486000" />
     </task>
     <task id="LOCAL-00001" summary="Create WebProject">
       <created>1669208941169</created>
@@ -400,7 +414,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676395352254</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Create services async">
+      <created>1676400864614</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1676400864614</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -434,7 +455,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Create repositories with realization" />
     <MESSAGE value="Create UnitToWork class for work with DB" />
     <MESSAGE value="fixed" />
     <MESSAGE value="Add ConnectionString in config" />
@@ -459,7 +479,8 @@
     <MESSAGE value="rename Models in ViewModels and add GetViewModels" />
     <MESSAGE value="Refactoring" />
     <MESSAGE value="1" />
-    <option name="LAST_COMMIT_MESSAGE" value="1" />
+    <MESSAGE value="Create services async" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create services async" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -475,10 +496,10 @@
           <line>21</line>
           <properties documentPath="A:\RiderProjects\InternshipProject332\InternshipProject.BLL\Services\StadiumCRUDService.cs" initialLine="21" containingFunctionPresentation="method 'Get'">
             <startOffsets>
-              <option value="600" />
+              <option value="617" />
             </startOffsets>
             <endOffsets>
-              <option value="601" />
+              <option value="618" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="26" />

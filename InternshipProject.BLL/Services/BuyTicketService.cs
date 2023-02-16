@@ -17,7 +17,7 @@ internal class BuyTicketService : IBuyTicketService
 
     private IUnitOfWork Database { get; }
 
-    public IEnumerable<TicketDTO> BuyTickets(List<int> ids)
+    public async Task<IEnumerable<TicketDTO>> BuyTickets(List<int> ids)
     {
         List<Ticket> tickets;
         try
@@ -32,11 +32,11 @@ internal class BuyTicketService : IBuyTicketService
         foreach (var variableTicket in tickets)
         {
             variableTicket.IsBought = true;
-            Database.Tickets.UpdateAsync(variableTicket);
+            await Database.Tickets.UpdateAsync(variableTicket);
         }
 
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Ticket, TicketDTO>()).CreateMapper();
-        Database.Save();
+        await Database.SaveAsync();
         return mapper.Map<IEnumerable<Ticket>, List<TicketDTO>>(tickets);
     }
 

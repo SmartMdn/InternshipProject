@@ -11,37 +11,37 @@ namespace InternshipProject.WEB.Controllers;
 [Route("[controller]")]
 public class PlaceController : CrudController<PlaceViewModel, PlaceDTO, GetPlaceViewModel>
 {
-    public PlaceController(ICRUDService<PlaceDTO> service) : base(service)
+    public PlaceController(ICrudService<PlaceDTO> service) : base(service)
     {
     }
 
     [HttpGet]
-    public override GetPlaceViewModel Get(int id)
+    public override async Task<GetPlaceViewModel> Get(int id)
     {
-        var item = MapperOutput.Map<PlaceDTO, GetPlaceViewModel>(Service.Get(id));
+        var item = MapperOutput.Map<PlaceDTO, GetPlaceViewModel>(await Service.GetAsync(id));
         return item;
     }
 
     [HttpPut]
-    public override IActionResult Update(PlaceViewModel item, int id)
+    public override async Task<IActionResult> Update(PlaceViewModel item, int id)
     {
         ResultItem = MapperInput.Map<PlaceViewModel, PlaceDTO>(item);
-        Service.Put(ResultItem, id);
+        await Service.UpdateAsync(ResultItem, id);
         return new OkResult();
     }
 
     [HttpPost]
-    public override IActionResult Add(PlaceViewModel item)
+    public override async Task<IActionResult> Add(PlaceViewModel item)
     {
         ResultItem = MapperInput.Map<PlaceViewModel, PlaceDTO>(item);
-        Service.Post(ResultItem);
+        await Service.AddAsync(ResultItem);
         return new OkResult();
     }
 
     [HttpDelete]
-    public override IActionResult Delete(int id)
+    public override async Task<IActionResult> Delete(int id)
     {
-        Service.Delete(id);
+        await Service.DeleteAsync(id);
         return new OkResult();
     }
 }

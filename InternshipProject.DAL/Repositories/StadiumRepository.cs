@@ -13,7 +13,7 @@ internal class StadiumRepository : DefaultRepository<Stadium>
 
     public override async Task<Stadium> GetAsync(int id)
     {
-        return Db.Stadiums.Include(e => e.Halls).FirstOrDefault(e => e.Id == id) ?? throw new InvalidOperationException();
+        return await Db.Stadiums.Include(e => e.Halls).FirstOrDefaultAsync(e => e.Id == id) ?? throw new InvalidOperationException();
     }
 
     public override async Task<IQueryable<Stadium>> FindAsync(Func<Stadium, bool> predicate)

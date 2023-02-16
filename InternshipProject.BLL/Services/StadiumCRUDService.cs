@@ -9,7 +9,7 @@ using InternshipProject.DAL.Interfaces;
 [assembly: InternalsVisibleTo("InternshipProject.WEB")]
 namespace InternshipProject.BLL.Services;
 
-internal class StadiumCRUDService : ICRUDService<StadiumDTO>
+internal class StadiumCRUDService : ICrudService<StadiumDTO>
 {
     private readonly IUnitOfWork _unitOfWork;
 
@@ -18,22 +18,22 @@ internal class StadiumCRUDService : ICRUDService<StadiumDTO>
         _unitOfWork = unitOfWork;
     }
 
-    public StadiumDTO Get(int id)
+    public async Task<StadiumDTO> GetAsync(int id)
     {
-        var stadium = _unitOfWork.Stadiums.GetAsync(id).Result;
+        var stadium = await _unitOfWork.Stadiums.GetAsync(id);
         if (stadium == null)
             throw new ValidationException("Билет не найден", "");
         var ids = (from st in stadium.Halls select st.Id).ToArray();
         return new StadiumDTO { Id =stadium.Id , Address = stadium.Address, Name = stadium.Name, Halls = ids};
     }
 
-    public IEnumerable<StadiumDTO> GetAll()
+    public async Task<IEnumerable<StadiumDTO>> GetAllAsync()
     {
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Stadium, StadiumDTO>()).CreateMapper();
-        return mapper.Map<IEnumerable<Stadium>, List<StadiumDTO>>(_unitOfWork.Stadiums.GetAllAsync().Result);
+        return mapper.Map<IEnumerable<Stadium>, List<StadiumDTO>>(await _unitOfWork.Stadiums.GetAllAsync());
     }
 
-    public void Put(StadiumDTO item, int id)
+    public async Task UpdateAsync(StadiumDTO item, int id)
     {
         var stadium = new Stadium
         {
@@ -42,11 +42,11 @@ internal class StadiumCRUDService : ICRUDService<StadiumDTO>
             Halls = _unitOfWork.Halls.GetListAsync(item.Halls!.ToList()).Result.ToList(),
             Name = item.Name
         };
-        _unitOfWork.Stadiums.UpdateAsync(stadium);
-        _unitOfWork.Save();
+        await _unitOfWork.Stadiums.UpdateAsync(stadium);
+        await _unitOfWork.SaveAsync();
     }
 
-    public void Post(StadiumDTO item)
+    public async Task AddAsync(StadiumDTO item)
     {
         if (_unitOfWork.Stadiums.GetAllAsync().Result.Any(o => o.Name == item.Name || o.Address == item.Name))
         {
@@ -58,14 +58,14 @@ internal class StadiumCRUDService : ICRUDService<StadiumDTO>
             Halls = _unitOfWork.Halls.GetListAsync(item.Halls!.ToList()).Result.ToList(), 
             Name = item.Name
         };
-        _unitOfWork.Stadiums.CreateAsync(stadium);
-        _unitOfWork.Save();
+        await _unitOfWork.Stadiums.CreateAsync(stadium);
+        await _unitOfWork.SaveAsync();
     }
 
-    public void Delete(int id)
+    public async Task DeleteAsync(int id)
     {
-        _unitOfWork.Stadiums.DeleteAsync(id);
-        _unitOfWork.Save();
+        await _unitOfWork.Stadiums.DeleteAsync(id);
+        await _unitOfWork.SaveAsync();
     }
 
     public void Dispose()

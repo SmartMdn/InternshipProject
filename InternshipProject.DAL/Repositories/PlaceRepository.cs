@@ -1,5 +1,6 @@
 ﻿using InternshipProject.DAL.EF;
 using InternshipProject.DAL.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace InternshipProject.DAL.Repositories;
 
@@ -12,7 +13,7 @@ internal class PlaceRepository : DefaultRepository<Place>
 
     public override async Task<Place> GetAsync(int id)
     {
-        return Db.Places.FirstOrDefault(place => place.Id ==id) ?? throw new InvalidOperationException();
+        return await Db.Places.FirstOrDefaultAsync(place => place.Id ==id) ?? throw new InvalidOperationException();
     }
 
     public override async Task<IQueryable<Place>> FindAsync(Func<Place, bool> predicate)

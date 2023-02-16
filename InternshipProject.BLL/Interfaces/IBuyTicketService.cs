@@ -4,6 +4,6 @@ namespace InternshipProject.BLL.Interfaces;
 
 public interface IBuyTicketService
 {
-    IEnumerable<TicketDTO> BuyTickets(List<int> ids);
+    Task<IEnumerable<TicketDTO>> BuyTickets(List<int> ids);
     void Dispose();
 }

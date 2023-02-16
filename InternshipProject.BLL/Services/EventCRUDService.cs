@@ -9,7 +9,7 @@ using InternshipProject.DAL.Interfaces;
 [assembly: InternalsVisibleTo("InternshipProject.WEB")]
 namespace InternshipProject.BLL.Services;
 
-internal class EventCRUDService : ICRUDService<EventDTO>
+internal class EventCRUDService : ICrudService<EventDTO>
 {
     private readonly IUnitOfWork _unitOfWork;
 
@@ -18,9 +18,9 @@ internal class EventCRUDService : ICRUDService<EventDTO>
         _unitOfWork = unitOfWork;
     }
 
-    public EventDTO Get(int id)
+    public async Task<EventDTO> GetAsync(int id)
     {
-        var resultEvent = _unitOfWork.Events.GetAsync(id).Result;
+        var resultEvent = await _unitOfWork.Events.GetAsync(id);
         if (resultEvent == null)
             throw new ValidationException("Билет не найден", "");
 
@@ -31,33 +31,33 @@ internal class EventCRUDService : ICRUDService<EventDTO>
         };
     }
 
-    public IEnumerable<EventDTO> GetAll()
+    public async Task<IEnumerable<EventDTO>> GetAllAsync()
     {
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Event, EventDTO>()).CreateMapper();
-        return mapper.Map<IEnumerable<Event>, List<EventDTO>>(_unitOfWork.Events.GetAllAsync().Result);
+        return mapper.Map<IEnumerable<Event>, List<EventDTO>>(await _unitOfWork.Events.GetAllAsync());
     }
 
-    public void Put(EventDTO item, int id)
+    public async Task UpdateAsync(EventDTO item, int id)
     {
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<EventDTO, Event>()).CreateMapper();
         var resultEvent = mapper.Map<EventDTO, Event>(item);
         resultEvent.Id = id;
-        _unitOfWork.Events.UpdateAsync(resultEvent);
-        _unitOfWork.Save();
+        await _unitOfWork.Events.UpdateAsync(resultEvent);
+        await _unitOfWork.SaveAsync();
     }
 
-    public void Post(EventDTO item)
+    public async Task AddAsync(EventDTO item)
     {
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<EventDTO, Event>()).CreateMapper();
         var resultEvent = mapper.Map<EventDTO, Event>(item);
-        _unitOfWork.Events.CreateAsync(resultEvent);
-        _unitOfWork.Save();
+        await _unitOfWork.Events.CreateAsync(resultEvent);
+        await _unitOfWork.SaveAsync();
     }
 
-    public void Delete(int id)
+    public async Task DeleteAsync(int id)
     {
-        _unitOfWork.Events.DeleteAsync(id);
-        _unitOfWork.Save();
+        await _unitOfWork.Events.DeleteAsync(id);
+        await _unitOfWork.SaveAsync();
     }
 
     public void Dispose()

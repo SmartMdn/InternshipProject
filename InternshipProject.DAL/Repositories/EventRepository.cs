@@ -12,7 +12,7 @@ internal class EventRepository : DefaultRepository<Event>
 
     public override async Task<Event> GetAsync(int id)
     {
-        return Db.Events.Find(id) ?? throw new InvalidOperationException();
+        return await Db.Events.FindAsync(id) ?? throw new InvalidOperationException();
     }
 
     public override async Task<IQueryable<Event>> FindAsync(Func<Event, bool> predicate)

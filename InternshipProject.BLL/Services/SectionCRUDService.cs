@@ -9,7 +9,7 @@ using InternshipProject.DAL.Interfaces;
 [assembly: InternalsVisibleTo("InternshipProject.WEB")]
 namespace InternshipProject.BLL.Services;
 
-internal class SectionCRUDService : ICRUDService<SectionDTO>
+internal class SectionCRUDService : ICrudService<SectionDTO>
 {
     private readonly IUnitOfWork _unitOfWork;
 
@@ -18,22 +18,22 @@ internal class SectionCRUDService : ICRUDService<SectionDTO>
         _unitOfWork = unitOfWork;
     }
 
-    public SectionDTO Get(int id)
+    public async Task<SectionDTO> GetAsync(int id)
     {
-        var section = _unitOfWork.Sections.GetAsync(id).Result;
+        var section = await _unitOfWork.Sections.GetAsync(id);
         if (section == null)
             throw new ValidationException("Билет не найден", "");
         var ids1 = (from st in section.Places select st.Id).ToArray();
         return new SectionDTO { Id = section.Id, Name = section.Name, Places = ids1};
     }
 
-    public IEnumerable<SectionDTO> GetAll()
+    public async Task<IEnumerable<SectionDTO>> GetAllAsync()
     {
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Section, SectionDTO>()).CreateMapper();
-        return mapper.Map<IEnumerable<Section>, List<SectionDTO>>(_unitOfWork.Sections.GetAllAsync().Result);
+        return mapper.Map<IEnumerable<Section>, List<SectionDTO>>(await _unitOfWork.Sections.GetAllAsync());
     }
 
-    public void Put(SectionDTO item, int id)
+    public async Task UpdateAsync(SectionDTO item, int id)
     {
         var section = new Section
         {
@@ -41,25 +41,25 @@ internal class SectionCRUDService : ICRUDService<SectionDTO>
             Name = item.Name,
             Places = _unitOfWork.Places.GetListAsync(item.Places!.ToList()).Result.ToList()
         };
-        _unitOfWork.Sections.UpdateAsync(section);
-        _unitOfWork.Save();
+        await _unitOfWork.Sections.UpdateAsync(section);
+        await _unitOfWork.SaveAsync();
     }
 
-    public void Post(SectionDTO item)
+    public async Task AddAsync(SectionDTO item)
     {
         var section = new Section()
         {
             Name = item.Name,
             Places = _unitOfWork.Places.GetListAsync(item.Places!.ToList()).Result.ToList()
         };
-        _unitOfWork.Sections.CreateAsync(section);
-        _unitOfWork.Save();
+        await _unitOfWork.Sections.CreateAsync(section);
+        await _unitOfWork.SaveAsync();
     }
 
-    public void Delete(int id)
+    public async Task DeleteAsync(int id)
     {
-        _unitOfWork.Sections.DeleteAsync(id);
-        _unitOfWork.Save();
+        await _unitOfWork.Sections.DeleteAsync(id);
+        await _unitOfWork.SaveAsync();
     }
 
     public void Dispose()

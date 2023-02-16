@@ -11,37 +11,37 @@ namespace InternshipProject.WEB.Controllers;
 [Route("[controller]")]
 public class StadiumController : CrudController<StadiumViewModel, StadiumDTO, GetStadiumViewModel>
 {
-    public StadiumController(ICRUDService<StadiumDTO> service) : base(service)
+    public StadiumController(ICrudService<StadiumDTO> service) : base(service)
     {
     }
 
     [HttpGet]
-    public override GetStadiumViewModel Get(int id)
+    public override async Task<GetStadiumViewModel> Get(int id)
     {
-        var item = MapperOutput.Map<StadiumDTO, GetStadiumViewModel>(Service.Get(id));
+        var item = MapperOutput.Map<StadiumDTO, GetStadiumViewModel>(await Service.GetAsync(id));
         return item;
     }
 
     [HttpPut]
-    public override IActionResult Update(StadiumViewModel item, int id)
+    public override async Task<IActionResult> Update(StadiumViewModel item, int id)
     {
         ResultItem = MapperInput.Map<StadiumViewModel, StadiumDTO>(item);
-        Service.Put(ResultItem, id);
+        await Service.UpdateAsync(ResultItem, id);
         return new OkResult();
     }
 
     [HttpPost]
-    public override IActionResult Add(StadiumViewModel item)
+    public override async Task<IActionResult> Add(StadiumViewModel item)
     {
         ResultItem = MapperInput.Map<StadiumViewModel, StadiumDTO>(item);
-        Service.Post(ResultItem);
+        await Service.AddAsync(ResultItem);
         return new OkResult();
     }
 
     [HttpDelete]
-    public override IActionResult Delete(int id)
+    public override async Task<IActionResult> Delete(int id)
     {
-        Service.Delete(id);
+        await Service.DeleteAsync(id);
         return new OkResult();
     }
 }

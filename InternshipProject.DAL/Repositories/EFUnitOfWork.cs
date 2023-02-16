@@ -64,9 +64,9 @@ internal class EFUnitOfWork : IUnitOfWork
         get { return _ticketRepository ??= new TicketRepository(_db); }
     }
 
-    public void Save()
+    public async Task SaveAsync()
     {
-        _db.SaveChanges();
+        await _db.SaveChangesAsync();
     }
 
     protected virtual void Dispose(bool disposing)

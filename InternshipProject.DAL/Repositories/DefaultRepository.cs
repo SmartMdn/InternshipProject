@@ -37,7 +37,7 @@ public abstract class DefaultRepository<T> : IRepository<T> where T: DefaultEnti
 
     public async Task CreateAsync(T item)
     {
-        Db.Set<T>().Add(item);
+        await Db.Set<T>().AddAsync(item);
     }
 
     public async Task UpdateAsync(T item)
@@ -50,7 +50,7 @@ public abstract class DefaultRepository<T> : IRepository<T> where T: DefaultEnti
 
     public async Task DeleteAsync(int id)
     {
-        var stadium = Db.Set<T>().Find(id);
+        var stadium = await Db.Set<T>().FindAsync(id);
         if (stadium != null) Db.Set<T>().Remove(stadium);
     }
 }

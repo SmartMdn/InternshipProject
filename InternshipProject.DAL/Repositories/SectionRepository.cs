@@ -14,7 +14,7 @@ internal class SectionRepository : DefaultRepository<Section>
 
     public override async Task<Section> GetAsync(int id)
     {
-        return Db.Sections.Include(section => section.Places).FirstOrDefault(e => e.Id == id) ?? throw new InvalidOperationException();
+        return await Db.Sections.Include(section => section.Places).FirstOrDefaultAsync(e => e.Id == id) ?? throw new InvalidOperationException();
     }
 
     public override async Task<IQueryable<Section>> FindAsync(Func<Section, bool> predicate)

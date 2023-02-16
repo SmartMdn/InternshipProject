@@ -1,16 +1,16 @@
 ﻿namespace InternshipProject.BLL.Interfaces;
 
-public interface ICRUDService<T> where T : class
+public interface ICrudService<T> where T : class
 {
     /// <summary>
     /// 
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    public T Get(int id);
-    public IEnumerable<T> GetAll();
-    public void Put(T item, int id);
-    public void Post(T item);
-    public void Delete(int id);
+    public Task<T> GetAsync(int id);
+    public Task<IEnumerable<T>> GetAllAsync();
+    public Task UpdateAsync(T item, int id);
+    public Task AddAsync(T item);
+    public Task DeleteAsync(int id);
     public void Dispose();
 }

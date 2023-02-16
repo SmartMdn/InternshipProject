@@ -9,50 +9,50 @@ using InternshipProject.DAL.Interfaces;
 [assembly: InternalsVisibleTo("InternshipProject.WEB")]
 namespace InternshipProject.BLL.Services;
 
-internal class TicketCRUDService : ICRUDService<TicketDTO>
+internal class TicketCrudService : ICrudService<TicketDTO>
 {
     private readonly IUnitOfWork _unitOfWork;
 
-    public TicketCRUDService(IUnitOfWork unitOfWork)
+    public TicketCrudService(IUnitOfWork unitOfWork)
     {
         _unitOfWork = unitOfWork;
     }
 
-    public TicketDTO Get(int id)
+    public async Task<TicketDTO> GetAsync(int id)
     {
-        var ticket = _unitOfWork.Tickets.GetAsync(id).Result;
+        var ticket = await _unitOfWork.Tickets.GetAsync(id);
         if (ticket == null)
             throw new ValidationException("Билет не найден", "");
 
         return new TicketDTO { EventId = ticket.EventId, Id = ticket.Id, PlaceId = ticket.PlaceId };
     }
 
-    public IEnumerable<TicketDTO> GetAll()
+    public async Task<IEnumerable<TicketDTO>> GetAllAsync()
     {
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Ticket, TicketDTO>()).CreateMapper();
-        return mapper.Map<IEnumerable<Ticket>, List<TicketDTO>>(_unitOfWork.Tickets.GetAllAsync().Result);
+        return mapper.Map<IEnumerable<Ticket>, List<TicketDTO>>(await _unitOfWork.Tickets.GetAllAsync());
     }
 
-    public void Put(TicketDTO item, int id)
+    public async Task UpdateAsync(TicketDTO item, int id)
     {
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<TicketDTO, Ticket>()).CreateMapper();
         var ticket = mapper.Map<TicketDTO, Ticket>(item);
-        _unitOfWork.Tickets.UpdateAsync(ticket);
-        _unitOfWork.Save();
+        await _unitOfWork.Tickets.UpdateAsync(ticket);
+        await _unitOfWork.SaveAsync();
     }
 
-    public void Post(TicketDTO item)
+    public async Task AddAsync(TicketDTO item)
     {
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<TicketDTO, Ticket>()).CreateMapper();
         var ticket = mapper.Map<TicketDTO, Ticket>(item);
-        _unitOfWork.Tickets.CreateAsync(ticket);
-        _unitOfWork.Save();
+        await _unitOfWork.Tickets.CreateAsync(ticket);
+        await _unitOfWork.SaveAsync();
     }
 
-    public void Delete(int id)
+    public async Task DeleteAsync(int id)
     {
-        _unitOfWork.Tickets.DeleteAsync(id);
-        _unitOfWork.Save();
+        await _unitOfWork.Tickets.DeleteAsync(id);
+        await _unitOfWork.SaveAsync();
     }
 
     public void Dispose()

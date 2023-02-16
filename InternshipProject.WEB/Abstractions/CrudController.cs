@@ -10,16 +10,16 @@ public abstract class CrudController<T, TK, TL> : ControllerBase where TK : clas
         cfg.CreateMap<T, TK>()).CreateMapper();
     protected readonly IMapper MapperOutput = new MapperConfiguration(cfg => 
         cfg.CreateMap<TK, TL>()).CreateMapper();
-    protected readonly ICRUDService<TK> Service;
+    protected readonly ICrudService<TK> Service;
     protected TK ResultItem;
 
-    protected CrudController(ICRUDService<TK> service)
+    protected CrudController(ICrudService<TK> service)
     {
         Service = service;
     }
 
-    public abstract TL Get(int id);
-    public abstract IActionResult Update(T item, int id);
-    public abstract IActionResult Add(T item);
-    public abstract IActionResult Delete(int id);
+    public abstract Task<TL> Get(int id);
+    public abstract Task<IActionResult> Update(T item, int id);
+    public abstract Task<IActionResult> Add(T item);
+    public abstract Task<IActionResult> Delete(int id);
 }

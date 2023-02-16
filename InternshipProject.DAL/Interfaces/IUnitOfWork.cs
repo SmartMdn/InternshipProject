@@ -13,5 +13,5 @@ internal interface IUnitOfWork : IDisposable
     IRepository<Section> Sections { get; }
     IRepository<Stadium> Stadiums { get; }
     IRepository<Ticket> Tickets { get; }
-    void Save();
+    Task SaveAsync();
 }

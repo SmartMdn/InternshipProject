@@ -9,7 +9,7 @@ using InternshipProject.DAL.Interfaces;
 [assembly: InternalsVisibleTo("InternshipProject.WEB")]
 namespace InternshipProject.BLL.Services;
 
-internal class PlaceCRUDService : ICRUDService<PlaceDTO>
+internal class PlaceCRUDService : ICrudService<PlaceDTO>
 {
     private readonly IUnitOfWork _unitOfWork;
 
@@ -18,45 +18,45 @@ internal class PlaceCRUDService : ICRUDService<PlaceDTO>
         _unitOfWork = unitOfWork;
     }
 
-    public PlaceDTO Get(int id)
+    public async Task<PlaceDTO> GetAsync(int id)
     {
-        var place = _unitOfWork.Places.GetAsync(id).Result;
+        var place = await _unitOfWork.Places.GetAsync(id);
         if (place == null)
             throw new ValidationException("Билет не найден", "");
         return new PlaceDTO { Id = place.Id, Type = place.Type};
     }
 
-    public IEnumerable<PlaceDTO> GetAll()
+    public async Task<IEnumerable<PlaceDTO>> GetAllAsync()
     {
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Place, PlaceDTO>()).CreateMapper();
-        return mapper.Map<IEnumerable<Place>, List<PlaceDTO>>(_unitOfWork.Places.GetAllAsync().Result);
+        return mapper.Map<IEnumerable<Place>, List<PlaceDTO>>(await _unitOfWork.Places.GetAllAsync());
     }
 
-    public void Put(PlaceDTO item, int id)
+    public async Task UpdateAsync(PlaceDTO item, int id)
     {
         var place = new Place
         {
             Id = id, 
             Type = item.Type
         };
-        _unitOfWork.Places.UpdateAsync(place);
-        _unitOfWork.Save();
+        await _unitOfWork.Places.UpdateAsync(place);
+        await _unitOfWork.SaveAsync();
     }
 
-    public void Post(PlaceDTO item)
+    public async Task AddAsync(PlaceDTO item)
     {
         var place = new Place
         {
             Type = item.Type
         };
-        _unitOfWork.Places.CreateAsync(place);
-        _unitOfWork.Save();
+        await _unitOfWork.Places.CreateAsync(place);
+        await _unitOfWork.SaveAsync();
     }
 
-    public void Delete(int id)
+    public async Task DeleteAsync(int id)
     {
-        _unitOfWork.Places.DeleteAsync(id);
-        _unitOfWork.Save();
+        await _unitOfWork.Places.DeleteAsync(id);
+        await _unitOfWork.SaveAsync();
     }
 
     public void Dispose()

@@ -9,7 +9,7 @@ using InternshipProject.DAL.Interfaces;
 [assembly: InternalsVisibleTo("InternshipProject.WEB")]
 namespace InternshipProject.BLL.Services;
 
-internal class HallCRUDService : ICRUDService<HallDTO>
+internal class HallCRUDService : ICrudService<HallDTO>
 {
     private readonly IUnitOfWork _unitOfWork;
 
@@ -18,21 +18,21 @@ internal class HallCRUDService : ICRUDService<HallDTO>
         _unitOfWork = unitOfWork;
     }
 
-    public HallDTO Get(int id)
+    public async Task<HallDTO> GetAsync(int id)
     {
-        var hall = _unitOfWork.Halls.GetAsync(id).Result;
+        var hall = await _unitOfWork.Halls.GetAsync(id);
         if (hall == null)
             throw new ValidationException("Билет не найден", "");
         return new HallDTO { Id = hall.Id, Name = hall.Name};
     }
 
-    public IEnumerable<HallDTO> GetAll()
+    public async Task<IEnumerable<HallDTO>> GetAllAsync()
     {
         var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Hall, HallDTO>()).CreateMapper();
-        return mapper.Map<IEnumerable<Hall>, List<HallDTO>>(_unitOfWork.Halls.GetAllAsync().Result);
+        return mapper.Map<IEnumerable<Hall>, List<HallDTO>>( await _unitOfWork.Halls.GetAllAsync());
     }
 
-    public void Put(HallDTO item, int id)
+    public async Task UpdateAsync(HallDTO item, int id)
     {
         var hall = new Hall
         {
@@ -40,25 +40,25 @@ internal class HallCRUDService : ICRUDService<HallDTO>
             Name = item.Name,
             Sections = _unitOfWork.Sections.GetListAsync(item.Sections!.ToList()).Result.ToList()
         };
-        _unitOfWork.Halls.UpdateAsync(hall);
-        _unitOfWork.Save();
+        await _unitOfWork.Halls.UpdateAsync(hall);
+        await _unitOfWork.SaveAsync();
     }
 
-    public void Post(HallDTO item)
+    public async Task AddAsync(HallDTO item)
     {
         var hall = new Hall
         {   
             Name = item.Name,
             Sections = _unitOfWork.Sections.GetListAsync(item.Sections!.ToList()).Result.ToList()
         };
-        _unitOfWork.Halls.CreateAsync(hall);
-        _unitOfWork.Save();
+        await _unitOfWork.Halls.CreateAsync(hall);
+        await _unitOfWork.SaveAsync();
     }
 
-    public void Delete(int id)
+    public async Task DeleteAsync(int id)
     {
-        _unitOfWork.Halls.DeleteAsync(id);
-        _unitOfWork.Save();
+        await _unitOfWork.Halls.DeleteAsync(id);
+        await _unitOfWork.SaveAsync();
     }
 
     public void Dispose()
