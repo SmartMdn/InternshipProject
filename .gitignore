@@ -3,3 +3,15 @@ obj/
 /packages/
 riderModule.iml
 /_ReSharper.Caches/
+/.vs/InternshipProject/config/applicationhost.config
+*.vsidx
+/.vs/InternshipProject/FileContentIndex/2c1089d2-e948-48a7-8f6d-f08881557402.vsidx
+/.vs/InternshipProject/FileContentIndex/a08824ea-c616-4dce-afbc-68264ae3f0d2.vsidx
+/.vs/InternshipProject/v17/.futdcache.v2
+/.vs/InternshipProject/v17/.suo
+*.wsuo
+/.vs/ProjectEvaluation/internshipproject.projects.v5.2
+/.vs/ProjectEvaluation/internshipproject.metadata.v5.2
+/.vs/InternshipProject/DesignTimeBuild/.dtbcache.v2
+*.sqlite
+*.json
