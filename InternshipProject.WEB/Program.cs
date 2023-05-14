@@ -3,36 +3,39 @@ using InternshipProject.BLL.Interfaces;
 using InternshipProject.BLL.Services;
 using InternshipProject.DAL.Interfaces;
 using InternshipProject.DAL.Repositories;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using InternshipProject.DAL.EF;
 
 var builder = WebApplication.CreateBuilder(args);
+var services = builder.Services;
 
-// Add services to the container.
-builder.Services.AddTransient<IUnitOfWork>(provider =>
-    new EFUnitOfWork(builder.Configuration.GetConnectionString("DefaultConnection")));
-builder.Services.AddTransient<ICRUDService<EventDTO>, EventCRUDService>();
-builder.Services.AddTransient<ICRUDService<HallDTO>, HallCRUDService>();
-builder.Services.AddTransient<ICRUDService<StadiumDTO>, StadiumCRUDService>();
-builder.Services.AddTransient<ICRUDService<SectionDTO>, SectionCRUDService>();
-builder.Services.AddTransient<ICRUDService<PlaceDTO>, PlaceCRUDService>();
-builder.Services.AddTransient<ICRUDService<TicketDTO>, TicketCRUDService>();
-builder.Services.AddControllers();
+services.AddTransient<IUnitOfWork>(provider =>
+    new EFUnitOfWork(builder.Configuration.GetConnectionString("DataDB")));
+
+builder.Services.AddDbContext<AuthContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("AuthDB")));
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<AuthContext>();
+services.AddTransient<ICRUDService<EventDTO>, EventCRUDService>();
+services.AddTransient<ICRUDService<HallDTO>, HallCRUDService>();
+services.AddTransient<ICRUDService<StadiumDTO>, StadiumCRUDService>();
+services.AddTransient<ICRUDService<SectionDTO>, SectionCRUDService>();
+services.AddTransient<ICRUDService<PlaceDTO>, PlaceCRUDService>();
+services.AddTransient<ICRUDService<TicketDTO>, TicketCRUDService>();
+services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+services.AddEndpointsApiExplorer();
+services.AddRazorPages();
+services.AddServerSideBlazor();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
 
+app.UseStaticFiles();
+app.MapBlazorHub();
+app.MapFallbackToPage("/Shared/_Layout");
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();
