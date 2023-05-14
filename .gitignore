@@ -15,4 +15,4 @@ riderModule.iml
 /.vs/InternshipProject/DesignTimeBuild/.dtbcache.v2
 *.sqlite
 *.json
-/.vs/
+.vs
