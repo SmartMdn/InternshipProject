@@ -23,19 +23,16 @@ services.AddTransient<ICRUDService<SectionDTO>, SectionCRUDService>();
 services.AddTransient<ICRUDService<PlaceDTO>, PlaceCRUDService>();
 services.AddTransient<ICRUDService<TicketDTO>, TicketCRUDService>();
 services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-services.AddEndpointsApiExplorer();
 services.AddRazorPages();
-services.AddServerSideBlazor();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 
 app.UseStaticFiles();
-app.MapBlazorHub();
-app.MapFallbackToPage("/Shared/_Layout");
+app.MapRazorPages();
 app.UseHttpsRedirection();
 app.UseAuthorization();
+app.UseAuthentication();
 app.MapControllers();
 app.Run();
