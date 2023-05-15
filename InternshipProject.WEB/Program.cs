@@ -25,6 +25,7 @@ services.AddTransient<ICRUDService<TicketDTO>, TicketCRUDService>();
 services.AddControllers();
 services.AddRazorPages();
 
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -33,6 +34,5 @@ app.UseStaticFiles();
 app.MapRazorPages();
 app.UseHttpsRedirection();
 app.UseAuthorization();
-app.UseAuthentication();
 app.MapControllers();
 app.Run();
