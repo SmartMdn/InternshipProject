@@ -1,11 +1,12 @@
-using InternshipProject.BLL.DTO;
+﻿using InternshipProject.BLL.DTO;
 using InternshipProject.BLL.Interfaces;
 using InternshipProject.BLL.Services;
+using InternshipProject.DAL.EF;
 using InternshipProject.DAL.Interfaces;
 using InternshipProject.DAL.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using InternshipProject.DAL.EF;
+
 
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;

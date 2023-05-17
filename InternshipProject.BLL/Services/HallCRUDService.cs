@@ -1,10 +1,10 @@
-﻿using System.Runtime.CompilerServices;
-using AutoMapper;
+﻿using AutoMapper;
 using InternshipProject.BLL.DTO;
 using InternshipProject.BLL.Infrastucture;
 using InternshipProject.BLL.Interfaces;
 using InternshipProject.DAL.Entities;
 using InternshipProject.DAL.Interfaces;
+using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("InternshipProject.WEB")]
 namespace InternshipProject.BLL.Services;
@@ -25,7 +25,7 @@ internal class HallCRUDService : ICRUDService<HallDTO>
         var hall = _database.Halls.Get(id);
         if (hall == null)
             throw new ValidationException("Билет не найден", "");
-        return new HallDTO { Id = hall.Id, Name = hall.Name};
+        return new HallDTO { Id = hall.Id, Name = hall.Name };
     }
 
     public IEnumerable<HallDTO> GetAll()
@@ -51,7 +51,7 @@ internal class HallCRUDService : ICRUDService<HallDTO>
     {
         if (item == null) return;
         var hall = new Hall
-        {   
+        {
             Name = item.Name,
             Sections = _database.Sections.GetList(item.Sections.ToList()).ToList()
         };

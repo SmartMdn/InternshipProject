@@ -1,8 +1,8 @@
-﻿using System.Runtime.CompilerServices;
-using InternshipProject.DAL.EF;
+﻿using InternshipProject.DAL.EF;
 using InternshipProject.DAL.Entities;
 using InternshipProject.DAL.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("InternshipProject.BLL")]
 [assembly: InternalsVisibleTo("InternshipProject.WEB")]
@@ -19,6 +19,7 @@ internal class EFUnitOfWork : IUnitOfWork
     private SectionRepository? _sectionRepository;
     private StadiumRepository? _stadiumRepository;
     private TicketRepository? _ticketRepository;
+    private CategoryRepository? _categoryRepository;
 
 
     public EFUnitOfWork(string? connectionString)
@@ -34,34 +35,39 @@ internal class EFUnitOfWork : IUnitOfWork
         GC.SuppressFinalize(this);
     }
 
-    IRepository<Event> IUnitOfWork.Events
+    public IRepository<Event> Events
     {
         get { return _eventRepository ??= new EventRepository(_db); }
     }
 
-    IRepository<Hall> IUnitOfWork.Halls
+    public IRepository<Hall> Halls
     {
         get { return _hallRepository ??= new HallRepository(_db); }
     }
 
-    IRepository<Place> IUnitOfWork.Places
+    public IRepository<Place> Places
     {
         get { return _placeRepository ??= new PlaceRepository(_db); }
     }
 
-    IRepository<Section> IUnitOfWork.Sections
+    public IRepository<Section> Sections
     {
         get { return _sectionRepository ??= new SectionRepository(_db); }
     }
 
-    IRepository<Stadium> IUnitOfWork.Stadiums
+    public IRepository<Stadium> Stadiums
     {
         get { return _stadiumRepository ??= new StadiumRepository(_db); }
     }
 
-    IRepository<Ticket> IUnitOfWork.Tickets
+    public IRepository<Ticket> Tickets
     {
         get { return _ticketRepository ??= new TicketRepository(_db); }
+    }
+
+    public IRepository<Category> Categories
+    {
+        get { return _categoryRepository ??= new CategoryRepository(_db); }
     }
 
     public void Save()

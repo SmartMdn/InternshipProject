@@ -1,6 +1,6 @@
 ﻿namespace InternshipProject.DAL.Entities;
 
-internal class Stadium
+public class Stadium
 {
     public int Id { get; set; }
     public string Name { get; set; }

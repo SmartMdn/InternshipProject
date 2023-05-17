@@ -1,10 +1,10 @@
-﻿using System.Runtime.CompilerServices;
-using AutoMapper;
+﻿using AutoMapper;
 using InternshipProject.BLL.DTO;
 using InternshipProject.BLL.Infrastucture;
 using InternshipProject.BLL.Interfaces;
 using InternshipProject.DAL.Entities;
 using InternshipProject.DAL.Interfaces;
+using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("InternshipProject.WEB")]
 namespace InternshipProject.BLL.Services;
@@ -26,7 +26,7 @@ internal class StadiumCRUDService : ICRUDService<StadiumDTO>
         if (stadium == null)
             throw new ValidationException("Билет не найден", "");
         var ids = (from st in stadium.Halls select st.Id).ToArray();
-        return new StadiumDTO { Address = stadium.Address, Name = stadium.Name, Halls = ids};
+        return new StadiumDTO { Address = stadium.Address, Name = stadium.Name, Halls = ids };
     }
 
     public IEnumerable<StadiumDTO> GetAll()
@@ -38,7 +38,7 @@ internal class StadiumCRUDService : ICRUDService<StadiumDTO>
     public void Put(StadiumDTO item, int id)
     {
         if (item == null) return;
-        var stadium = new Stadium{Address = item.Address, Halls = _database.Halls.GetList(item.Halls.ToList()).ToList(), Id = id, Name = item.Name};
+        var stadium = new Stadium { Address = item.Address, Halls = _database.Halls.GetList(item.Halls.ToList()).ToList(), Id = id, Name = item.Name };
         _database.Stadiums.Update(stadium);
         _database.Save();
     }
@@ -46,7 +46,7 @@ internal class StadiumCRUDService : ICRUDService<StadiumDTO>
     public void Post(StadiumDTO item)
     {
         if (item == null) return;
-        var stadium = new Stadium{Address = item.Address, Halls = _database.Halls.GetList(item.Halls.ToList()).ToList(), Name = item.Name};
+        var stadium = new Stadium { Address = item.Address, Halls = _database.Halls.GetList(item.Halls.ToList()).ToList(), Name = item.Name };
         _database.Stadiums.Create(stadium);
         _database.Save();
     }

@@ -1,10 +1,10 @@
-﻿using System.Runtime.CompilerServices;
-using AutoMapper;
+﻿using AutoMapper;
 using InternshipProject.BLL.DTO;
 using InternshipProject.BLL.Infrastucture;
 using InternshipProject.BLL.Interfaces;
 using InternshipProject.DAL.Entities;
 using InternshipProject.DAL.Interfaces;
+using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("InternshipProject.WEB")]
 namespace InternshipProject.BLL.Services;
@@ -21,15 +21,17 @@ internal class EventCRUDService : ICRUDService<EventDTO>
     public EventDTO Get(int id)
     {
         if (id == null)
-            throw new ValidationException("Не установлен id билета", "");
-        var _event = _database.Events.Get(id);
-        if (_event == null)
-            throw new ValidationException("Билет не найден", "");
-
-        return new EventDTO
         {
-            BookingPeriodDays = _event.BookingPeriodDays, Id = _event.Id, Name = _event.Name,
-            EventDuration = _event.EventDuration, HallId = _event.HallId
+            throw new ValidationException("Не установлен id билета", "");
+        }
+        var _event = _database.Events.Get(id);
+        return _event == null ? throw new ValidationException("Билет не найден", "") : new EventDTO
+        {
+            BookingPeriodDays = _event.BookingPeriodDays,
+            Id = _event.Id,
+            Name = _event.Name,
+            EventDuration = _event.EventDuration,
+            HallId = _event.HallId
         };
     }
 

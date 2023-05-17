@@ -1,11 +1,11 @@
-﻿using System.Runtime.CompilerServices;
-using AutoMapper;
+﻿using AutoMapper;
 using InternshipProject.BLL.DTO;
 using InternshipProject.BLL.Infrastucture;
 using InternshipProject.BLL.Interfaces;
 using InternshipProject.DAL.Entities;
 using InternshipProject.DAL.Enums;
 using InternshipProject.DAL.Interfaces;
+using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("InternshipProject.WEB")]
 namespace InternshipProject.BLL.Services;
@@ -26,7 +26,7 @@ internal class PlaceCRUDService : ICRUDService<PlaceDTO>
         var place = _database.Places.Get(id);
         if (place == null)
             throw new ValidationException("Билет не найден", "");
-        return new PlaceDTO { Id = place.Id, Type = place.Type};
+        return new PlaceDTO { Id = place.Id, Type = place.Type };
     }
 
     public IEnumerable<PlaceDTO> GetAll()
@@ -40,8 +40,8 @@ internal class PlaceCRUDService : ICRUDService<PlaceDTO>
         if (item == null) return;
         var place = new Place
         {
-            Id = id, 
-            Type = (PlaceType) item.Type
+            Id = id,
+            Type = (PlaceType)item.Type
         };
         _database.Places.Update(place);
         _database.Save();
@@ -52,7 +52,7 @@ internal class PlaceCRUDService : ICRUDService<PlaceDTO>
         if (item == null) return;
         var place = new Place
         {
-            Type = (PlaceType) item.Type
+            Type = (PlaceType)item.Type
         };
         _database.Places.Create(place);
         _database.Save();

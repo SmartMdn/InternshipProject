@@ -21,7 +21,7 @@ internal class SectionRepository : IRepository<Section>
 
     public IQueryable<Section> GetList(List<int> ids)
     {
-        return _db.Sections.Include(section => section.Places).Where(t => ids.Contains(t.Id)); 
+        return _db.Sections.Include(section => section.Places).Where(t => ids.Contains(t.Id));
     }
 
     public Section Get(int id)
@@ -45,7 +45,7 @@ internal class SectionRepository : IRepository<Section>
         section.Places = item.Places;
         section.Name = item.Name;
         _db.Entry(section).State = EntityState.Modified;
-        
+
     }
 
     public void Delete(int id)

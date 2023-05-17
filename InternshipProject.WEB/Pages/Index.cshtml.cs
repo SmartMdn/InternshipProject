@@ -1,7 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Linq;
-using InternshipProject.DAL
 
 namespace InternshipProject.WEB.Pages
 {

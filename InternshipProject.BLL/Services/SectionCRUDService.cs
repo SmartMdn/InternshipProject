@@ -1,10 +1,10 @@
-﻿using System.Runtime.CompilerServices;
-using AutoMapper;
+﻿using AutoMapper;
 using InternshipProject.BLL.DTO;
 using InternshipProject.BLL.Infrastucture;
 using InternshipProject.BLL.Interfaces;
 using InternshipProject.DAL.Entities;
 using InternshipProject.DAL.Interfaces;
+using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("InternshipProject.WEB")]
 namespace InternshipProject.BLL.Services;
@@ -26,7 +26,7 @@ internal class SectionCRUDService : ICRUDService<SectionDTO>
         if (section == null)
             throw new ValidationException("Билет не найден", "");
         var ids1 = (from st in section.Places select st.Id).ToArray();
-        return new SectionDTO { Id = section.Id, Name = section.Name, Places = ids1};
+        return new SectionDTO { Id = section.Id, Name = section.Name, Places = ids1 };
     }
 
     public IEnumerable<SectionDTO> GetAll()
@@ -40,7 +40,7 @@ internal class SectionCRUDService : ICRUDService<SectionDTO>
         if (item == null) return;
         var section = new Section
         {
-            Id = id, 
+            Id = id,
             Name = item.Name,
             Places = _database.Places.GetList(item.Places.ToList()).ToList()
         };

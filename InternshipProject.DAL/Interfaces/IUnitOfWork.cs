@@ -1,5 +1,5 @@
-﻿using System.Runtime.CompilerServices;
-using InternshipProject.DAL.Entities;
+﻿using InternshipProject.DAL.Entities;
+using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("InternshipProject.BLL")]
 [assembly: InternalsVisibleTo("InternshipProject.WEB")]
@@ -13,5 +13,6 @@ internal interface IUnitOfWork : IDisposable
     IRepository<Section> Sections { get; }
     IRepository<Stadium> Stadiums { get; }
     IRepository<Ticket> Tickets { get; }
+    IRepository<Category> Categories { get; }
     void Save();
 }

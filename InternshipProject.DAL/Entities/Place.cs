@@ -1,9 +1,8 @@
-﻿using System.Collections.Specialized;
-using InternshipProject.DAL.Enums;
+﻿using InternshipProject.DAL.Enums;
 
 namespace InternshipProject.DAL.Entities;
 
-internal class Place
+public class Place
 {
     public int Id { get; set; }
     public PlaceType Type { get; set; }

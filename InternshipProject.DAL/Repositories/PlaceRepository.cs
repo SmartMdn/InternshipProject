@@ -26,7 +26,7 @@ internal class PlaceRepository : IRepository<Place>
 
     public Place Get(int id)
     {
-        return _db.Places.FirstOrDefault(place => place.Id ==id) ?? throw new InvalidOperationException();
+        return _db.Places.FirstOrDefault(place => place.Id == id) ?? throw new InvalidOperationException();
     }
 
     public IQueryable<Place> Find(Func<Place, bool> predicate)
