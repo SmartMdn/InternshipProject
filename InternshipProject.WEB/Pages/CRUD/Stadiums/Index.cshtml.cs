@@ -1,25 +1,25 @@
-﻿using InternshipProject.DAL.Entities;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using InternshipProject.WEB.Models;
+using InternshipProject.BLL.Interfaces;
+using InternshipProject.WEB.Services;
+using InternshipProject.BLL.DTO;
 
 namespace InternshipProject.WEB.Pages.CRUD.Stadiums
 {
-    public class IndexModel : PageModel
+    public class IndexModel : BasePage<Stadium, StadiumDTO>
     {
-        private readonly InternshipProject.DAL.EF.CinemaContext _context;
+        public List<Stadium> Stadium { get;set; } = default!;
 
-        public IndexModel(InternshipProject.DAL.EF.CinemaContext context)
+        public void OnGet([FromServices] ICRUDService<StadiumDTO> sService)
         {
-            _context = context;
-        }
-
-        public IList<Stadium> Stadium { get; set; } = default!;
-
-        public async Task OnGetAsync()
-        {
-            if (_context.Stadiums != null)
+            if (sService.GetAll() != null)
             {
-                Stadium = await _context.Stadiums.ToListAsync();
+                foreach (var item in sService.GetAll())
+                {
+                    var result = MapperOutput.Map<StadiumDTO, Stadium>(item);
+                    Stadium.Add(result);
+                }
             }
         }
     }

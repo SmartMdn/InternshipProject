@@ -32,6 +32,11 @@
 
     <ItemGroup>
       <Folder Include="Pages\AdminPanel\" />
+      <Folder Include="Pages\CRUD\Categories\" />
+      <Folder Include="Pages\CRUD\Events\" />
+      <Folder Include="Pages\CRUD\Halls\" />
+      <Folder Include="Pages\CRUD\Places\" />
+      <Folder Include="Pages\CRUD\Sections\" />
     </ItemGroup>
 
 </Project>

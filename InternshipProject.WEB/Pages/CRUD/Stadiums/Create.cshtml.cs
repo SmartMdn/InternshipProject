@@ -1,4 +1,6 @@
-﻿using InternshipProject.DAL.Entities;
+﻿using InternshipProject.BLL.DTO;
+using InternshipProject.BLL.Interfaces;
+using InternshipProject.WEB.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -6,13 +8,6 @@ namespace InternshipProject.WEB.Pages.CRUD.Stadiums
 {
     public class CreateModel : PageModel
     {
-        private readonly InternshipProject.DAL.EF.CinemaContext _context;
-
-        public CreateModel(InternshipProject.DAL.EF.CinemaContext context)
-        {
-            _context = context;
-        }
-
         public IActionResult OnGet()
         {
             return Page();
@@ -20,12 +15,12 @@ namespace InternshipProject.WEB.Pages.CRUD.Stadiums
 
         [BindProperty]
         public Stadium Stadium { get; set; } = default!;
-
+        
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync([FromServices] ICRUDService<StadiumDTO> sService)
         {
-            if (!ModelState.IsValid || _context.Stadiums == null || Stadium == null)
+          if (!ModelState.IsValid || _context.Stadiums == null || Stadium == null)
             {
                 return Page();
             }

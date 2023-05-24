@@ -2,17 +2,12 @@
 @model InternshipProject.WEB.Pages.CRUD.Stadiums.IndexModel
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
+<h1>Index</h1>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
 <p>
     <a asp-page="Create">Create New</a>
 </p>
@@ -46,5 +41,3 @@
 }
     </tbody>
 </table>
-</body>
-</html>

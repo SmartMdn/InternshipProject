@@ -1,7 +1,13 @@
-﻿using InternshipProject.DAL.Entities;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using InternshipProject.DAL.EF;
+using InternshipProject.DAL.Entities;
 
 namespace InternshipProject.WEB.Pages.CRUD.Stadiums
 {
@@ -24,7 +30,7 @@ namespace InternshipProject.WEB.Pages.CRUD.Stadiums
                 return NotFound();
             }
 
-            var stadium = await _context.Stadiums.FirstOrDefaultAsync(m => m.Id == id);
+            var stadium =  await _context.Stadiums.FirstOrDefaultAsync(m => m.Id == id);
             if (stadium == null)
             {
                 return NotFound();
@@ -65,7 +71,7 @@ namespace InternshipProject.WEB.Pages.CRUD.Stadiums
 
         private bool StadiumExists(int id)
         {
-            return (_context.Stadiums?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Stadiums?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

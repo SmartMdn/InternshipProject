@@ -1,28 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using InternshipProject.DAL.EF;
-using InternshipProject.DAL.Entities;
+using InternshipProject.WEB.Services;
+using InternshipProject.WEB.Models;
+using InternshipProject.BLL.DTO;
+using InternshipProject.BLL.Interfaces;
 
 namespace InternshipProject.WEB.Pages.CRUD.Tickets
 {
-    public class CreateModel : PageModel
+    public class CreateModel : BasePage<Ticket, TicketDTO>
     {
-        private readonly InternshipProject.DAL.EF.CinemaContext _context;
-
-        public CreateModel(InternshipProject.DAL.EF.CinemaContext context)
+        public IActionResult OnGet([FromServices] ICRUDService<EventDTO> eService, [FromServices] ICRUDService<PlaceDTO> pService)
         {
-            _context = context;
-        }
-
-        public IActionResult OnGet()
-        {
-        ViewData["EventId"] = new SelectList(_context.Events, "Id", "Id");
-        ViewData["PlaceId"] = new SelectList(_context.Places, "Id", "Id");
+        ViewData["EventId"] = new SelectList(eService.GetAll(), "Id", "Id");
+        ViewData["PlaceId"] = new SelectList(pService.GetAll(), "Id", "Id");
             return Page();
         }
 
@@ -31,15 +24,14 @@ namespace InternshipProject.WEB.Pages.CRUD.Tickets
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync([FromServices] ICRUDService<TicketDTO> tService)
         {
-          if (!ModelState.IsValid || _context.Tickets == null || Ticket == null)
+          if (!ModelState.IsValid || tService.GetAll() == null || Ticket == null)
             {
                 return Page();
             }
-
-            _context.Tickets.Add(Ticket);
-            await _context.SaveChangesAsync();
+            ResultItem = MapperInput.Map<Ticket, TicketDTO>(Ticket);
+            tService.Post(ResultItem);
 
             return RedirectToPage("./Index");
         }

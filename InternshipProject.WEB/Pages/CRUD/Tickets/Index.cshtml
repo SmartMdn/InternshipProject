@@ -15,10 +15,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Ticket[0].Event)
+                @Html.DisplayNameFor(model => model.Ticket[0].EventId)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Ticket[0].Place)
+                @Html.DisplayNameFor(model => model.Ticket[0].PlaceId)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Ticket[0].IsBought)
@@ -30,10 +30,10 @@
 @foreach (var item in Model.Ticket) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Event.Id)
+                @Html.DisplayFor(modelItem => item.EventId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Place.Id)
+                @Html.DisplayFor(modelItem => item.PlaceId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.IsBought)

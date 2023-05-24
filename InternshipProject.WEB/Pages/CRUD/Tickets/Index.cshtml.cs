@@ -6,28 +6,26 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using InternshipProject.DAL.EF;
-using InternshipProject.DAL.Entities;
+using InternshipProject.BLL.DTO;
+using InternshipProject.WEB.Services;
+using InternshipProject.WEB.Models;
+using InternshipProject.BLL.Interfaces;
 
 namespace InternshipProject.WEB.Pages.CRUD.Tickets
 {
-    public class IndexModel : PageModel
+    public class IndexModel : BasePage<Ticket, TicketDTO>
     {
-        private readonly InternshipProject.DAL.EF.CinemaContext _context;
+        public List<Ticket> Ticket { get;set; } = default!;
 
-        public IndexModel(InternshipProject.DAL.EF.CinemaContext context)
+        public async Task OnGetAsync([FromServices] ICRUDService<TicketDTO> tService)
         {
-            _context = context;
-        }
-
-        public IList<Ticket> Ticket { get;set; } = default!;
-
-        public async Task OnGetAsync()
-        {
-            if (_context.Tickets != null)
+            if (tService.GetAll() != null)
             {
-                Ticket = await _context.Tickets
-                .Include(t => t.Event)
-                .Include(t => t.Place).ToListAsync();
+                foreach (var item in tService.GetAll())
+                {
+                    var result = MapperOutput.Map<TicketDTO, Ticket>(item);
+                    Ticket.Add(result);
+                }
             }
         }
     }

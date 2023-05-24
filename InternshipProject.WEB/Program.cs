@@ -23,6 +23,7 @@ services.AddTransient<ICRUDService<StadiumDTO>, StadiumCRUDService>();
 services.AddTransient<ICRUDService<SectionDTO>, SectionCRUDService>();
 services.AddTransient<ICRUDService<PlaceDTO>, PlaceCRUDService>();
 services.AddTransient<ICRUDService<TicketDTO>, TicketCRUDService>();
+services.AddTransient<ICRUDService<CategoryDTO>, CategoryCRUDService>();
 services.AddControllers();
 services.AddRazorPages();
 
