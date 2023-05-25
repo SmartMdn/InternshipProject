@@ -17,7 +17,7 @@ namespace InternshipProject.WEB.Pages.CRUD.Tickets
     {
         public List<Ticket> Ticket { get;set; } = default!;
 
-        public async Task OnGetAsync([FromServices] ICRUDService<TicketDTO> tService)
+        public void OnGet([FromServices] ICRUDService<TicketDTO> tService)
         {
             if (tService.GetAll() != null)
             {
