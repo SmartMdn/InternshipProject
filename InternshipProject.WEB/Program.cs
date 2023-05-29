@@ -8,8 +8,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 
-var builder = WebApplication.CreateBuilder(args);
-var services = builder.Services;
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+IServiceCollection services = builder.Services;
 
 services.AddTransient<IUnitOfWork>(provider =>
     new EFUnitOfWork(builder.Configuration.GetConnectionString("DataDB")));
@@ -28,7 +28,7 @@ services.AddControllers();
 services.AddRazorPages();
 
 
-var app = builder.Build();
+WebApplication app = builder.Build();
 
 // Configure the HTTP request pipeline.
 

@@ -24,7 +24,7 @@ internal class StadiumRepository : IRepository<Stadium>
         return _db.Stadiums.Include(e => e.Halls).Where(t => ids.Contains(t.Id));
     }
 
-    public Stadium Get(int id)
+    public Stadium Get(int? id)
     {
         return _db.Stadiums.Include(e => e.Halls).FirstOrDefault(e => e.Id == id) ?? throw new InvalidOperationException();
     }
@@ -36,21 +36,24 @@ internal class StadiumRepository : IRepository<Stadium>
 
     public void Create(Stadium item)
     {
-        _db.Stadiums.Add(item);
+        _ = _db.Stadiums.Add(item);
     }
 
     public void Update(Stadium item)
     {
-        var stadium = Get(item.Id);
+        Stadium stadium = Get(item.Id);
         stadium.Address = item.Address;
         stadium.Halls = item.Halls;
         stadium.Name = item.Name;
         _db.Entry(stadium).State = EntityState.Modified;
     }
 
-    public void Delete(int id)
+    public void Delete(int? id)
     {
-        var stadium = _db.Stadiums.Find(id);
-        if (stadium != null) _db.Stadiums.Remove(stadium);
+        Stadium? stadium = _db.Stadiums.Find(id);
+        if (stadium != null)
+        {
+            _ = _db.Stadiums.Remove(stadium);
+        }
     }
 }

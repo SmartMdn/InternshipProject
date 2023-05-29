@@ -1,9 +1,8 @@
 ﻿namespace InternshipProject.BLL.DTO;
 
-public class SectionDTO
+internal class SectionDTO : BaseDTO
 {
-    public int Id { get; set; }
-    public string Name { get; set; }
+    public string? Name { get; set; }
     public int HallId { get; set; }
     public int[]? Places { get; set; }
 }

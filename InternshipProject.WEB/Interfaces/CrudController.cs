@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace InternshipProject.WEB.Interfaces;
 
-public abstract class CrudController<T, TK> : ControllerBase where TK : class
+internal abstract class CrudController<T, TK> : ControllerBase where TK : class
 {
     protected readonly IMapper MapperInput = new MapperConfiguration(cfg =>
         cfg.CreateMap<T, TK>()).CreateMapper();

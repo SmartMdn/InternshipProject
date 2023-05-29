@@ -24,8 +24,8 @@ internal class EFUnitOfWork : IUnitOfWork
 
     public EFUnitOfWork(string? connectionString)
     {
-        var optionsBuilder = new DbContextOptionsBuilder<CinemaContext>();
-        var options = optionsBuilder.UseSqlServer(connectionString).Options;
+        DbContextOptionsBuilder<CinemaContext> optionsBuilder = new();
+        DbContextOptions<CinemaContext> options = optionsBuilder.UseSqlServer(connectionString).Options;
         _db = new CinemaContext(options);
     }
 
@@ -35,50 +35,37 @@ internal class EFUnitOfWork : IUnitOfWork
         GC.SuppressFinalize(this);
     }
 
-    public IRepository<Event> Events
-    {
-        get { return _eventRepository ??= new EventRepository(_db); }
-    }
+    public IRepository<Event> Events => _eventRepository ??= new EventRepository(_db);
 
-    public IRepository<Hall> Halls
-    {
-        get { return _hallRepository ??= new HallRepository(_db); }
-    }
+    public IRepository<Hall> Halls => _hallRepository ??= new HallRepository(_db);
 
-    public IRepository<Place> Places
-    {
-        get { return _placeRepository ??= new PlaceRepository(_db); }
-    }
+    public IRepository<Place> Places => _placeRepository ??= new PlaceRepository(_db);
 
-    public IRepository<Section> Sections
-    {
-        get { return _sectionRepository ??= new SectionRepository(_db); }
-    }
+    public IRepository<Section> Sections => _sectionRepository ??= new SectionRepository(_db);
 
-    public IRepository<Stadium> Stadiums
-    {
-        get { return _stadiumRepository ??= new StadiumRepository(_db); }
-    }
+    public IRepository<Stadium> Stadiums => _stadiumRepository ??= new StadiumRepository(_db);
 
-    public IRepository<Ticket> Tickets
-    {
-        get { return _ticketRepository ??= new TicketRepository(_db); }
-    }
+    public IRepository<Ticket> Tickets => _ticketRepository ??= new TicketRepository(_db);
 
-    public IRepository<Category> Categories
-    {
-        get { return _categoryRepository ??= new CategoryRepository(_db); }
-    }
+    public IRepository<Category> Categories => _categoryRepository ??= new CategoryRepository(_db);
 
     public void Save()
     {
-        _db.SaveChanges();
+        _ = _db.SaveChanges();
     }
 
     protected virtual void Dispose(bool disposing)
     {
-        if (_disposed) return;
-        if (disposing) _db.Dispose();
+        if (_disposed)
+        {
+            return;
+        }
+
+        if (disposing)
+        {
+            _db.Dispose();
+        }
+
         _disposed = true;
     }
 }

@@ -8,7 +8,7 @@ namespace InternshipProject.WEB.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class EventController : CrudController<Event, EventDTO>
+internal class EventController : CrudController<Event, EventDTO>
 {
     public EventController(ICRUDService<EventDTO> service, ILogger<EventController> logger) : base(service)
     {
@@ -17,7 +17,7 @@ public class EventController : CrudController<Event, EventDTO>
     [HttpGet]
     public override Event Get(int id)
     {
-        var item = MapperOutput.Map<EventDTO, Event>(Service.Get(id));
+        Event item = MapperOutput.Map<EventDTO, Event>(Service.Get(id));
         return item;
     }
 
@@ -32,7 +32,7 @@ public class EventController : CrudController<Event, EventDTO>
     [HttpPut]
     public override IActionResult Update(Event item, int id)
     {
-        var resultItem = MapperInput.Map<Event, EventDTO>(item);
+        EventDTO resultItem = MapperInput.Map<Event, EventDTO>(item);
         Service.Put(resultItem, id);
         return new OkResult();
     }

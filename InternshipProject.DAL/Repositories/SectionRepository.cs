@@ -24,7 +24,7 @@ internal class SectionRepository : IRepository<Section>
         return _db.Sections.Include(section => section.Places).Where(t => ids.Contains(t.Id));
     }
 
-    public Section Get(int id)
+    public Section Get(int? id)
     {
         return _db.Sections.Include(section => section.Places).FirstOrDefault(e => e.Id == id) ?? throw new InvalidOperationException();
     }
@@ -36,21 +36,24 @@ internal class SectionRepository : IRepository<Section>
 
     public void Create(Section item)
     {
-        _db.Sections.Add(item);
+        _ = _db.Sections.Add(item);
     }
 
     public void Update(Section item)
     {
-        var section = Get(item.Id);
+        Section section = Get(item.Id);
         section.Places = item.Places;
         section.Name = item.Name;
         _db.Entry(section).State = EntityState.Modified;
 
     }
 
-    public void Delete(int id)
+    public void Delete(int? id)
     {
-        var section = _db.Sections.Find(id);
-        if (section != null) _db.Sections.Remove(section);
+        Section? section = _db.Sections.Find(id);
+        if (section != null)
+        {
+            _ = _db.Sections.Remove(section);
+        }
     }
 }

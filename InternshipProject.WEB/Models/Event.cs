@@ -2,6 +2,7 @@
 
 public class Event
 {
+    public Guid Id { get; set; }
     public string? Name { get; set; }
     public int EventDuration { get; set; }
     public int BookingPeriodDays { get; set; }

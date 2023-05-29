@@ -16,23 +16,26 @@ namespace InternshipProject.DAL.Repositories
 
         public void Create(Category item)
         {
-            _db.Categories.Add(item);
+            _ = _db.Categories.Add(item);
         }
 
-        public void Delete(int id)
+        public void Delete(int? id)
         {
-            var item = _db.Categories.Find(id);
-            if (item != null) _db.Remove(item);
+            Category? item = _db.Categories.Find(id);
+            if (item != null)
+            {
+                _ = _db.Remove(item);
+            }
         }
 
         public IQueryable<Category> Find(Func<Category, bool> predicate)
         {
-            return (IQueryable<Category>)_db.Categories.Where(predicate);
+            return (IQueryable<Category>)_db.Categories.Include(c => c.Events).Where(predicate);
         }
 
-        public Category Get(int id)
+        public Category Get(int? id)
         {
-            return _db.Categories.Find(id) ?? throw new InvalidOperationException();
+            return _db.Categories.Include(c => c.Events).FirstOrDefault(c => c.Id == id) ?? throw new InvalidOperationException();
         }
 
         public IQueryable<Category> GetAll()
@@ -42,14 +45,15 @@ namespace InternshipProject.DAL.Repositories
 
         public IQueryable<Category> GetList(List<int> ids)
         {
-            return _db.Categories.Where(t => ids.Contains(t.Id));
+            return _db.Categories.Include(e => e.Events).Where(t => ids.Contains(t.Id));
         }
 
         public void Update(Category item)
         {
-            var _category = Get(item.Id);
+            Category _category = Get(item.Id);
             _category.Name = item.Name;
             _category.Description = item.Description;
+            _category.Events = item.Events;
             _db.Entry(_category).State = EntityState.Modified;
         }
     }

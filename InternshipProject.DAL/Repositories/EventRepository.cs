@@ -24,7 +24,7 @@ internal class EventRepository : IRepository<Event>
         return _db.Events.Where(t => ids.Contains(t.Id));
     }
 
-    public Event Get(int id)
+    public Event Get(int? id)
     {
         return _db.Events.Find(id) ?? throw new InvalidOperationException();
     }
@@ -36,12 +36,12 @@ internal class EventRepository : IRepository<Event>
 
     public void Create(Event item)
     {
-        _db.Events.Add(item);
+        _ = _db.Events.Add(item);
     }
 
     public void Update(Event item)
     {
-        var _event = Get(item.Id);
+        Event _event = Get(item.Id);
         _event.Name = item.Name;
         _event.EventDuration = item.EventDuration;
         _event.HallId = item.HallId;
@@ -49,9 +49,12 @@ internal class EventRepository : IRepository<Event>
         _db.Entry(_event).State = EntityState.Modified;
     }
 
-    public void Delete(int id)
+    public void Delete(int? id)
     {
-        var item = _db.Events.Find(id);
-        if (item != null) _db.Remove(item);
+        Event? item = _db.Events.Find(id);
+        if (item != null)
+        {
+            _ = _db.Remove(item);
+        }
     }
 }

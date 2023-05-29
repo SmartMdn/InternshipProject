@@ -8,7 +8,7 @@ namespace InternshipProject.WEB.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class HallController : CrudController<Hall, HallDTO>
+internal class HallController : CrudController<Hall, HallDTO>
 {
     public HallController(ICRUDService<HallDTO> service) : base(service)
     {
@@ -17,7 +17,7 @@ public class HallController : CrudController<Hall, HallDTO>
     [HttpGet]
     public override Hall Get(int id)
     {
-        var item = MapperOutput.Map<HallDTO, Hall>(Service.Get(id));
+        Hall item = MapperOutput.Map<HallDTO, Hall>(Service.Get(id));
         return item;
     }
 

@@ -10,7 +10,7 @@ namespace InternshipProject.DAL.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
+            _ = migrationBuilder.CreateTable(
                 name: "Stadiums",
                 columns: table => new
                 {
@@ -21,10 +21,10 @@ namespace InternshipProject.DAL.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Stadiums", x => x.Id);
+                    _ = table.PrimaryKey("PK_Stadiums", x => x.Id);
                 });
 
-            migrationBuilder.CreateTable(
+            _ = migrationBuilder.CreateTable(
                 name: "Halls",
                 columns: table => new
                 {
@@ -35,8 +35,8 @@ namespace InternshipProject.DAL.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Halls", x => x.Id);
-                    table.ForeignKey(
+                    _ = table.PrimaryKey("PK_Halls", x => x.Id);
+                    _ = table.ForeignKey(
                         name: "FK_Halls_Stadiums_StadiumId",
                         column: x => x.StadiumId,
                         principalTable: "Stadiums",
@@ -44,7 +44,7 @@ namespace InternshipProject.DAL.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
+            _ = migrationBuilder.CreateTable(
                 name: "Events",
                 columns: table => new
                 {
@@ -58,8 +58,8 @@ namespace InternshipProject.DAL.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Events", x => x.Id);
-                    table.ForeignKey(
+                    _ = table.PrimaryKey("PK_Events", x => x.Id);
+                    _ = table.ForeignKey(
                         name: "FK_Events_Halls_HallId",
                         column: x => x.HallId,
                         principalTable: "Halls",
@@ -67,7 +67,7 @@ namespace InternshipProject.DAL.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
+            _ = migrationBuilder.CreateTable(
                 name: "Sections",
                 columns: table => new
                 {
@@ -78,8 +78,8 @@ namespace InternshipProject.DAL.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Sections", x => x.Id);
-                    table.ForeignKey(
+                    _ = table.PrimaryKey("PK_Sections", x => x.Id);
+                    _ = table.ForeignKey(
                         name: "FK_Sections_Halls_HallId",
                         column: x => x.HallId,
                         principalTable: "Halls",
@@ -87,7 +87,7 @@ namespace InternshipProject.DAL.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
+            _ = migrationBuilder.CreateTable(
                 name: "Places",
                 columns: table => new
                 {
@@ -98,8 +98,8 @@ namespace InternshipProject.DAL.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Places", x => x.Id);
-                    table.ForeignKey(
+                    _ = table.PrimaryKey("PK_Places", x => x.Id);
+                    _ = table.ForeignKey(
                         name: "FK_Places_Sections_SectionId",
                         column: x => x.SectionId,
                         principalTable: "Sections",
@@ -107,7 +107,7 @@ namespace InternshipProject.DAL.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
+            _ = migrationBuilder.CreateTable(
                 name: "Tickets",
                 columns: table => new
                 {
@@ -119,14 +119,14 @@ namespace InternshipProject.DAL.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Tickets", x => x.Id);
-                    table.ForeignKey(
+                    _ = table.PrimaryKey("PK_Tickets", x => x.Id);
+                    _ = table.ForeignKey(
                         name: "FK_Tickets_Events_EventId",
                         column: x => x.EventId,
                         principalTable: "Events",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
+                    _ = table.ForeignKey(
                         name: "FK_Tickets_Places_PlaceId",
                         column: x => x.PlaceId,
                         principalTable: "Places",
@@ -134,32 +134,32 @@ namespace InternshipProject.DAL.Migrations
                         onDelete: ReferentialAction.NoAction);
                 });
 
-            migrationBuilder.CreateIndex(
+            _ = migrationBuilder.CreateIndex(
                 name: "IX_Events_HallId",
                 table: "Events",
                 column: "HallId");
 
-            migrationBuilder.CreateIndex(
+            _ = migrationBuilder.CreateIndex(
                 name: "IX_Halls_StadiumId",
                 table: "Halls",
                 column: "StadiumId");
 
-            migrationBuilder.CreateIndex(
+            _ = migrationBuilder.CreateIndex(
                 name: "IX_Places_SectionId",
                 table: "Places",
                 column: "SectionId");
 
-            migrationBuilder.CreateIndex(
+            _ = migrationBuilder.CreateIndex(
                 name: "IX_Sections_HallId",
                 table: "Sections",
                 column: "HallId");
 
-            migrationBuilder.CreateIndex(
+            _ = migrationBuilder.CreateIndex(
                 name: "IX_Tickets_EventId",
                 table: "Tickets",
                 column: "EventId");
 
-            migrationBuilder.CreateIndex(
+            _ = migrationBuilder.CreateIndex(
                 name: "IX_Tickets_PlaceId",
                 table: "Tickets",
                 column: "PlaceId");
@@ -168,22 +168,22 @@ namespace InternshipProject.DAL.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
+            _ = migrationBuilder.DropTable(
                 name: "Tickets");
 
-            migrationBuilder.DropTable(
+            _ = migrationBuilder.DropTable(
                 name: "Events");
 
-            migrationBuilder.DropTable(
+            _ = migrationBuilder.DropTable(
                 name: "Places");
 
-            migrationBuilder.DropTable(
+            _ = migrationBuilder.DropTable(
                 name: "Sections");
 
-            migrationBuilder.DropTable(
+            _ = migrationBuilder.DropTable(
                 name: "Halls");
 
-            migrationBuilder.DropTable(
+            _ = migrationBuilder.DropTable(
                 name: "Stadiums");
         }
     }

@@ -11,7 +11,7 @@ public sealed class CinemaContext : DbContext
 
     public CinemaContext(DbContextOptions<CinemaContext> options) : base(options)
     {
-        Database.EnsureCreated();
+        _ = Database.EnsureCreated();
     }
 
     public DbSet<Event> Events { get; set; } = default!;
@@ -24,6 +24,6 @@ public sealed class CinemaContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=cinemaapidb;Trusted_Connection=True;");
+        _ = optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=cinemaapidb;Trusted_Connection=True;");
     }
 }

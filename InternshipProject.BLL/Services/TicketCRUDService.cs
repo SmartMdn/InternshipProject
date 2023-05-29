@@ -18,45 +18,58 @@ internal class TicketCRUDService : ICRUDService<TicketDTO>
         _database = database;
     }
 
-    public TicketDTO Get(int id)
+    public TicketDTO Get(int? id)
     {
         if (id == null)
+        {
             throw new ValidationException("Не установлен id билета", "");
-        var ticket = _database.Tickets.Get(id);
-        if (ticket == null)
-            throw new ValidationException("Билет не найден", "");
+        }
 
-        return new TicketDTO { EventId = ticket.EventId, Id = ticket.Id, PlaceId = ticket.PlaceId };
+        Ticket ticket = _database.Tickets.Get(id);
+        return ticket == null
+            ? throw new ValidationException("Билет не найден", "")
+            : new TicketDTO { EventId = ticket.EventId, Id = ticket.Id, PlaceId = ticket.PlaceId };
     }
 
     public IEnumerable<TicketDTO> GetAll()
     {
-        var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Ticket, TicketDTO>()).CreateMapper();
+        IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<Ticket, TicketDTO>()).CreateMapper();
         return mapper.Map<IEnumerable<Ticket>, List<TicketDTO>>(_database.Tickets.GetAll());
     }
 
-    public void Put(TicketDTO item, int id)
+    public void Put(TicketDTO item, int? id)
     {
-        if (item == null) return;
-        var mapper = new MapperConfiguration(cfg => cfg.CreateMap<TicketDTO, Ticket>()).CreateMapper();
-        var ticket = mapper.Map<TicketDTO, Ticket>(item);
+        if (item == null)
+        {
+            return;
+        }
+
+        IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<TicketDTO, Ticket>()).CreateMapper();
+        Ticket ticket = mapper.Map<TicketDTO, Ticket>(item);
         _database.Tickets.Update(ticket);
         _database.Save();
     }
 
     public void Post(TicketDTO item)
     {
-        if (item == null) return;
-        var mapper = new MapperConfiguration(cfg => cfg.CreateMap<TicketDTO, Ticket>()).CreateMapper();
-        var ticket = mapper.Map<TicketDTO, Ticket>(item);
+        if (item == null)
+        {
+            return;
+        }
+
+        IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<TicketDTO, Ticket>()).CreateMapper();
+        Ticket ticket = mapper.Map<TicketDTO, Ticket>(item);
         _database.Tickets.Create(ticket);
         _database.Save();
     }
 
-    public void Delete(int id)
+    public void Delete(int? id)
     {
         if (id == null)
+        {
             throw new ValidationException("Не установлен id билета", "");
+        }
+
         _database.Tickets.Delete(id);
         _database.Save();
     }

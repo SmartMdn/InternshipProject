@@ -2,9 +2,8 @@
 
 namespace InternshipProject.BLL.DTO;
 
-public class PlaceDTO
+internal class PlaceDTO : BaseDTO
 {
-    public int Id { get; set; }
     public PlaceType Type { get; set; }
     public int SectionId { get; set; }
 }

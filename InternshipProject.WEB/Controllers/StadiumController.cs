@@ -8,7 +8,7 @@ namespace InternshipProject.WEB.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class StadiumController : CrudController<Stadium, StadiumDTO>
+internal class StadiumController : CrudController<Stadium, StadiumDTO>
 {
     public StadiumController(ICRUDService<StadiumDTO> service) : base(service)
     {
@@ -17,7 +17,7 @@ public class StadiumController : CrudController<Stadium, StadiumDTO>
     [HttpGet]
     public override Stadium Get(int id)
     {
-        var item = MapperOutput.Map<StadiumDTO, Stadium>(Service.Get(id));
+        Stadium item = MapperOutput.Map<StadiumDTO, Stadium>(Service.Get(id));
         return item;
     }
 

@@ -1,8 +1,7 @@
 ﻿namespace InternshipProject.BLL.DTO;
 
-public class TicketDTO
+internal class TicketDTO : BaseDTO
 {
-    public int Id { get; set; }
     public int EventId { get; set; }
     public int PlaceId { get; set; }
     public bool IsBought { get; set; }

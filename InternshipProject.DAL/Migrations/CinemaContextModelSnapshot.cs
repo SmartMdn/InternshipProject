@@ -40,7 +40,7 @@ namespace InternshipProject.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Category");
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("InternshipProject.DAL.Entities.Event", b =>
@@ -52,6 +52,9 @@ namespace InternshipProject.DAL.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("BookingPeriodDays")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("EventDate")
@@ -67,6 +70,8 @@ namespace InternshipProject.DAL.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
 
                     b.HasIndex("HallId");
 
@@ -186,11 +191,19 @@ namespace InternshipProject.DAL.Migrations
 
             modelBuilder.Entity("InternshipProject.DAL.Entities.Event", b =>
                 {
+                    b.HasOne("InternshipProject.DAL.Entities.Category", "Category")
+                        .WithMany("Events")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("InternshipProject.DAL.Entities.Hall", "EventHall")
                         .WithMany("Events")
                         .HasForeignKey("HallId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Category");
 
                     b.Navigation("EventHall");
                 });
@@ -245,6 +258,11 @@ namespace InternshipProject.DAL.Migrations
                     b.Navigation("Event");
 
                     b.Navigation("Place");
+                });
+
+            modelBuilder.Entity("InternshipProject.DAL.Entities.Category", b =>
+                {
+                    b.Navigation("Events");
                 });
 
             modelBuilder.Entity("InternshipProject.DAL.Entities.Event", b =>

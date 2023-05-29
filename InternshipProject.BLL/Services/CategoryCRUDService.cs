@@ -1,7 +1,12 @@
-﻿using InternshipProject.BLL.DTO;
+﻿using AutoMapper;
+using InternshipProject.BLL.DTO;
+using InternshipProject.BLL.Infrastucture;
 using InternshipProject.BLL.Interfaces;
+using InternshipProject.DAL.Entities;
 using InternshipProject.DAL.Interfaces;
+using System.Runtime.CompilerServices;
 
+[assembly: InternalsVisibleTo("InternshipProject.WEB")]
 namespace InternshipProject.BLL.Services
 {
     internal class CategoryCRUDService : ICRUDService<CategoryDTO>
@@ -13,34 +18,67 @@ namespace InternshipProject.BLL.Services
             _database = database;
         }
 
-        public void Delete(int id)
+        public CategoryDTO Get(int? id)
         {
-            throw new NotImplementedException();
-        }
+            if (id == null)
+            {
+                throw new ValidationException("Не установлен id билета", "");
+            }
 
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
+            Category category = _database.Categories.Get(id);
+            if (category == null)
+            {
+                throw new ValidationException("Билет не найден", "");
+            }
 
-        public CategoryDTO Get(int id)
-        {
-            throw new NotImplementedException();
+            int[] ids = (from st in category.Events select st.Id).ToArray();
+            return new CategoryDTO { Id = category.Id, Description = category.Description, Name = category.Name, Events = ids };
         }
 
         public IEnumerable<CategoryDTO> GetAll()
         {
-            throw new NotImplementedException();
+            IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<Stadium, StadiumDTO>()).CreateMapper();
+            return mapper.Map<IEnumerable<Category>, List<CategoryDTO>>(_database.Categories.GetAll());
+        }
+
+        public void Put(CategoryDTO item, int? id)
+        {
+            if (item == null)
+            {
+                return;
+            }
+
+            Category category = new() { Id = (int)id, Name = item.Name, Description = item.Description, Events = _database.Events.GetList(item.Events.ToList()).ToList() };
+            _database.Categories.Update(category);
+            _database.Save();
         }
 
         public void Post(CategoryDTO item)
         {
-            throw new NotImplementedException();
+            if (item == null)
+            {
+                return;
+            }
+
+            Category category = new() { Name = item.Name, Description = item.Description, Events = _database.Events.GetList(item.Events.ToList()).ToList() };
+            _database.Categories.Create(category);
+            _database.Save();
         }
 
-        public void Put(CategoryDTO item, int id)
+        public void Delete(int? id)
         {
-            throw new NotImplementedException();
+            if (id == null)
+            {
+                throw new ValidationException("Не установлен id билета", "");
+            }
+
+            _database.Categories.Delete(id);
+            _database.Save();
+        }
+
+        public void Dispose()
+        {
+            _database.Dispose();
         }
     }
 }

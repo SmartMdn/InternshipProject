@@ -1,41 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using InternshipProject.BLL.DTO;
+using InternshipProject.BLL.Interfaces;
+using InternshipProject.WEB.Models;
+using InternshipProject.WEB.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using InternshipProject.DAL.EF;
-using InternshipProject.DAL.Entities;
 
 namespace InternshipProject.WEB.Pages.CRUD.Stadiums
 {
-    public class DetailsModel : PageModel
+    internal class DetailsModel : BasePage<Stadium, StadiumDTO>
     {
-        private readonly InternshipProject.DAL.EF.CinemaContext _context;
+        public Stadium Stadium { get; set; } = default!;
 
-        public DetailsModel(InternshipProject.DAL.EF.CinemaContext context)
+        public IActionResult OnGet([FromServices] ICRUDService<StadiumDTO> Service, int? id)
         {
-            _context = context;
-        }
-
-      public Stadium Stadium { get; set; } = default!; 
-
-        public async Task<IActionResult> OnGetAsync(int? id)
-        {
-            if (id == null || _context.Stadiums == null)
+            if (id == null || Service.GetAll() == null)
             {
                 return NotFound();
             }
 
-            var stadium = await _context.Stadiums.FirstOrDefaultAsync(m => m.Id == id);
-            if (stadium == null)
+            StadiumDTO item = Service.Get(id);
+            if (item == null)
             {
                 return NotFound();
             }
-            else 
+            else
             {
-                Stadium = stadium;
+                Stadium = MapperOutput.Map<StadiumDTO, Stadium>(item);
             }
             return Page();
         }

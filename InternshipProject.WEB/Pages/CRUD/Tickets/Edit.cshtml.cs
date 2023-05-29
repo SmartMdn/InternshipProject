@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using InternshipProject.DAL.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using InternshipProject.DAL.EF;
-using InternshipProject.DAL.Entities;
 
 namespace InternshipProject.WEB.Pages.CRUD.Tickets
 {
@@ -30,14 +25,14 @@ namespace InternshipProject.WEB.Pages.CRUD.Tickets
                 return NotFound();
             }
 
-            var ticket =  await _context.Tickets.FirstOrDefaultAsync(m => m.Id == id);
+            Ticket? ticket = await _context.Tickets.FirstOrDefaultAsync(m => m.Id == id);
             if (ticket == null)
             {
                 return NotFound();
             }
             Ticket = ticket;
-           ViewData["EventId"] = new SelectList(_context.Events, "Id", "Id");
-           ViewData["PlaceId"] = new SelectList(_context.Places, "Id", "Id");
+            ViewData["EventId"] = new SelectList(_context.Events, "Id", "Id");
+            ViewData["PlaceId"] = new SelectList(_context.Places, "Id", "Id");
             return Page();
         }
 
@@ -54,7 +49,7 @@ namespace InternshipProject.WEB.Pages.CRUD.Tickets
 
             try
             {
-                await _context.SaveChangesAsync();
+                _ = await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -73,7 +68,7 @@ namespace InternshipProject.WEB.Pages.CRUD.Tickets
 
         private bool TicketExists(int id)
         {
-          return (_context.Tickets?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Tickets?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

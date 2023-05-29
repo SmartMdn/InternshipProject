@@ -18,29 +18,39 @@ internal class SectionCRUDService : ICRUDService<SectionDTO>
         _database = database;
     }
 
-    public SectionDTO Get(int id)
+    public SectionDTO Get(int? id)
     {
         if (id == null)
+        {
             throw new ValidationException("Не установлен id билета", "");
-        var section = _database.Sections.Get(id);
+        }
+
+        Section section = _database.Sections.Get(id);
         if (section == null)
+        {
             throw new ValidationException("Билет не найден", "");
-        var ids1 = (from st in section.Places select st.Id).ToArray();
+        }
+
+        int[] ids1 = (from st in section.Places select st.Id).ToArray();
         return new SectionDTO { Id = section.Id, Name = section.Name, Places = ids1 };
     }
 
     public IEnumerable<SectionDTO> GetAll()
     {
-        var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Section, SectionDTO>()).CreateMapper();
+        IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<Section, SectionDTO>()).CreateMapper();
         return mapper.Map<IEnumerable<Section>, List<SectionDTO>>(_database.Sections.GetAll());
     }
 
-    public void Put(SectionDTO item, int id)
+    public void Put(SectionDTO item, int? id)
     {
-        if (item == null) return;
-        var section = new Section
+        if (item == null)
         {
-            Id = id,
+            return;
+        }
+
+        Section section = new()
+        {
+            Id = (int)id,
             Name = item.Name,
             Places = _database.Places.GetList(item.Places.ToList()).ToList()
         };
@@ -50,8 +60,12 @@ internal class SectionCRUDService : ICRUDService<SectionDTO>
 
     public void Post(SectionDTO item)
     {
-        if (item == null) return;
-        var section = new Section()
+        if (item == null)
+        {
+            return;
+        }
+
+        Section section = new()
         {
             Name = item.Name,
             Places = _database.Places.GetList(item.Places.ToList()).ToList()
@@ -60,10 +74,13 @@ internal class SectionCRUDService : ICRUDService<SectionDTO>
         _database.Save();
     }
 
-    public void Delete(int id)
+    public void Delete(int? id)
     {
         if (id == null)
+        {
             throw new ValidationException("Не установлен id билета", "");
+        }
+
         _database.Sections.Delete(id);
         _database.Save();
     }

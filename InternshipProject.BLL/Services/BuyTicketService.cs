@@ -24,18 +24,18 @@ internal class BuyTicketService : IBuyTicketService
         {
             tickets = Database.Tickets.GetList(ids).ToList();
         }
-        catch (NullReferenceException e)
+        catch (NullReferenceException)
         {
             return new List<TicketDTO>();
         }
 
-        foreach (var variableTicket in tickets)
+        foreach (Ticket variableTicket in tickets)
         {
             variableTicket.IsBought = true;
             Database.Tickets.Update(variableTicket);
         }
 
-        var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Ticket, TicketDTO>()).CreateMapper();
+        IMapper mapper = new MapperConfiguration(cfg => cfg.CreateMap<Ticket, TicketDTO>()).CreateMapper();
         Database.Save();
         return mapper.Map<IEnumerable<Ticket>, List<TicketDTO>>(tickets);
     }

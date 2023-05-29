@@ -8,7 +8,7 @@ namespace InternshipProject.WEB.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class SectionController : CrudController<Section, SectionDTO>
+internal class SectionController : CrudController<Section, SectionDTO>
 {
     public SectionController(ICRUDService<SectionDTO> service) : base(service)
     {
@@ -17,7 +17,7 @@ public class SectionController : CrudController<Section, SectionDTO>
     [HttpGet]
     public override Section Get(int id)
     {
-        var item = MapperOutput.Map<SectionDTO, Section>(Service.Get(id));
+        Section item = MapperOutput.Map<SectionDTO, Section>(Service.Get(id));
         return item;
     }
 

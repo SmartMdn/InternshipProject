@@ -19,7 +19,7 @@ internal class TicketRepository : IRepository<Ticket>
         return _db.Tickets;
     }
 
-    public Ticket Get(int id)
+    public Ticket Get(int? id)
     {
         return _db.Tickets.Find(id) ?? throw new InvalidOperationException();
     }
@@ -31,22 +31,25 @@ internal class TicketRepository : IRepository<Ticket>
 
     public void Create(Ticket item)
     {
-        _db.Tickets.Add(item);
+        _ = _db.Tickets.Add(item);
     }
 
     public void Update(Ticket item)
     {
-        var ticket = Get(item.Id);
+        Ticket ticket = Get(item.Id);
         ticket.EventId = item.EventId;
         ticket.PlaceId = item.PlaceId;
         ticket.IsBought = item.IsBought;
         _db.Entry(ticket).State = EntityState.Modified;
     }
 
-    public void Delete(int id)
+    public void Delete(int? id)
     {
-        var ticket = _db.Tickets.Find(id);
-        if (ticket != null) _db.Tickets.Remove(ticket);
+        Ticket? ticket = _db.Tickets.Find(id);
+        if (ticket != null)
+        {
+            _ = _db.Tickets.Remove(ticket);
+        }
     }
 
     public IQueryable<Ticket> GetList(List<int> ids)

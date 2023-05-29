@@ -24,7 +24,7 @@ internal class HallRepository : IRepository<Hall>
         return _db.Halls.Include(hall => hall.Sections).Where(t => ids.Contains(t.Id));
     }
 
-    public Hall Get(int id)
+    public Hall Get(int? id)
     {
         return _db.Halls.Include(hall => hall.Sections).FirstOrDefault(e => e.Id == id) ?? throw new InvalidOperationException();
     }
@@ -36,20 +36,23 @@ internal class HallRepository : IRepository<Hall>
 
     public void Create(Hall item)
     {
-        _db.Halls.Add(item);
+        _ = _db.Halls.Add(item);
     }
 
     public void Update(Hall item)
     {
-        var hall = Get(item.Id);
+        Hall hall = Get(item.Id);
         hall.Sections = item.Sections;
         hall.Events = item.Events;
         _db.Entry(hall).State = EntityState.Modified;
     }
 
-    public void Delete(int id)
+    public void Delete(int? id)
     {
-        var hall = _db.Halls.Find(id);
-        if (hall != null) _db.Halls.Remove(hall);
+        Hall? hall = _db.Halls.Find(id);
+        if (hall != null)
+        {
+            _ = _db.Halls.Remove(hall);
+        }
     }
 }

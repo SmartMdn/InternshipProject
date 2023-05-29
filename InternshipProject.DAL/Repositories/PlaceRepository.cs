@@ -24,7 +24,7 @@ internal class PlaceRepository : IRepository<Place>
         return _db.Places.Where(t => ids.Contains(t.Id));
     }
 
-    public Place Get(int id)
+    public Place Get(int? id)
     {
         return _db.Places.FirstOrDefault(place => place.Id == id) ?? throw new InvalidOperationException();
     }
@@ -36,20 +36,23 @@ internal class PlaceRepository : IRepository<Place>
 
     public void Create(Place item)
     {
-        _db.Places.Add(item);
+        _ = _db.Places.Add(item);
     }
 
     public void Update(Place item)
     {
-        var place = Get(item.Id);
+        Place place = Get(item.Id);
         place.Tickets = item.Tickets;
         place.Type = item.Type;
         _db.Entry(place).State = EntityState.Modified;
     }
 
-    public void Delete(int id)
+    public void Delete(int? id)
     {
-        var place = _db.Places.Find(id);
-        if (place != null) _db.Places.Remove(place);
+        Place? place = _db.Places.Find(id);
+        if (place != null)
+        {
+            _ = _db.Places.Remove(place);
+        }
     }
 }

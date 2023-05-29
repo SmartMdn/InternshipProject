@@ -1,26 +1,28 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using InternshipProject.WEB.Models;
+﻿using InternshipProject.BLL.DTO;
 using InternshipProject.BLL.Interfaces;
+using InternshipProject.WEB.Models;
 using InternshipProject.WEB.Services;
-using InternshipProject.BLL.DTO;
+using Microsoft.AspNetCore.Mvc;
 
 namespace InternshipProject.WEB.Pages.CRUD.Stadiums
 {
-    public class IndexModel : BasePage<Stadium, StadiumDTO>
+    internal class IndexModel : BasePage<Stadium, StadiumDTO>
     {
-        public List<Stadium> Stadium { get;set; } = default!;
+        public List<Stadium> Stadium { get; set; } = default!;
 
-        public void OnGet([FromServices] ICRUDService<StadiumDTO> sService)
+        public void OnGet([FromServices] ICRUDService<StadiumDTO> Service)
         {
-            if (sService.GetAll() != null)
+            if (Service.GetAll() != null)
             {
-                foreach (var item in sService.GetAll())
+                List<Stadium> list = new();
+                foreach (StadiumDTO item in Service.GetAll())
                 {
-                    var result = MapperOutput.Map<StadiumDTO, Stadium>(item);
-                    Stadium.Add(result);
+                    Stadium result = MapperOutput.Map<StadiumDTO, Stadium>(item);
+                    list.Add(result);
                 }
+                Stadium = list;
             }
+
         }
     }
 }

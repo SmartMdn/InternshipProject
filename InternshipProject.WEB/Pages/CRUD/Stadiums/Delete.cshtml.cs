@@ -1,60 +1,48 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using InternshipProject.BLL.DTO;
+using InternshipProject.BLL.Interfaces;
+using InternshipProject.WEB.Models;
+using InternshipProject.WEB.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using InternshipProject.DAL.EF;
-using InternshipProject.DAL.Entities;
 
 namespace InternshipProject.WEB.Pages.CRUD.Stadiums
 {
-    public class DeleteModel : PageModel
+    public class DeleteModel : BasePage<Stadium, StadiumDTO>
     {
-        private readonly InternshipProject.DAL.EF.CinemaContext _context;
-
-        public DeleteModel(InternshipProject.DAL.EF.CinemaContext context)
-        {
-            _context = context;
-        }
-
         [BindProperty]
-      public Stadium Stadium { get; set; } = default!;
+        public Stadium Stadium { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public IActionResult OnGet([FromServices] ICRUDService<StadiumDTO> Service, int? id)
         {
-            if (id == null || _context.Stadiums == null)
+            if (id == null || Service.GetAll() == null)
             {
                 return NotFound();
             }
 
-            var stadium = await _context.Stadiums.FirstOrDefaultAsync(m => m.Id == id);
+            StadiumDTO stadium = Service.Get(id);
 
             if (stadium == null)
             {
                 return NotFound();
             }
-            else 
+            else
             {
-                Stadium = stadium;
+                Stadium = MapperOutput.Map<StadiumDTO, Stadium>(stadium);
             }
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(int? id)
+        public IActionResult OnPost([FromServices] ICRUDService<StadiumDTO> Service, int? id)
         {
-            if (id == null || _context.Stadiums == null)
+            if (id == null || Service.GetAll() == null)
             {
                 return NotFound();
             }
-            var stadium = await _context.Stadiums.FindAsync(id);
+            StadiumDTO stadium = Service.Get(id);
 
             if (stadium != null)
             {
-                Stadium = stadium;
-                _context.Stadiums.Remove(Stadium);
-                await _context.SaveChangesAsync();
+                Stadium = MapperOutput.Map<StadiumDTO, Stadium>(stadium);
+                Service.Delete(id);
             }
 
             return RedirectToPage("./Index");
