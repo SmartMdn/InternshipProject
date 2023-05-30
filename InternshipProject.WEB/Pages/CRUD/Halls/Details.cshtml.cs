@@ -9,8 +9,9 @@ namespace InternshipProject.WEB.Pages.CRUD.Halls
     public class DetailsModel : BasePage<Hall, HallDTO>
     {
         public Hall Hall { get; set; } = default!;
+        public Stadium Stadium { get; set; } = default!;
 
-        public IActionResult OnGet([FromServices] ICRUDService<HallDTO> Service, int? id)
+        public IActionResult OnGet([FromServices] ICRUDService<HallDTO> Service, [FromServices] ICRUDService<StadiumDTO> sService, int? id)
         {
             if (id == null || Service.GetAll() == null)
             {
@@ -18,6 +19,8 @@ namespace InternshipProject.WEB.Pages.CRUD.Halls
             }
 
             HallDTO item = Service.Get(id);
+            StadiumDTO stadium = sService.Get(item.StadiumId);
+
             if (item == null)
             {
                 return NotFound();
@@ -25,6 +28,7 @@ namespace InternshipProject.WEB.Pages.CRUD.Halls
             else
             {
                 Hall = MapperOutput.Map<HallDTO, Hall>(item);
+                Stadium = MapperOutput.Map<StadiumDTO, Stadium>(stadium);
             }
             return Page();
         }

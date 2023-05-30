@@ -30,7 +30,7 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Stadium.Name)
+                @Html.DisplayFor(model => model.Stadium.Find(st => st.Id == item.StadiumId))
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |

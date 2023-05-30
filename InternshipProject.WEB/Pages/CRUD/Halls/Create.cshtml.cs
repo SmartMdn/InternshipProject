@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace InternshipProject.WEB.Pages.CRUD.Halls
 {
-    internal class CreateModel : BasePage<Hall, HallDTO>
+    public class CreateModel : BasePage<Hall, HallDTO>
     {
         public IActionResult OnGet([FromServices] ICRUDService<StadiumDTO> Service)
         {

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace InternshipProject.WEB.Pages.CRUD.Stadiums
 {
-    internal class IndexModel : BasePage<Stadium, StadiumDTO>
+    public class IndexModel : BasePage<Stadium, StadiumDTO>
     {
         public List<Stadium> Stadium { get; set; } = default!;
 

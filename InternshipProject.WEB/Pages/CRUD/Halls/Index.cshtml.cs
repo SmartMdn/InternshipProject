@@ -6,21 +6,26 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace InternshipProject.WEB.Pages.CRUD.Halls
 {
-    internal class IndexModel : BasePage<Hall, HallDTO>
+    public class IndexModel : BasePage<Hall, HallDTO>
     {
         public IList<Hall> Hall { get; set; } = default!;
+        public List<Stadium> Stadium { get; set; } = default!;
 
-        public void OnGet([FromServices] ICRUDService<HallDTO> Service)
+        public void OnGet([FromServices] ICRUDService<HallDTO> Service, [FromServices] ICRUDService<StadiumDTO> sService)
         {
             if (Service.GetAll() != null)
             {
                 List<Hall> list = new();
+                List<Stadium> list1 = new();
                 foreach (HallDTO item in Service.GetAll())
                 {
                     Hall result = MapperOutput.Map<HallDTO, Hall>(item);
+                    Stadium stadium = MapperOutput.Map<StadiumDTO, Stadium>(sService.Get(result.StadiumId));
                     list.Add(result);
+                    list1.Add(stadium);
                 }
                 Hall = list;
+                Stadium = list1;
             }
         }
     }

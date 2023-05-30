@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace InternshipProject.WEB.Pages.CRUD.Halls
 {
-    internal class EditModel : BasePage<Hall, HallDTO>
+    public class EditModel : BasePage<Hall, HallDTO>
     {
         [BindProperty]
         public Hall Hall { get; set; } = default!;
