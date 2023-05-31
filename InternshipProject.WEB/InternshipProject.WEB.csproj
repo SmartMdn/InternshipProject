@@ -33,9 +33,6 @@
     <ItemGroup>
       <Folder Include="Pages\AdminPanel\" />
       <Folder Include="Pages\Cart\" />
-      <Folder Include="Pages\CRUD\Events\" />
-      <Folder Include="Pages\CRUD\Places\" />
-      <Folder Include="Pages\CRUD\Sections\" />
     </ItemGroup>
 
 </Project>

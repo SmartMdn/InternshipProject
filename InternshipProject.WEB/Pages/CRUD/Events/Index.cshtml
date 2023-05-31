@@ -1,0 +1,67 @@
+﻿@page
+@model InternshipProject.WEB.Pages.CRUD.Events.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Event[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Event[0].EventDuration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Event[0].EventDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Event[0].BookingPeriodDays)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EventHall.Find(h => h.Id == model.Event[0].HallId))
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category.Find(c => c.Id == model.Event[0].CategoryId))
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Event) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventDuration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookingPeriodDays)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HallId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

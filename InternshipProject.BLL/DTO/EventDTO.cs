@@ -1,6 +1,6 @@
 ﻿namespace InternshipProject.BLL.DTO;
 
-internal class EventDTO : BaseDTO
+public class EventDTO : BaseDTO
 {
     public string? Name { get; set; }
     public int EventDuration { get; set; }
