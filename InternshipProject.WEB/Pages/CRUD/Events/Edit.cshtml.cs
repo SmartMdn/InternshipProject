@@ -1,79 +1,49 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using InternshipProject.DAL.EF;
-using InternshipProject.DAL.Entities;
+using InternshipProject.BLL.DTO;
+using InternshipProject.WEB.Services;
+using InternshipProject.WEB.Models;
+using InternshipProject.BLL.Interfaces;
 
 namespace InternshipProject.WEB.Pages.CRUD.Events
 {
-    public class EditModel : PageModel
+    public class EditModel : BasePage<Event, EventDTO>
     {
-        private readonly InternshipProject.DAL.EF.CinemaContext _context;
-
-        public EditModel(InternshipProject.DAL.EF.CinemaContext context)
-        {
-            _context = context;
-        }
-
         [BindProperty]
         public Event Event { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public IActionResult OnGet([FromServices] ICRUDService<EventDTO> eService, [FromServices] ICRUDService<HallDTO> hService, [FromServices] ICRUDService<CategoryDTO> cService, int? id)
         {
-            if (id == null || _context.Events == null)
+            if (id == null || hService.GetAll() == null)
             {
                 return NotFound();
             }
 
-            var _event =  await _context.Events.FirstOrDefaultAsync(m => m.Id == id);
+            EventDTO _event = eService.Get(id);
             if (_event == null)
             {
                 return NotFound();
             }
-            Event = _event;
-           ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Id");
-           ViewData["HallId"] = new SelectList(_context.Halls, "Id", "Id");
+            Event = MapperOutput.Map<EventDTO, Event>(_event);
+            ViewData["CategoryId"] = new SelectList(cService.GetAll(), "Id", "Id");
+            ViewData["HallId"] = new SelectList(hService.GetAll(), "Id", "Id");
             return Page();
         }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
+        public IActionResult OnPost([FromServices] ICRUDService<EventDTO> eService)
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            _context.Attach(Event).State = EntityState.Modified;
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!EventExists(Event.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
+            ResultItem = MapperInput.Map<Event, EventDTO>(Event);
+            eService.Put(ResultItem, Event.Id);
             return RedirectToPage("./Index");
-        }
-
-        private bool EventExists(int id)
-        {
-          return (_context.Events?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

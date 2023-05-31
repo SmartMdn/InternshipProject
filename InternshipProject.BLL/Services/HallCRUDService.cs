@@ -62,7 +62,9 @@ internal class HallCRUDService : ICRUDService<HallDTO>
         Hall hall = new()
         {
             Name = item.Name,
-            Sections = _database.Sections.GetList(item.Sections.ToList()).ToList()
+            Sections = _database.Sections.GetList(item.Sections.ToList()).ToList(),
+            StadiumId = item.StadiumId,
+            Stadium = _database.Stadiums.Get(item.StadiumId)
         };
         _database.Halls.Create(hall);
         _database.Save();

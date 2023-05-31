@@ -27,10 +27,10 @@
                 @Html.DisplayNameFor(model => model.Event[0].BookingPeriodDays)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.EventHall.Find(h => h.Id == model.Event[0].HallId))
+                @Html.DisplayNameFor(model => model.Event[0].HallId)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Category.Find(c => c.Id == model.Event[0].CategoryId))
+                @Html.DisplayNameFor(model => model.Event[0].CategoryId)
             </th>
             <th></th>
         </tr>

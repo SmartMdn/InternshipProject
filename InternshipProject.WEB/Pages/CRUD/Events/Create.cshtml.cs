@@ -1,45 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using InternshipProject.DAL.EF;
-using InternshipProject.DAL.Entities;
+using InternshipProject.BLL.DTO;
+using InternshipProject.BLL.Interfaces;
+using InternshipProject.WEB.Services;
+using InternshipProject.WEB.Models;
 
 namespace InternshipProject.WEB.Pages.CRUD.Events
 {
-    public class CreateModel : PageModel
+    public class CreateModel : BasePage<Event,EventDTO>
     {
-        private readonly InternshipProject.DAL.EF.CinemaContext _context;
-
-        public CreateModel(InternshipProject.DAL.EF.CinemaContext context)
+        public IActionResult OnGet([FromServices] ICRUDService<HallDTO> hService, [FromServices] ICRUDService<CategoryDTO> cService)
         {
-            _context = context;
-        }
-
-        public IActionResult OnGet()
-        {
-        ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Id");
-        ViewData["HallId"] = new SelectList(_context.Halls, "Id", "Id");
+            ViewData["CategoryId"] = new SelectList(cService.GetAll(), "Id", "Id");
+            ViewData["HallId"] = new SelectList(hService.GetAll(), "Id", "Id");
             return Page();
         }
 
         [BindProperty]
         public Event Event { get; set; } = default!;
-        
+
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
-        public async Task<IActionResult> OnPostAsync()
+        public IActionResult OnPost([FromServices] ICRUDService<EventDTO> service)
         {
-          if (!ModelState.IsValid || _context.Events == null || Event == null)
+            if (!ModelState.IsValid || service.GetAll() == null || Event == null)
             {
                 return Page();
             }
 
-            _context.Events.Add(Event);
-            await _context.SaveChangesAsync();
+            ResultItem = MapperInput.Map<Event, EventDTO>(Event);
+            service.Post(ResultItem);
 
             return RedirectToPage("./Index");
         }

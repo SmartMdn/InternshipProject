@@ -27,6 +27,7 @@ namespace InternshipProject.WEB.Pages.CRUD.Halls
                 return Page();
             }
             ResultItem = MapperInput.Map<Hall, HallDTO>(Hall);
+            ResultItem.StadiumId = Hall.StadiumId;
             Service.Post(ResultItem);
 
             return RedirectToPage("./Index");

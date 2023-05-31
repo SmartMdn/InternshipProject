@@ -14,7 +14,7 @@ namespace InternshipProject.WEB.Pages.CRUD.Events
         public List<Hall> EventHall { get;set; } = default!;
         public List<Category> Category { get; set; } = default!;
 
-        public async Task OnGetAsync([FromServices] ICRUDService<EventDTO> service)
+        public void OnGet([FromServices] ICRUDService<EventDTO> service)
         {
             if (service.GetAll() != null)
             {

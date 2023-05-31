@@ -1,41 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using InternshipProject.DAL.EF;
-using InternshipProject.DAL.Entities;
+﻿using Microsoft.AspNetCore.Mvc;
+using InternshipProject.WEB.Services;
+using InternshipProject.BLL.DTO;
+using InternshipProject.BLL.Interfaces;
+using InternshipProject.WEB.Models;
 
 namespace InternshipProject.WEB.Pages.CRUD.Events
 {
-    public class DetailsModel : PageModel
+    public class DetailsModel : BasePage<Event, EventDTO>
     {
-        private readonly InternshipProject.DAL.EF.CinemaContext _context;
+        public Event Event { get; set; } = default!;
+        public Hall EventHall { get; set; } = default!;
+        public Category Category { get; set; } = default!;
 
-        public DetailsModel(InternshipProject.DAL.EF.CinemaContext context)
+        public IActionResult OnGet([FromServices] ICRUDService<EventDTO> eService, [FromServices] ICRUDService<HallDTO> hService, [FromServices] ICRUDService<CategoryDTO> cService, int? id)
         {
-            _context = context;
-        }
-
-      public Event Event { get; set; } = default!; 
-
-        public async Task<IActionResult> OnGetAsync(int? id)
-        {
-            if (id == null || _context.Events == null)
+            if (id == null || eService.GetAll() == null)
             {
                 return NotFound();
             }
 
-            var _event = await _context.Events.FirstOrDefaultAsync(m => m.Id == id);
+            EventDTO _event = eService.Get(id);
+            HallDTO hall = hService.Get(_event.HallId);
+            CategoryDTO category = cService.Get(_event.CagegoryId);
+
             if (_event == null)
             {
                 return NotFound();
             }
-            else 
+            else
             {
-                Event = _event;
+                Event = MapperOutput.Map<EventDTO, Event>(_event);
+                Category = MapperOutput.Map<CategoryDTO, Category>(category);
+                EventHall = MapperOutput.Map<HallDTO, Hall>(hall);
             }
             return Page();
         }

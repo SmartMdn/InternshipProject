@@ -14,7 +14,7 @@ namespace InternshipProject.WEB.Pages.CRUD.Halls
 
         public IActionResult OnGet([FromServices] ICRUDService<HallDTO> hService, [FromServices] ICRUDService<StadiumDTO> sService, int? id)
         {
-            if (id == null || hService.GetAll == null)
+            if (id == null || hService.GetAll() == null)
             {
                 return NotFound();
             }

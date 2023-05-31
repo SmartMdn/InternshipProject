@@ -1,60 +1,54 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using InternshipProject.DAL.EF;
-using InternshipProject.DAL.Entities;
+﻿using Microsoft.AspNetCore.Mvc;
+using InternshipProject.BLL.Interfaces;
+using InternshipProject.BLL.DTO;
+using InternshipProject.WEB.Models;
+using InternshipProject.WEB.Services;
 
 namespace InternshipProject.WEB.Pages.CRUD.Events
 {
-    public class DeleteModel : PageModel
+    public class DeleteModel : BasePage<Event,EventDTO>
     {
-        private readonly InternshipProject.DAL.EF.CinemaContext _context;
-
-        public DeleteModel(InternshipProject.DAL.EF.CinemaContext context)
-        {
-            _context = context;
-        }
-
         [BindProperty]
-      public Event Event { get; set; } = default!;
+        public Event Event { get; set; } = default!;
+        public Hall EventHall { get; set; } = default!;
+        public Category Category { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public IActionResult OnGet([FromServices] ICRUDService<EventDTO> eService, [FromServices] ICRUDService<HallDTO> hService, [FromServices] ICRUDService<CategoryDTO> cService, int? id)
         {
-            if (id == null || _context.Events == null)
+            if (id == null || eService.GetAll() == null)
             {
                 return NotFound();
             }
 
-            var _event = await _context.Events.FirstOrDefaultAsync(m => m.Id == id);
+            EventDTO _event = eService.Get(id);
+            HallDTO hall = hService.Get(_event.HallId);
+            CategoryDTO category = cService.Get(_event.CagegoryId);
 
             if (_event == null)
             {
                 return NotFound();
             }
-            else 
+            else
             {
-                Event = _event;
+                Event = MapperOutput.Map<EventDTO, Event>(_event);
+                Category = MapperOutput.Map<CategoryDTO, Category>(category);
+                EventHall = MapperOutput.Map<HallDTO, Hall>(hall);
             }
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(int? id)
+        public IActionResult OnPost([FromServices] ICRUDService<EventDTO> eService, int? id)
         {
-            if (id == null || _context.Events == null)
+            if (id == null || eService.GetAll() == null)
             {
                 return NotFound();
             }
-            var _event = await _context.Events.FindAsync(id);
+            EventDTO _event = eService.Get(id);
 
             if (_event != null)
             {
-                Event = _event;
-                _context.Events.Remove(Event);
-                await _context.SaveChangesAsync();
+                Event = MapperOutput.Map<EventDTO, Event>(_event);
+                eService.Delete(id);
             }
 
             return RedirectToPage("./Index");

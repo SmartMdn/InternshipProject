@@ -18,7 +18,6 @@ namespace InternshipProject.WEB.Pages.CRUD.Halls
                 return NotFound();
             }
 
-            
             HallDTO hall = Service.Get(id);
             StadiumDTO stadium = sService.Get(hall.StadiumId);
 
